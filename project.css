@@ -1,0 +1,209 @@
+/* Important: Carolina Blue is: #99badd */
+/*            Dark Blue is: #054e9c     */
+
+/* Body Styling */
+body {
+    background-image: url("images/background_image1.png");
+}
+/* End Body Styling */
+/* Wrapper Styling */
+.wrapper{
+    background-color: #FFFFFF;
+    box-shadow: 0px 30px 40px rgba(0,0,0,.5);
+    margin: 0 auto;
+    margin-top: 30px;
+    width: 1200px;
+    height: 1350px;
+}
+/* End Wrapper Styling */
+/* Header Styling */
+.header{
+    background-color: #66A8EA;
+    margin: 0 auto;
+    width: 1250px;
+    height: 100px;
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 40px;
+    left: 0;
+    right: 0;
+}
+.leftTriangle{
+    width: 0;
+    height: 0;
+    margin-top: 100px;
+    border-style: solid;
+    border-width: 0 25px 20px 0;
+    border-color: transparent #054e9c transparent transparent;
+}
+.rightTriangle{
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 20px 25px 0 0;
+    border-color: #054e9c transparent transparent transparent;
+    margin-top: -20px;
+    margin-left: 1225px;
+}
+#stockImageSVG{
+    height: 65px;
+    width: 65px;
+    margin-left: 40px;
+    margin-top: 20px;
+    position: absolute;
+}
+
+#uncImageSVG{
+    margin-left: 150px;
+    margin-top: 10px;
+    height: 80px;
+    width: 300px;
+    position: absolute;
+}
+/* End Header Styling */
+
+/* Navbar Styling */
+#custom-bootstrap-menu{
+position: absolute;
+margin-top: 140px;
+margin-left: 30px;
+margin-right: 30px;
+}
+#custom-bootstrap-menu.navbar-default .navbar-brand {
+    color: rgba(119, 119, 119, 1);
+}
+#custom-bootstrap-menu.navbar-default {
+    font-size: 12px;
+    background-color: rgba(230, 225, 225, 0.51);
+    border-width: 0px;
+    border-radius: 0px;
+}
+#custom-bootstrap-menu.navbar-default .navbar-nav>li>a {
+    width: 93px;
+    text-align: center;
+    color: rgba(119, 119, 119, 1);
+    background-color: rgba(247, 247, 247, 1);
+    margin: 0 auto;
+}
+#custom-bootstrap-menu.navbar-default .navbar-nav>li>a:hover,
+#custom-bootstrap-menu.navbar-default .navbar-nav>li>a:focus {
+    color: rgba(51, 51, 51, 1);
+    background-color: rgba(169, 207, 242, 1);
+}
+#custom-bootstrap-menu.navbar-default .navbar-nav>.active>a,
+#custom-bootstrap-menu.navbar-default .navbar-nav>.active>a:hover,
+#custom-bootstrap-menu.navbar-default .navbar-nav>.active>a:focus {
+    color: rgba(85, 85, 85, 1);
+    background-color: rgba(219, 219, 219, 1);
+}
+#custom-bootstrap-menu.navbar-default .navbar-toggle {
+    border-color: #dbdbdb;
+}
+#custom-bootstrap-menu.navbar-default .navbar-toggle:hover,
+#custom-bootstrap-menu.navbar-default .navbar-toggle:focus {
+    background-color: #dbdbdb;
+}
+#custom-bootstrap-menu.navbar-default .navbar-toggle .icon-bar {
+    background-color: #dbdbdb;
+}
+#custom-bootstrap-menu.navbar-default .navbar-toggle:hover .icon-bar,
+#custom-bootstrap-menu.navbar-default .navbar-toggle:focus .icon-bar {
+    background-color: #e6e1e1;
+}
+/* End Navbar Styling */
+/* Data Table Styling */
+#dataTable{
+    display: inline-block;
+    background-color: #EBEBEB;
+    border-radius: 0px 0px 0px 5px;
+    margin-top: 190px;
+    margin-left: 30px;
+    height: 500px;
+    width: 500px;
+}
+#tableContainer{
+    margin-top: 10px;
+    margin-left: 20px;
+    background-color: #fff;
+
+}
+#dataTable2{
+    margin-left: 10px;
+    margin-right: 10px;
+    margin: 0 auto;
+    background-color: #F9F9F9;
+}
+/* End Data Table Styling */
+/* Chart Area Styling */
+#chartArea{
+   display: inline-block;
+   background-color: #EBEBEB;
+   border-radius: 0px 0px 5px 0px;
+   margin-left: -10px;
+   margin-top: 190px;
+   height: 500px;
+   width: 621px;
+}
+#chartContainer{
+    background-color: #fff;
+    margin-top: 10px;
+    margin-left: 80px;
+    height: 480px;
+    width: 500px;
+}
+/* End Chart Area Styling */
+/* customArea3 Styling */
+#customArea3{
+    display: inline-grid;
+    height: 500px;
+    width: 555px;
+    margin-left: 30px;
+    background-color: #EBEBEB;
+    border-radius: 5px 0px 0px 5px;
+}
+#customArea3Container{
+    height: 480px;
+    width: 500px;
+    margin-top: 10px;
+    margin-left: 40px;
+    background-color: #fff;
+}
+/* End Custom Area 3 Styling */
+/* customArea4 Styling */
+#customArea4{
+    display: inline-grid;
+    height: 500px;
+    width: 562px;
+    margin-left: -5px;
+    background-color: #EBEBEB;
+    border-radius: 0px 5px 5px 0px;
+}
+#customArea4Container{
+    height: 480px;
+    width: 500px;
+    margin-top: 10px;
+    margin-left: 20px;
+    background-color: #fff;
+}
+/* End Custom Area 4 Styling */
+/* Highcharts Styling */
+#highchartsContainer{
+    position: absolute;
+    margin-top: 60px;
+    margin-left: 10px;
+    width: 480px;
+    height: 350px;
+}
+/* End Highcharts Styling */
+/* Print Button Styling */
+#printButton{
+    position: absolute;
+    margin-top: 170px;
+    margin-left: 1150px;
+}
+#printButton:hover{
+    background-color: #99badd;
+    border-color: #fff !important;
+}
+/* End Print Button Styling */

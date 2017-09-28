@@ -1,0 +1,122 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>COMP 426 Project</title>
+
+  <!-- Style Sheets -->
+  <link rel="stylesheet" href="project.css">
+  <!-- Bootstrap 3.3.7  w/ jQuery-->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <!-- Highcharts CDN -->
+  <script src="http://code.highcharts.com/highcharts.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highcharts/5.0.14/adapters/standalone-framework.js"></script>
+  <!-- Angular JS CDN -->
+  <!-- Put angular cdn here -->
+
+  <!-- Controllers -->
+  <script src="chartController.js"></script>
+
+  <!-- Favicon for Browser Tab -->
+  <link rel="shortcut icon" type="image/x-icon" href="images/uncIcon2.ico">
+
+</head>
+<body>
+<div class="header">
+    <img id="stockImageSVG" src="images/stock_bar_image.svg"/>
+    <a href="http://www.unc.edu/" target="_blank">
+        <img id="uncImageSVG" src="images/UNC_logo_white.png"/>
+    </a>
+    <div class="leftTriangle">
+    </div>
+    <div class="rightTriangle">
+    </div>
+</div>
+
+<div class="wrapper">
+    <div id="custom-bootstrap-menu" class="navbar navbar-default " role="navigation">
+            <ul class="nav navbar-nav navbar-left">
+                <li><a href="#">GOOGL</a></li>
+                <li><a href="#">BIDU</a></li>
+                <li><a href="#">YNDX</a></li>
+                <li><a href="#">AAPL</a></li>
+                <li><a href="#">IBM</a></li>
+                <li><a href="#">TWTR</a></li>
+                <li><a href="#">VZ</a></li>
+                <li><a href="#">WIFI</a></li>
+                <li><a href="#">FB</a></li>
+                <li><a href="#">IAC</a></li>
+                <li><a href="#">GDDY</a></li>
+                <li><a href="#">AOL</a></li>
+            </ul>
+</div> <!-- Ends Custom Navbar -->
+<button type="button" id="printButton" onclick="window.print();"
+    class="btn btn-default glyphicon glyphicon-print"
+    title="Print Page"></button>
+
+<div id="dataTable">
+    <div id="tableContainer">
+    <table id="dataTable2" class="table table-bordered">
+   <thead>
+     <tr>
+       <th>Header1</th>
+       <th>Header2</th>
+       <th>Header3</th>
+       <th>Header4</th>
+       <th>Header5</th>
+     </tr>
+   </thead>
+   <tbody>
+     <tr>
+       <td>a</td>
+       <td>0.001</td>
+       <td>0.002</td>
+       <td>0.001</td>
+       <td>0.002</td>
+     </tr>
+     <tr>
+       <td>b</td>
+       <td>0.002</td>
+       <td>0.003</td>
+       <td>0.001</td>
+       <td>0.002</td>
+     </tr>
+     <tr>
+       <td>c</td>
+       <td>0.2</td>
+       <td>0.3</td>
+       <td>0.001</td>
+       <td>0.002</td>
+     </tr>
+   </tbody>
+ </table>
+ </div>
+</div>
+<div id="chartArea">
+    <div id="chartContainer">
+        <div id="highchartsContainer"></div>
+    </div>
+</div>
+<div id="customArea3">
+    <div id="customArea3Container"></div>
+</div>
+<div id="customArea4">
+    <div id="customArea4Container"></div>
+</div>
+
+</div><!-- Ends Wrapper -->
+
+
+
+</body>
+</html>
+
+
+
+
+
+<!-- Figure out how to create the angular app.js class and link everything together -->
+<!-- Once this is done then you can begin on the calls to the various APIs -->
