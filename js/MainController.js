@@ -63,4 +63,4 @@ $scope.dummyData = [{
 /* End Chart Data */
 
 
-}); //ends myApp.controller
+});
