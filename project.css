@@ -5,6 +5,14 @@
 body {
     background-image: url("images/background_image1.png");
 }
+/* Testing */
+#redTestBox{
+    height: 500px;
+    width: 500px;
+    background-color: red !important;
+    
+}
+/* End Testing */
 /* End Body Styling */
 /* Wrapper Styling */
 .wrapper{
