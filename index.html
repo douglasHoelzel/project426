@@ -24,12 +24,13 @@
 
   <!-- SweetAlert2 -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.10.1/sweetalert2.all.min.js"></script>
-  <!-- Highcharts CDN -->
-  <script src="http://code.highcharts.com/highcharts.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highcharts/5.0.14/adapters/standalone-framework.js"></script>
 
+  <!-- Highcharts CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highcharts/5.0.14/adapters/standalone-framework.js"></script>
+  <script src="https://code.highcharts.com/stock/highstock.js"></script>
   <!-- Favicon for Browser Tab -->
   <link rel="shortcut icon" type="image/x-icon" href="images/uncIcon2.ico">
+
 
 </head>
 <body>
@@ -39,15 +40,14 @@
         <img id="uncImageSVG" src="images/UNC_logo_white.png"/>
     </a>
     <div class="leftTriangle"></div>
-    <div class="rightTriangle">
-    </div>
+    <div class="rightTriangle"></div>
 </div>
 
 <div class="wrapper" ng-controller="MainController">
 
     <div id="custom-bootstrap-menu" class="navbar navbar-default " role="navigation">
             <ul class="nav navbar-nav navbar-left">
-                <li><a href="#!red">GOOGL</a></li>
+                <li><a href="#">GOOGL</a></li>
                 <li><a href="#">BIDU</a></li>
                 <li><a href="#">YNDX</a></li>
                 <li><a href="#">AAPL</a></li>
@@ -65,8 +65,9 @@
     class="btn btn-default glyphicon glyphicon-print"
     title="Print Page"></button>
 <div id="assetView">
-    <div id="dataTable">
+    <div id="tableArea">
         <!-- Use ngRepeat to loop through array here when made -->
+        <!-- Come back and make sure this is an angular table, will make life 100x easier -->
         <div id="tableContainer">
         <table id="dataTable2" class="table table-bordered">
        <thead>
@@ -111,10 +112,13 @@
     </div>
     <div id="customArea3">
         <div id="customArea3Container">
+            <div id="highchartsContainer2"></div>
         </div>
     </div>
     <div id="customArea4">
-        <div id="customArea4Container"></div>
+        <div id="customArea4Container">
+            <div id="highchartsContainer3"></div>
+        </div>
     </div>
 </div>
 
