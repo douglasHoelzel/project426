@@ -31,6 +31,27 @@ $scope.dummyData = [{
                     ,"ccol" : "chg"
                 }];
 
+                console.log("before ajax calls");
+                $.ajax({
+                  type: "GET",
+                  url: "~/pythoncode.py",
+                  data: { param: text}
+                }).done(function( o ) {
+                   // do something
+                });
+
+                $.ajax({
+                       url: '/api/your_controller_name/SayHi/' + your_param,
+                       type: 'GET',
+                       success: function (response) {
+                           console.log(response);
+                       },
+                       error: function (error) {
+                           console.log(error);
+                       }
+                    });
+                 console.log("after ajax calls");
+
 /* Chart Data */
     var myChart = Highcharts.chart('highchartsContainer', {
         chart: {
