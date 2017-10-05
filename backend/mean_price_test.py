@@ -3,6 +3,7 @@ import pandas
 import numpy as np
 import json
 import datetime
+import json
 
 def mean_price():
 
@@ -14,8 +15,10 @@ def mean_price():
 
     closing_price = np.array([x[1] for x in data])
 
-    closing_price_avg = closing_price.mean()
+    closing_price_avg = {"mean_closing_price": closing_price.mean()}
 
-    return closing_price_avg
+    
+    print(json.dumps(closing_price_avg))
+    return json.dumps(closing_price_avg)
 
 mean_price()
