@@ -30,27 +30,34 @@ $scope.dummyData = [{
                     ,"cp" : "0.11"
                     ,"ccol" : "chg"
                 }];
+                var returnValue;
 
                 console.log("before ajax calls");
                 $.ajax({
                   type: "GET",
-                  url: "~/pythoncode.py",
-                  data: { param: text}
+                  url: "backend/mean_price_test.py",
+                  success: function (response) {
+                             console.log(response);
+                             returnValue = response;
+                        }
                 }).done(function( o ) {
                    // do something
                 });
 
-                $.ajax({
-                       url: '/api/your_controller_name/SayHi/' + your_param,
-                       type: 'GET',
-                       success: function (response) {
-                           console.log(response);
-                       },
-                       error: function (error) {
-                           console.log(error);
-                       }
-                    });
-                 console.log("after ajax calls");
+                console.log("Return Value");
+                console.log(returnValue);
+
+                // $.ajax({
+                //        url: '/api/your_controller_name/SayHi/' + your_param,
+                //        type: 'GET',
+                //        success: function (response) {
+                //            console.log(response);
+                //        },
+                //        error: function (error) {
+                //            console.log(error);
+                //        }
+                //     });
+                //  console.log("after ajax calls");
 
 /* Chart Data */
     var myChart = Highcharts.chart('highchartsContainer', {
@@ -113,7 +120,6 @@ var myChart2 =
 /* End Highchart 2 */
 /* Highchart 3 */
 $.getJSON('https://www.highcharts.com/samples/data/jsonp.php?filename=goog-c.json&callback=?', function (data) {
-
     Highcharts.stockChart('highchartsContainer3', {
         rangeSelector: {
             selected: 1

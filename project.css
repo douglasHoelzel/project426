@@ -5,14 +5,14 @@
 body {
     background-image: url("images/background_image1.png");
 }
-/* Testing */
-#redTestBox{
+/* help.html div */
+#helpDiv{
     height: 500px;
     width: 500px;
     background-color: red !important;
 
 }
-/* End Testing */
+/* End help.html div */
 /* End Body Styling */
 /* Wrapper Styling */
 .wrapper{
