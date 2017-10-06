@@ -79,13 +79,15 @@ body {
 #searchBarButton{
     margin-top: -1px;
 }
-
+/* Typeahead Dropdown Styling */
 .dropdown-menu .active > a,
 .dropdown-menu .active > a:hover {
     color: #333333;
     text-decoration: none;
     background-color: #B9DDFA !important;
 }
+/* End Typeahead Dropdown Styling */
+
 /* End Header Styling */
 
 /* Navbar Styling */

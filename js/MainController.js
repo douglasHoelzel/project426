@@ -40,34 +40,27 @@ $scope.dummyData = [{
                     ,"cp" : "0.11"
                     ,"ccol" : "chg"
                 }];
-                // var returnValue;
-                //
-                // console.log("before ajax calls");
-                // $.ajax({
-                //   type: "GET",
-                //   url: "backend/mean_price_test.py",
-                //   success: function (response) {
-                //              console.log(response);
-                //              returnValue = response;
-                //         }
-                // }).done(function( o ) {
-                //    // do something
-                // });
-                //
-                // console.log("Return Value");
-                // console.log(returnValue);
 
-                // $.ajax({
-                //        url: '/api/your_controller_name/SayHi/' + your_param,
-                //        type: 'GET',
-                //        success: function (response) {
-                //            console.log(response);
-                //        },
-                //        error: function (error) {
-                //            console.log(error);
-                //        }
-                //     });
-                //  console.log("after ajax calls");
+      // Ajax call not working right now
+      // Port number could be diff depending
+      // on your machine settings
+      //URI: http://localhost:5000/api/funny
+      console.log("before ajax call");
+      var successString;
+      $.ajax({
+            type:"GET",
+            dataType: "json",
+            async:true,
+            dataType : 'jsonp',
+            url: "http://localhost:5000/api/funny",
+            success: function(data){
+                successString=data;
+                console.log("inside success api");
+                console.log(data);
+        console.log(data);
+    }
+})
+      console.log("after ajax call");
 
 /* Chart Data */
     var myChart = Highcharts.chart('highchartsContainer', {
