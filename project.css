@@ -77,6 +77,14 @@ body {
     margin-right: 60px;
 }
 #searchBarButton{
+    margin-top: -1px;
+}
+
+.dropdown-menu .active > a,
+.dropdown-menu .active > a:hover {
+    color: #333333;
+    text-decoration: none;
+    background-color: #B9DDFA !important;
 }
 /* End Header Styling */
 

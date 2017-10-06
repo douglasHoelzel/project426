@@ -11,6 +11,9 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-resource/1.6.6/angular-resource.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
 
+<!-- Testing -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap-tpls.min.js"></script>
+<!-- End Testing -->
   <!-- Bootstrap 3.3.7  w/ jQuery-->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
@@ -33,7 +36,7 @@
 
 
 </head>
-<body>
+<body ng-controller="MainController">
 <div class="header">
     <img id="stockImageSVG" src="images/stock_bar_image.svg"/>
     <a href="http://www.unc.edu/" target="_blank">
@@ -42,18 +45,19 @@
 <div class="row">
   <div class="col-lg-6">
     <div id="searchBar" class="input-group">
-      <input type="text" class="form-control" placeholder="Search for asset..." />
+      <input type="text" class="form-control" placeholder="Search for asset..."
+      uib-typeahead="name for name in asset | filter:$viewValue | limitTo:8" class="form-control"
+      ng-model="selectedAsset"/>
       <span class="input-group-btn">
-        <button id="searchBarButton" class="btn btn-default" type="button">Go</button>
+        <button id="searchBarButton" class="btn btn-default glyphicon glyphicon-search" type="button"></button>
       </span>
-    </div><!-- /input-group -->
-  </div><!-- /.col-lg-6 -->
-</div><!-- /.row -->
+    </div>
+  </div>
+</div>
     <div class="leftTriangle"></div>
     <div class="rightTriangle"></div>
 </div>
-
-<div class="wrapper" ng-controller="MainController">
+<div class="wrapper">
 
     <div id="custom-bootstrap-menu" class="navbar navbar-default " role="navigation">
             <ul class="nav navbar-nav navbar-left">
@@ -74,6 +78,7 @@
 <button type="button" id="printButton" onclick="window.print();"
     class="btn btn-default glyphicon glyphicon-print"
     title="Print Page"></button>
+
 <div id="assetView">
     <div id="tableArea">
         <!-- Use ngRepeat to loop through array here when made -->

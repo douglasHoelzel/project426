@@ -1,21 +1,20 @@
-var myApp = angular.module('myApp', []);
+var myApp = angular.module('myApp', ['ui.bootstrap']);
 
 myApp.controller('MainController', function MainController($scope){
 
 console.log("inside of MainController");
 var vm = this;
 $scope.name = "doug";
-$scope.states = ['Alabama', 'Alaska', 'Arizona', 'Arkansas',
-        'California', 'Colorado', 'Connecticut', 'Delaware', 'Florida',
-        'Georgia', 'Hawaii', 'Idaho', 'Illinois', 'Indiana', 'Iowa',
-        'Kansas', 'Kentucky', 'Louisiana', 'Maine', 'Maryland',
-        'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi',
-        'Missouri', 'Montana', 'Nebraska', 'Nevada', 'New Hampshire',
-        'New Jersey', 'New Mexico', 'New York', 'North Dakota',
-        'North Carolina', 'Ohio', 'Oklahoma', 'Oregon', 'Pennsylvania',
-        'Rhode Island', 'South Carolina', 'South Dakota', 'Tennessee',
-        'Texas', 'Utah', 'Vermont', 'Virginia', 'Washington',
-        'West Virginia', 'Wisconsin', 'Wyoming'];
+$scope.selectedAsset = undefined;
+// Current array for testing typeahead feature
+// This needs to be an ajax call in the future to populate
+// the asset array w/ all ticker symbols
+$scope.asset = ['AAAP', 'AABA', 'AABA', 'AAME', 'AAOI',
+  'AAON', 'AAPL', 'AAWW', 'AAXJ', 'BMTC', 'BNCL',
+  'BNDX', 'BNFT', 'BNSO', 'CAKE', 'CALA', 'CALD', 'CALI',
+  'CALL', 'CALM', 'DWTR', 'DXGE', 'DXJS', 'ERII',
+  'ESBK', 'ESCA'];
+
 $scope.dummyData = [{
                     "id": "694653"
                     ,"t" : "GOOG"
