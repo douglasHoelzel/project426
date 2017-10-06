@@ -5,6 +5,17 @@ myApp.controller('MainController', function MainController($scope){
 console.log("inside of MainController");
 var vm = this;
 $scope.name = "doug";
+$scope.states = ['Alabama', 'Alaska', 'Arizona', 'Arkansas',
+        'California', 'Colorado', 'Connecticut', 'Delaware', 'Florida',
+        'Georgia', 'Hawaii', 'Idaho', 'Illinois', 'Indiana', 'Iowa',
+        'Kansas', 'Kentucky', 'Louisiana', 'Maine', 'Maryland',
+        'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi',
+        'Missouri', 'Montana', 'Nebraska', 'Nevada', 'New Hampshire',
+        'New Jersey', 'New Mexico', 'New York', 'North Dakota',
+        'North Carolina', 'Ohio', 'Oklahoma', 'Oregon', 'Pennsylvania',
+        'Rhode Island', 'South Carolina', 'South Dakota', 'Tennessee',
+        'Texas', 'Utah', 'Vermont', 'Virginia', 'Washington',
+        'West Virginia', 'Wisconsin', 'Wyoming'];
 $scope.dummyData = [{
                     "id": "694653"
                     ,"t" : "GOOG"
@@ -30,22 +41,22 @@ $scope.dummyData = [{
                     ,"cp" : "0.11"
                     ,"ccol" : "chg"
                 }];
-                var returnValue;
-
-                console.log("before ajax calls");
-                $.ajax({
-                  type: "GET",
-                  url: "backend/mean_price_test.py",
-                  success: function (response) {
-                             console.log(response);
-                             returnValue = response;
-                        }
-                }).done(function( o ) {
-                   // do something
-                });
-
-                console.log("Return Value");
-                console.log(returnValue);
+                // var returnValue;
+                //
+                // console.log("before ajax calls");
+                // $.ajax({
+                //   type: "GET",
+                //   url: "backend/mean_price_test.py",
+                //   success: function (response) {
+                //              console.log(response);
+                //              returnValue = response;
+                //         }
+                // }).done(function( o ) {
+                //    // do something
+                // });
+                //
+                // console.log("Return Value");
+                // console.log(returnValue);
 
                 // $.ajax({
                 //        url: '/api/your_controller_name/SayHi/' + your_param,
