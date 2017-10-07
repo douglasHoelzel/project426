@@ -1,33 +1,36 @@
 from flask import Flask, jsonify
 import random
+import datetime
 import quandl as q 
 import numpy as np
+import pandas as pd
 from flask_cors import CORS
+from helper_functions import *
 
-from quotes import funny_quotes
-
+#Key to connect to the Quandl API
 q.ApiConfig.api_key = "xaFxr9SP6Wd5sKFHdEax"
 
 app = Flask(__name__)
 CORS(app)
 @app.route('/', methods=['GET', 'POST'])
 
+@app.route("/<stock>/<start_date>/<end_date>")
+def return_data(stock, start_date, end_date):
+    
+	#Pull data from Quandl
+	data = q.get("EOD/{0}.4".format(stock), #Only pull closing price
+				start_date="{0}".format(start_date), 
+				end_date="{0}".format(end_date))
 
-@app.route("/api/funny")
-def serve_funny_quote():
-	quotes = funny_quotes()
-	nr_of_quotes = len(quotes)
-	selected_quote = quotes[random.randint(0, nr_of_quotes - 1)]
-	return jsonify(selected_quote)
+	#Assign current date to return
+	current_date = datetime.date.today().strftime('%m/%d/%Y')
 
-@app.route("/api/<stock>")
-def display_avg_price(stock):
-    #Pull data from 
-	data = q.get("EOD/{0}.4".format(stock), returns="numpy", start_date="1/1/2010", end_date="1/1/2017")
+	#Assign cumulative returns
+	cumulative_returns = total_return(data)
 	
-	data_values = np.array([x[1] for x in data])
-	data = data_values.mean()
-	return jsonify({"data": data})
+	return jsonify({"cumulative_returns": cumulative_returns,
+					"current_date": current_date
+})
 
 if __name__ == "__main__":
 	app.run(debug=True)
