@@ -2,10 +2,19 @@ from flask import Flask, jsonify
 import random
 
 from quotes import funny_quotes
+from flask import Flask, render_template
 
 app = Flask(__name__)
-@app.route('/', methods=['GET', 'POST'])
 
+
+# Routes
+@app.route("/")
+def main():
+    return render_template("index.html")
+
+@app.route("/doug")
+def doug():
+    return 'doug'
 
 @app.route("/api/funny")
 def serve_funny_quote():
