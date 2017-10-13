@@ -69,18 +69,18 @@
 <div class="wrapper">
     <div id="custom-bootstrap-menu" class="navbar navbar-default" role="navigation">
             <ul class="nav navbar-nav navbar-left">
-                <li><a ui-sref="assetView({tickerId: 'GOOGL'})">GOOGL</a></li>
-                <li><a ui-sref="assetView({tickerId: 'BIDU'})">BIDU</a></li>
-                <li><a ui-sref="assetView({tickerId: 'YNDX'})">YNDX</a></li>
-                <li><a ui-sref="assetView({tickerId: 'AAPL'})">AAPL</a></li>
-                <li><a ui-sref="assetView({tickerId: 'IBM'})">IBM</a></li>
-                <li><a ui-sref="assetView({tickerId: 'TWTR'})">TWTR</a></li>
-                <li><a ui-sref="assetView({tickerId: 'VZ'})">VZ</a></li>
-                <li><a ui-sref="assetView({tickerId: 'WIFI'})">WIFI</a></li>
-                <li><a ui-sref="assetView({tickerId: 'FB'})">FB</a></li>
-                <li><a ui-sref="assetView({tickerId: 'IAC'})">IAC</a></li>
-                <li><a ui-sref="assetView({tickerId: 'GDDY'})">GDDY</a></li>
-                <li><a ui-sref="assetView({tickerId: 'AOL'})">AOL</a></li>
+                <li><a ng-click="grabCharts()" ui-sref="assetView({tickerId: 'GOOGL'})">GOOGL</a></li>
+                <li><a ng-click="grabCharts()" ui-sref="assetView({tickerId: 'BIDU'})">BIDU</a></li>
+                <li><a ng-click="grabCharts()" ui-sref="assetView({tickerId: 'YNDX'})">YNDX</a></li>
+                <li><a ng-click="grabCharts()" ui-sref="assetView({tickerId: 'AAPL'})">AAPL</a></li>
+                <li><a ng-click="grabCharts()" ui-sref="assetView({tickerId: 'IBM'})">IBM</a></li>
+                <li><a ng-click="grabCharts()" ui-sref="assetView({tickerId: 'TWTR'})">TWTR</a></li>
+                <li><a ng-click="grabCharts()" ui-sref="assetView({tickerId: 'VZ'})">VZ</a></li>
+                <li><a ng-click="grabCharts()" ui-sref="assetView({tickerId: 'WIFI'})">WIFI</a></li>
+                <li><a ng-click="grabCharts()" ui-sref="assetView({tickerId: 'FB'})">FB</a></li>
+                <li><a ng-click="grabCharts()" ui-sref="assetView({tickerId: 'IAC'})">IAC</a></li>
+                <li><a ng-click="grabCharts()" ui-sref="assetView({tickerId: 'GDDY'})">GDDY</a></li>
+                <li><a ng-click="grabCharts()" ui-sref="assetView({tickerId: 'AOL'})">AOL</a></li>
             </ul>
 </div>
 <button type="button" id="printButton" onclick="window.print();"

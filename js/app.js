@@ -1,7 +1,6 @@
 (function () {
 
 var myApp = angular.module('myApp', ['ui.router','ui.bootstrap']);
-console.log("Inside of app.js");
 myApp.config(
   ["$stateProvider", "$urlRouterProvider",
     function($stateProvider, $urlRouterProvider) {
@@ -14,6 +13,7 @@ myApp.config(
           templateUrl: "home.html",
           controller: "MainController"
         })
+
         .state("assetView", {
           url: "/assetView/:tickerId",
           templateUrl: "assetView.html",

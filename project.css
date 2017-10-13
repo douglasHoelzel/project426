@@ -78,7 +78,7 @@ body {
     margin-right: 60px;
 }
 #searchBarButton{
-    margin-top: -1px;
+    margin-top: -2px;
 }
 /* Typeahead Dropdown Styling */
 .dropdown-menu .active > a,
