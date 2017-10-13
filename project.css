@@ -8,9 +8,10 @@ body {
 /* End Body Styling */
 /* help.html div */
 #helpDiv{
+    margin-top: 200px;
     height: 500px;
     width: 500px;
-    background-color: red !important;
+    background-color: orange !important;
 
 }
 /* End help.html div */
