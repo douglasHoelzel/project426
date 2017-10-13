@@ -21,11 +21,6 @@ myApp.config(
               $scope.tickerId = $stateParams.tickerId;
           }
         })
-        .state("landingPage", {
-          url: "/landingPage",
-          templateUrl: "landingPage.html",
-          controller: "MainController"
-        })
     }
   ]);
 

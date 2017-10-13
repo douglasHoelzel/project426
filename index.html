@@ -67,8 +67,6 @@
     <div class="rightTriangle"></div>
 </div>
 <div class="wrapper">
-
-
     <div id="custom-bootstrap-menu" class="navbar navbar-default" role="navigation">
             <ul class="nav navbar-nav navbar-left">
                 <li><a ui-sref="assetView({tickerId: 'GOOGL'})">GOOGL</a></li>
@@ -84,12 +82,12 @@
                 <li><a ui-sref="assetView({tickerId: 'GDDY'})">GDDY</a></li>
                 <li><a ui-sref="assetView({tickerId: 'AOL'})">AOL</a></li>
             </ul>
-</div> <!-- Ends Custom Navbar -->
+</div>
 <button type="button" id="printButton" onclick="window.print();"
     class="btn btn-default glyphicon glyphicon-print"
     title="Print Page"></button>
-    <!-- Injected Content -->
-    <div class="container">
+    <!-- Injected Angular View -->
+    <div class="viewContainer">
         <div ui-view></div>
     </div>
 
