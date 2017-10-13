@@ -15,6 +15,8 @@ $scope.asset = ['AAAP', 'AABA', 'AABA', 'AAME', 'AAOI',
   'BNDX', 'BNFT', 'BNSO', 'CAKE', 'CALA', 'CALD', 'CALI',
   'CALL', 'CALM', 'DWTR', 'DXGE', 'DXJS', 'ERII',
   'ESBK', 'ESCA'];
+
+  /* Datepicker Functions */
   $( function() {
     var dateFormat = "mm/dd/yy",
       from = $( "#from" )
@@ -52,7 +54,7 @@ $scope.asset = ['AAAP', 'AABA', 'AABA', 'AAME', 'AAOI',
       return date;
     }
   } );
-
+/* End of Datepicker functions */
 
 
 /* Chart Data */

@@ -12,9 +12,7 @@
 
   <!-- Angular JS / Angular JS UI Router CDN -->
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/angular-ui-router/1.0.0-rc.1/angular-ui-router.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-resource/1.6.6/angular-resource.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.3/angular-ui-router.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap-tpls.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-animate.js"></script>
@@ -70,11 +68,12 @@
 </div>
 <div class="wrapper">
 
-    <div id="custom-bootstrap-menu" class="navbar navbar-default " role="navigation">
+
+    <div id="custom-bootstrap-menu" class="navbar navbar-default" role="navigation">
             <ul class="nav navbar-nav navbar-left">
                 <li><a href="#">GOOGL</a></li>
-                <li><a href="#">BIDU</a></li>
-                <li><a href="#">YNDX</a></li>
+                <li><a ui-sref="assetView">BIDU</a></li>
+                <li><a ui-sref="home">YNDX</a></li>
                 <li><a href="#">AAPL</a></li>
                 <li><a href="#">IBM</a></li>
                 <li><a href="#">TWTR</a></li>
@@ -89,12 +88,14 @@
 <button type="button" id="printButton" onclick="window.print();"
     class="btn btn-default glyphicon glyphicon-print"
     title="Print Page"></button>
+    <!-- MAIN CONTENT -->
+    <!-- THIS IS WHERE WE WILL INJECT OUR CONTENT ============================== -->
+    <div class="container">
+        <div ui-view></div>
+    </div>
 
 <div id="assetView">
     <div id="tableArea">
-        <!-- Use ngRepeat to loop through array here when made -->
-        <!-- Come back and make sure this is an angular table, will make life 100x easier -->
-        <!-- Put a loading wheel on table -->
         <div id="tableContainer">
         <table id="dataTable2" class="table table-bordered">
        <thead>

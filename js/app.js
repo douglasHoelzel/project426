@@ -1,23 +1,26 @@
-var myApp = angular.module('myApp', [
-  'ngRoute',
-  'artistControllers'
-]);
+var myApp = angular.module('myApp', ['ui.router']);
 
-myApp.config(['$routeProvider', function($routeProvider) {
-    console.log("inside of app.js");
-  $routeProvider
-  .when("/", {
-        templateUrl : "index.html"
-    })
-  .when("/red", {
-    templateUrl: '/redTest.html',
-    controller: 'MainController'
-  }).
-  when('/details/:itemId', {
-    templateUrl: 'partials/details.html',
-    controller: 'DetailsController'
-  }).
-  otherwise({
-    redirectTo: '/list'
-  });
-}]);
+myApp.config(
+  ["$stateProvider", "$urlRouterProvider",
+    function($stateProvider, $urlRouterProvider) {
+
+      $urlRouterProvider.otherwise("/home");
+
+      $stateProvider
+        .state("home", {
+          url: "/home",
+          templateUrl: "assetView.html",
+          controller: "MainController"
+        })
+        .state("assetView", {
+          url: "/assetView",
+          templateUrl: "assetView.html",
+          controller: "MainController"
+        })
+
+
+
+      ;
+
+    }
+  ]);
