@@ -4,8 +4,9 @@ myApp.controller('MainController', function MainController($scope){
 
 console.log("inside of MainController");
 var vm = this;
-$scope.name = "doug";
 $scope.selectedAsset = undefined;
+$scope.startDate;
+$scope.endDate;
 // Current array for testing typeahead feature
 // This needs to be an ajax call in the future to populate
 // the asset array w/ all ticker symbols
@@ -14,6 +15,41 @@ $scope.asset = ['AAAP', 'AABA', 'AABA', 'AAME', 'AAOI',
   'BNDX', 'BNFT', 'BNSO', 'CAKE', 'CALA', 'CALD', 'CALI',
   'CALL', 'CALM', 'DWTR', 'DXGE', 'DXJS', 'ERII',
   'ESBK', 'ESCA'];
+  $( function() {
+    var dateFormat = "mm/dd/yy",
+      from = $( "#from" )
+        .datepicker({
+          defaultDate: "+1w",
+          changeMonth: true,
+          numberOfMonths: 2
+        })
+        .on( "change", function() {
+          to.datepicker( "option", "minDate", getDate( this ) );
+          startDate = getDate(this);
+          console.log("start date: " + startDate);
+        }),
+      to = $( "#to" ).datepicker({
+        defaultDate: "+1w",
+        changeMonth: true,
+        numberOfMonths: 2
+      })
+      .on( "change", function() {
+        from.datepicker( "option", "maxDate", getDate( this ) );
+        endDate = getDate(this);
+        console.log("end date: " + endDate);
+      });
+
+    function getDate( element ) {
+      var date;
+      try {
+        date = $.datepicker.parseDate( dateFormat, element.value );
+      } catch( error ) {
+        date = null;
+      }
+
+      return date;
+    }
+  } );
 
 $scope.dummyData = [{
                     "id": "694653"
@@ -41,26 +77,6 @@ $scope.dummyData = [{
                     ,"ccol" : "chg"
                 }];
 
-      // Ajax call not working right now
-      // Port number could be diff depending
-      // on your machine settings
-      //URI: http://localhost:5000/api/funny
-      console.log("before ajax call");
-      var successString;
-      $.ajax({
-            type:"GET",
-            dataType: "json",
-            async:true,
-            dataType : 'jsonp',
-            url: "http://localhost:5000/api/funny",
-            success: function(data){
-                successString=data;
-                console.log("inside success api");
-                console.log(data);
-        console.log(data);
-    }
-})
-      console.log("after ajax call");
 
 /* Chart Data */
     var myChart = Highcharts.chart('highchartsContainer', {

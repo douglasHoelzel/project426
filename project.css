@@ -5,6 +5,7 @@
 body {
     background-image: url("images/background_image1.png");
 }
+/* End Body Styling */
 /* help.html div */
 #helpDiv{
     height: 500px;
@@ -13,7 +14,6 @@ body {
 
 }
 /* End help.html div */
-/* End Body Styling */
 /* Wrapper Styling */
 .wrapper{
     background-color: #FFFFFF;
@@ -72,8 +72,8 @@ body {
 }
 #searchBar{
     margin-left: 760px;
-    margin-top: 30px;
-    width: 400px;
+    margin-top: 20px;
+    width: 388px;
     margin-right: 60px;
 }
 #searchBarButton{
@@ -87,7 +87,23 @@ body {
     background-color: #B9DDFA !important;
 }
 /* End Typeahead Dropdown Styling */
-
+#dateRangeSelector{
+    position: absolute;
+    color: white;
+    margin-left: 760px;
+    margin-top: 60px;
+}
+#from, #to{
+    color: #5B5B5B;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: thin;
+    border-color: #D4D4D4;
+    font-family: Arial;
+}
+#toLabel{
+    margin-left: 26px;
+}
 /* End Header Styling */
 
 /* Navbar Styling */
