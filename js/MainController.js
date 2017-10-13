@@ -21,6 +21,7 @@ $scope.asset = ['AAAP', 'AABA', 'AABA', 'AAME', 'AAOI',
         .datepicker({
           defaultDate: "+1w",
           changeMonth: true,
+          changeYear: true,
           numberOfMonths: 2
         })
         .on( "change", function() {
@@ -31,6 +32,7 @@ $scope.asset = ['AAAP', 'AABA', 'AABA', 'AAME', 'AAOI',
       to = $( "#to" ).datepicker({
         defaultDate: "+1w",
         changeMonth: true,
+        changeYear: true,
         numberOfMonths: 2
       })
       .on( "change", function() {
