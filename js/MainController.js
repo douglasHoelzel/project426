@@ -1,12 +1,20 @@
+var testAsset;
+
 (function () {
 
     angular
         .module('myApp')
+<<<<<<< HEAD
         .controller('MainController', function MainController($scope){
+=======
+        .controller('MainController', function MainController($scope, $http){
+>>>>>>> doug_branch
 var vm = this;
 $scope.selectedAsset = undefined;
 $scope.tickerId;
 $scope.startDate;
+$scope.toDate;
+$scope.fromDate;
 $scope.endDate;
 // Current array for testing typeahead feature
 // This needs to be an ajax call in the future to populate
@@ -16,7 +24,15 @@ $scope.asset = ['AAAP', 'AABA', 'AABA', 'AAME', 'AAOI',
   'BNDX', 'BNFT', 'BNSO', 'CAKE', 'CALA', 'CALD', 'CALI',
   'CALL', 'CALM', 'DWTR', 'DXGE', 'DXJS', 'ERII',
   'ESBK', 'ESCA'];
+ /*testing*/
+ // Simple GET request example:
+ // url: 'https://www.quandl.com/api/v3/datasets/WIKI/AAPL.json?trim_start=2015-01-01&trim_end=2015-12-31'
 
+
+
+
+ /*end testing */
+ //https://www.quandl.com/api/v3/datasets/WIKI/AAPL.json?trim_start=2012-01-01&trim_end=2012-12-31
   /* Datepicker Functions */
   $( function() {
     var dateFormat = "mm/dd/yy",
@@ -30,7 +46,6 @@ $scope.asset = ['AAAP', 'AABA', 'AABA', 'AAME', 'AAOI',
         .on( "change", function() {
           to.datepicker( "option", "minDate", getDate( this ) );
           startDate = getDate(this);
-          console.log("start date: " + startDate);
         }),
       to = $( "#to" ).datepicker({
         defaultDate: "+1w",
@@ -41,7 +56,6 @@ $scope.asset = ['AAAP', 'AABA', 'AABA', 'AAME', 'AAOI',
       .on( "change", function() {
         from.datepicker( "option", "maxDate", getDate( this ) );
         endDate = getDate(this);
-        console.log("end date: " + endDate);
       });
 
     function getDate( element ) {
@@ -57,7 +71,33 @@ $scope.asset = ['AAAP', 'AABA', 'AABA', 'AAME', 'AAOI',
   } );
 /* End of Datepicker functions */
 
+<<<<<<< HEAD
  $scope.grabCharts = function grabCharts(){
+=======
+/* Takes in values from the search bar
+ * validates the entries
+ */
+ $scope.searchAsset = function searchAsset(selectedAsset,fromDate, toDate){
+     if (fromDate == null || toDate == null || fromDate == "" || toDate == ""){
+         swal(
+              'Please enter a valid start and end date',
+              '',
+              'error'
+            )
+     }
+     if (selectedAsset == null){
+         swal(
+              'Please enter an asset name',
+              '',
+              'error'
+            )
+     }
+ };
+
+ /* End of search bar function */
+ $scope.grabCharts = function grabCharts(ticker){
+     console.log(ticker);
+>>>>>>> doug_branch
      console.log("calling for charts");
     /* Chart Data */
          var myChart = Highcharts.chart('highchartsContainer', {
