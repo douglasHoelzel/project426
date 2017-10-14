@@ -7,6 +7,8 @@ var vm = this;
 $scope.selectedAsset = undefined;
 $scope.tickerId;
 $scope.startDate;
+$scope.toDate;
+$scope.fromDate;
 $scope.endDate;
 // Current array for testing typeahead feature
 // This needs to be an ajax call in the future to populate
@@ -30,7 +32,6 @@ $scope.asset = ['AAAP', 'AABA', 'AABA', 'AAME', 'AAOI',
         .on( "change", function() {
           to.datepicker( "option", "minDate", getDate( this ) );
           startDate = getDate(this);
-          console.log("start date: " + startDate);
         }),
       to = $( "#to" ).datepicker({
         defaultDate: "+1w",
@@ -41,7 +42,6 @@ $scope.asset = ['AAAP', 'AABA', 'AABA', 'AAME', 'AAOI',
       .on( "change", function() {
         from.datepicker( "option", "maxDate", getDate( this ) );
         endDate = getDate(this);
-        console.log("end date: " + endDate);
       });
 
     function getDate( element ) {
@@ -57,6 +57,27 @@ $scope.asset = ['AAAP', 'AABA', 'AABA', 'AAME', 'AAOI',
   } );
 /* End of Datepicker functions */
 
+/* Takes in values from the search bar
+ * validates the entries
+ */
+ $scope.searchAsset = function searchAsset(selectedAsset,fromDate, toDate){
+     if (fromDate == null || toDate == null || fromDate == "" || toDate == ""){
+         swal(
+              'Please enter a valid start and end date',
+              '',
+              'error'
+            )
+     }
+     if (selectedAsset == null){
+         swal(
+              'Please enter an asset name',
+              '',
+              'error'
+            )
+     }
+ };
+
+ /* End of search bar function */
  $scope.grabCharts = function grabCharts(){
      console.log("calling for charts");
     /* Chart Data */

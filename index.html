@@ -47,9 +47,9 @@
     </a>
     <div id="dateRangeSelector">
             <label for="from">From</label>
-            <input type="text" id="from" name="from">
+            <input type="text" id="from" name="from" ng-model="fromDate">
             <label id="toLabel" for="to">To</label>
-            <input type="text" id="to" name="to">
+            <input type="text" id="to" name="to" ng-model="toDate">
      </div>
 <div class="row">
   <div class="col-lg-6">
@@ -58,7 +58,8 @@
       uib-typeahead="name for name in asset | filter:$viewValue | limitTo:8" class="form-control"
       ng-model="selectedAsset"/>
       <span class="input-group-btn">
-        <button id="searchBarButton" class="btn btn-default glyphicon glyphicon-search" type="button"></button>
+        <button id="searchBarButton" ng-click="searchAsset(selectedAsset, fromDate, toDate)"
+                    class="btn btn-default glyphicon glyphicon-search" type="button"></button>
       </span>
     </div>
   </div>
