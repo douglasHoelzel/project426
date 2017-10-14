@@ -1,8 +1,10 @@
+var testAsset;
+
 (function () {
 
     angular
         .module('myApp')
-        .controller('MainController', function MainController($scope){
+        .controller('MainController', function MainController($scope, $http){
 var vm = this;
 $scope.selectedAsset = undefined;
 $scope.tickerId;
@@ -18,7 +20,15 @@ $scope.asset = ['AAAP', 'AABA', 'AABA', 'AAME', 'AAOI',
   'BNDX', 'BNFT', 'BNSO', 'CAKE', 'CALA', 'CALD', 'CALI',
   'CALL', 'CALM', 'DWTR', 'DXGE', 'DXJS', 'ERII',
   'ESBK', 'ESCA'];
+ /*testing*/
+ // Simple GET request example:
+ // url: 'https://www.quandl.com/api/v3/datasets/WIKI/AAPL.json?trim_start=2015-01-01&trim_end=2015-12-31'
 
+
+
+
+ /*end testing */
+ //https://www.quandl.com/api/v3/datasets/WIKI/AAPL.json?trim_start=2012-01-01&trim_end=2012-12-31
   /* Datepicker Functions */
   $( function() {
     var dateFormat = "mm/dd/yy",
@@ -78,7 +88,8 @@ $scope.asset = ['AAAP', 'AABA', 'AABA', 'AAME', 'AAOI',
  };
 
  /* End of search bar function */
- $scope.grabCharts = function grabCharts(){
+ $scope.grabCharts = function grabCharts(ticker){
+     console.log(ticker);
      console.log("calling for charts");
     /* Chart Data */
          var myChart = Highcharts.chart('highchartsContainer', {

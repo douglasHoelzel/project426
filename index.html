@@ -28,7 +28,7 @@
   <!-- Controllers -->
   <script src="js/app.js" type="text/javascript"></script>
   <script src="js/MainController.js" type="text/javascript"></script>
-
+  <script src="js/AssetController.js" type="text/javascript"></script>
   <!-- SweetAlert2 -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.10.1/sweetalert2.all.min.js"></script>
 
@@ -70,18 +70,18 @@
 <div class="wrapper">
     <div id="custom-bootstrap-menu" class="navbar navbar-default" role="navigation">
             <ul class="nav navbar-nav navbar-left">
-                <li><a ng-click="grabCharts()" ui-sref="assetView({tickerId: 'GOOGL'})">GOOGL</a></li>
-                <li><a ng-click="grabCharts()" ui-sref="assetView({tickerId: 'BIDU'})">BIDU</a></li>
-                <li><a ng-click="grabCharts()" ui-sref="assetView({tickerId: 'YNDX'})">YNDX</a></li>
-                <li><a ng-click="grabCharts()" ui-sref="assetView({tickerId: 'AAPL'})">AAPL</a></li>
-                <li><a ng-click="grabCharts()" ui-sref="assetView({tickerId: 'IBM'})">IBM</a></li>
-                <li><a ng-click="grabCharts()" ui-sref="assetView({tickerId: 'TWTR'})">TWTR</a></li>
-                <li><a ng-click="grabCharts()" ui-sref="assetView({tickerId: 'VZ'})">VZ</a></li>
-                <li><a ng-click="grabCharts()" ui-sref="assetView({tickerId: 'WIFI'})">WIFI</a></li>
-                <li><a ng-click="grabCharts()" ui-sref="assetView({tickerId: 'FB'})">FB</a></li>
-                <li><a ng-click="grabCharts()" ui-sref="assetView({tickerId: 'IAC'})">IAC</a></li>
-                <li><a ng-click="grabCharts()" ui-sref="assetView({tickerId: 'GDDY'})">GDDY</a></li>
-                <li><a ng-click="grabCharts()" ui-sref="assetView({tickerId: 'AOL'})">AOL</a></li>
+                <li><a ng-click="grabCharts('GOOGL')" ui-sref="assetView({tickerId: 'GOOGL'})">GOOGL</a></li>
+                <li><a ng-click="grabCharts('BIDU')" ui-sref="assetView({tickerId: 'BIDU'})">BIDU</a></li>
+                <li><a ng-click="grabCharts('YNDX')" ui-sref="assetView({tickerId: 'YNDX'})">YNDX</a></li>
+                <li><a ng-click="grabCharts('AAPL')" ui-sref="assetView({tickerId: 'AAPL'})">AAPL</a></li>
+                <li><a ng-click="grabCharts('IBM')" ui-sref="assetView({tickerId: 'IBM'})">IBM</a></li>
+                <li><a ng-click="grabCharts('TWTR')" ui-sref="assetView({tickerId: 'TWTR'})">TWTR</a></li>
+                <li><a ng-click="grabCharts('VZ')" ui-sref="assetView({tickerId: 'VZ'})">VZ</a></li>
+                <li><a ng-click="grabCharts('WIFI')" ui-sref="assetView({tickerId: 'WIFI'})">WIFI</a></li>
+                <li><a ng-click="grabCharts('FB')" ui-sref="assetView({tickerId: 'FB'})">FB</a></li>
+                <li><a ng-click="grabCharts('IAC')" ui-sref="assetView({tickerId: 'IAC'})">IAC</a></li>
+                <li><a ng-click="grabCharts('GDDY')" ui-sref="assetView({tickerId: 'GDDY'})">GDDY</a></li>
+                <li><a ng-click="grabCharts('AOL')" ui-sref="assetView({tickerId: 'AOL'})">AOL</a></li>
             </ul>
 </div>
 <button type="button" id="printButton" onclick="window.print();"
