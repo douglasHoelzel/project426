@@ -68,7 +68,8 @@ $scope.asset = ['AAAP', 'AABA', 'AABA', 'AAME', 'AAOI',
 /* End of Datepicker functions */
 
 /* Takes in values from the search bar
- * validates the entries
+ * validates the entries, uses Sweetalert to notify
+ * the user of mistakes in entry
  */
  $scope.searchAsset = function searchAsset(selectedAsset,fromDate, toDate){
      if (fromDate == null || toDate == null || fromDate == "" || toDate == ""){
@@ -78,7 +79,7 @@ $scope.asset = ['AAAP', 'AABA', 'AABA', 'AAME', 'AAOI',
               'error'
             )
      }
-     if (selectedAsset == null){
+     if (selectedAsset == null || selectedAsset == ""){
          swal(
               'Please enter an asset name',
               '',
