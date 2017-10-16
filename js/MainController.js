@@ -67,6 +67,19 @@ $scope.asset = ['AAAP', 'AABA', 'AABA', 'AAME', 'AAOI',
   } );
 /* End of Datepicker functions */
 
+
+//On Complete of Ajax Call
+var on_complete = function(response) {
+    $scope.data = response.data;
+    console.log(response.data);
+    console.log(response);
+  };
+
+//On Error for Ajax Call
+var on_error = function(response) {
+    $scope.error = "Error getting data";
+  };
+
 /* Takes in values from the search bar
  * validates the entries, uses Sweetalert to notify
  * the user of mistakes in entry
@@ -86,7 +99,26 @@ $scope.asset = ['AAAP', 'AABA', 'AABA', 'AAME', 'AAOI',
               'error'
             )
      }
+
+     //Change date formatting
+     var convert_date = function(date){
+        return date.replace(/\//g, "-")
+     }
+    
+     var test_string = "http://localhost:5000/"+selectedAsset+"/"+convert_date(fromDate)+"/"+convert_date(toDate);
+     //Will need to change when put on local server
+     $http.get("http://localhost:5000/"+selectedAsset+"/"+convert_date(fromDate)+"/"+convert_date(toDate))
+     .then(on_complete, on_error);
+     
+     console.log(selectedAsset);
+     console.log(convert_date(fromDate));
+     console.log(convert_date(toDate));
+     console.log(test_string);
  };
+
+
+
+
 
  /* End of search bar function */
  $scope.grabCharts = function grabCharts(ticker){
