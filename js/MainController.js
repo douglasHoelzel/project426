@@ -72,6 +72,10 @@ $scope.asset = ['AAAP', 'AABA', 'AABA', 'AAME', 'AAOI',
  * the user of mistakes in entry
  */
  $scope.searchAsset = function searchAsset(selectedAsset,fromDate, toDate){
+     var fromDate = fromDate.replace("/", "-");
+     var toDate = toDate.replace("/", "-");
+     var fromDate = fromDate.replace("/", "-");
+     var toDate = toDate.replace("/", "-");
      if (fromDate == null || toDate == null || fromDate == "" || toDate == ""){
          swal(
               'Please enter a valid start and end date',
@@ -86,6 +90,11 @@ $scope.asset = ['AAAP', 'AABA', 'AABA', 'AAME', 'AAOI',
               'error'
             )
      }
+     // call to api that returns json string
+     console.log(selectedAsset);
+     console.log(fromDate);
+     console.log(toDate);
+
  };
 
  /* End of search bar function */
