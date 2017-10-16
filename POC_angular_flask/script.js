@@ -12,7 +12,7 @@
           $scope.error = "Error getting data";
         };
     
-        $http.get("http://localhost:5000/api/IVV")
+        $http.get("http://localhost:5000/EFA/10-05-2015/10-05-2016")
           .then(on_complete, on_error);
     
         $scope.test_value = "This is a test string";
