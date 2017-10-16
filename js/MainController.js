@@ -67,7 +67,6 @@ $scope.asset = ['AAAP', 'AABA', 'AABA', 'AAME', 'AAOI',
   } );
 /* End of Datepicker functions */
 
- $scope.grabCharts = function grabCharts(){
 
 //On Complete of Ajax Call
 var on_complete = function(response) {
@@ -86,6 +85,10 @@ var on_error = function(response) {
  * the user of mistakes in entry
  */
  $scope.searchAsset = function searchAsset(selectedAsset,fromDate, toDate){
+     var fromDate = fromDate.replace("/", "-");
+     var toDate = toDate.replace("/", "-");
+     var fromDate = fromDate.replace("/", "-");
+     var toDate = toDate.replace("/", "-");
      if (fromDate == null || toDate == null || fromDate == "" || toDate == ""){
          swal(
               'Please enter a valid start and end date',
@@ -100,17 +103,22 @@ var on_error = function(response) {
               'error'
             )
      }
+     // call to api that returns json string
+     console.log(selectedAsset);
+     console.log(fromDate);
+     console.log(toDate);
+
 
      //Change date formatting
      var convert_date = function(date){
         return date.replace(/\//g, "-")
      }
-    
+
      var test_string = "http://localhost:5000/"+selectedAsset+"/"+convert_date(fromDate)+"/"+convert_date(toDate);
      //Will need to change when put on local server
      $http.get("http://localhost:5000/"+selectedAsset+"/"+convert_date(fromDate)+"/"+convert_date(toDate))
      .then(on_complete, on_error);
-     
+
      console.log(selectedAsset);
      console.log(convert_date(fromDate));
      console.log(convert_date(toDate));
