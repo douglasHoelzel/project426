@@ -63,6 +63,21 @@ def return_data(stock, start_date, end_date):
 	#Assign maximum daily return
 	maximum_ret = max_ret(daily_returns)
 
+	#Assign quartile 5%
+	quartile_05 = calculate_quartile(daily_returns,.05)
+
+	#Assign quartile 25%
+	quartile_25 = calculate_quartile(daily_returns,.25)
+
+	#Assign quartile 50%
+	quartile_50 = calculate_quartile(daily_returns,.50)
+
+	#Assign quartile 75%
+	quartile_75 = calculate_quartile(daily_returns,.75)
+
+	#Assign quartile 95%
+	quartile_95 = calculate_quartile(daily_returns,.95)
+
 	#Create a data set to build a histogram of daily returns
 	daily_histogram_data = make_histogram(daily_returns)
 	
@@ -82,7 +97,13 @@ def return_data(stock, start_date, end_date):
 					"maximum_return": maximum_ret,
 					"daily_histogram_data": daily_histogram_data,
 					"weekly_histogram_data": weekly_histogram_data,
-					"monthly_histogram_data": monthly_histogram_data
+					"monthly_histogram_data": monthly_histogram_data,
+					"quartile_05": quartile_05,
+					"quartile_25": quartile_25,
+					"quartile_50": quartile_50,
+					"quartile_75": quartile_75,
+					"quartile_95": quartile_95
+					
 })
 
 if __name__ == "__main__":
