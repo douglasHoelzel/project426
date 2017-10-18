@@ -16,14 +16,28 @@ CORS(app)
 
 @app.route("/<stock>/<start_date>/<end_date>")
 def return_data(stock, start_date, end_date):
-
-	#Pull data from Quandl
-	data = q.get("EOD/{0}.4".format(stock), #Only pull closing price
-				start_date="{0}".format(start_date),
+    
+	#Pull daily data from Quandl
+	daily_data = q.get("EOD/{0}.4".format(stock), #Only pull closing price
+				start_date="{0}".format(start_date), 
 				end_date="{0}".format(end_date))
 
-	#Calculate daily returns from price
-	daily_returns = data.pct_change()
+	#Pull weekly data from Quandl
+	weekly_data = q.get("EOD/{0}.4".format(stock), #Only pull closing price
+				collapse="weekly",
+				start_date="{0}".format(start_date), 
+				end_date="{0}".format(end_date))
+
+	#Pull monthly data from Quandl
+	monthly_data = q.get("EOD/{0}.4".format(stock), #Only pull closing price
+				collapse="monthly",
+				start_date="{0}".format(start_date), 
+				end_date="{0}".format(end_date))
+
+	#Calculate returns for all frequencies
+	daily_returns = daily_data.pct_change().dropna()
+	weekly_returns = weekly_data.pct_change().dropna()
+	monthly_returns = monthly_data.pct_change().dropna()
 
 	#Assign current date to return
 	current_date = datetime.date.today().strftime('%m/%d/%Y')
@@ -37,10 +51,38 @@ def return_data(stock, start_date, end_date):
 	#Assign daily standard deviation
 	daily_standard_deviation = daily_std(daily_returns)
 
+	#Assign skewness of daily returns
+	daily_skewness = daily_skew(daily_returns)
+
+	#Assign kurtosis of daily returns
+	daily_kurtosis = daily_kurt(daily_returns)
+
+	#Assign minimum daily return
+	minimum_ret = min_ret(daily_returns)
+	
+	#Assign maximum daily return
+	maximum_ret = max_ret(daily_returns)
+
+	#Create a data set to build a histogram of daily returns
+	daily_histogram_data = make_histogram(daily_returns)
+	
+	#Create a data set to build a histogram of weekly returns
+	weekly_histogram_data = make_histogram(weekly_returns)
+
+	#Create a data set to build a histogram of monthly returns
+	monthly_histogram_data = make_histogram(monthly_returns)
+
 	return jsonify({"cumulative_returns": cumulative_returns,
 					"current_date": current_date,
 					"daily_average_return": daily_average_return,
-					"daily_standard_deviation": daily_standard_deviation
+					"daily_standard_deviation": daily_standard_deviation,
+					"daily_skewness": daily_skewness,
+					"daily_kurtosis": daily_kurtosis,
+					"minimum_return": minimum_ret,
+					"maximum_return": maximum_ret,
+					"daily_histogram_data": daily_histogram_data,
+					"weekly_histogram_data": weekly_histogram_data,
+					"monthly_histogram_data": monthly_histogram_data
 })
 
 if __name__ == "__main__":
