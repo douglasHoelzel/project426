@@ -80,3 +80,9 @@ def make_histogram(ret):
     else:
         raise ValueError('Expected a dataframe for histogram calculations')  
 
+def calculate_quartile(daily_ret,quartile):
+    if isinstance(daily_ret, pd.DataFrame):
+        return "%.5f" % round(daily_ret.quantile(quartile),5)
+    else:
+        raise ValueError('Expected a dataframe from 5% quartile calculations')  
+
