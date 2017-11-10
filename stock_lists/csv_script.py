@@ -20,7 +20,7 @@ for value in nyse_list:
     master_list.append(value.strip())
 
 output_list = list(set(master_list))
-    
+sorted_output_list = sorted(output_list)
 
 with open("stocks.txt", "w") as output:
-    output.write(str(output_list))
+    output.write(str(sorted_output_list))
