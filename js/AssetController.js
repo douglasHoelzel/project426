@@ -28,8 +28,9 @@
                 'CALL', 'CALM', 'DWTR', 'DXGE', 'DXJS', 'ERII',
                 'ESBK', 'ESCA'
             ];
-            $scope.titleValue = ['titleOne', 'titleTwo'];
-            $scope.numberValue = [11111, 222222];
+
+            console.log("Inside of AssetController");
+
 
             /* Datepicker Functions */
             $(function () {
@@ -90,7 +91,6 @@
             };
 
             /* End of search bar function */
-            $scope.grabCharts = function grabCharts(tickerName) {
                 $scope.tickerId = tickerName;
                 console.log(tickerName);
                 console.log("calling for charts");
@@ -179,7 +179,6 @@
                 });
 
                 /* End Highchart 3 */
-            }; // Ends grabCharts() function
 
 
 

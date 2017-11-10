@@ -21,6 +21,7 @@ var testAsset;
             ];
             /*testing*/
 
+            console.log("Inside of MainController");
             $(function () {
                 var dateFormat = "mm/dd/yy",
                     from = $("#from")
@@ -59,9 +60,8 @@ var testAsset;
 
             var on_complete = function (response) {
                 $scope.data = response.data;
-                console.log(response.data);
-                console.log(response.data.current_date);
-                console.log(response.data.daily_average_return);
+                console.log(response.data.asset_name);
+                $scope.grabCharts(response.data.asset_name);
             };
 
             //On Error for Ajax Call
