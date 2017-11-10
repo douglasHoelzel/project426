@@ -108,8 +108,18 @@ var on_error = function(response) {
               'error'
             )
      }
+<<<<<<< HEAD
      // call to api that returns json string
 
+=======
+<<<<<<< HEAD
+     // call to api that returns json string
+     console.log(selectedAsset);
+     console.log(fromDate);
+     console.log(toDate);
+
+=======
+>>>>>>> dougs_branch
 
      //Change date formatting
      var convert_date = function(date){
@@ -120,6 +130,18 @@ var on_error = function(response) {
      //Will need to change when put on local server
      $http.get("http://localhost:5000/"+selectedAsset+"/"+convert_date(fromDate)+"/"+convert_date(toDate))
      .then(on_complete, on_error);
+<<<<<<< HEAD
+=======
+     
+     console.log(selectedAsset);
+     console.log(convert_date(fromDate));
+     console.log(convert_date(toDate));
+     console.log(test_string);
+>>>>>>> 953ed4422e50e31c4f2c74d166683d6cf27587dc
+ };
+
+
+>>>>>>> dougs_branch
 
 
  };
