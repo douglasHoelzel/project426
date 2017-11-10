@@ -20,15 +20,15 @@ $scope.asset = ['AAAP', 'AABA', 'AABA', 'AAME', 'AAOI',
   'BNDX', 'BNFT', 'BNSO', 'CAKE', 'CALA', 'CALD', 'CALI',
   'CALL', 'CALM', 'DWTR', 'DXGE', 'DXJS', 'ERII',
   'ESBK', 'ESCA'];
- /*testing*/
- // Simple GET request example:
- // url: 'https://www.quandl.com/api/v3/datasets/WIKI/AAPL.json?trim_start=2015-01-01&trim_end=2015-12-31'
 
+ $scope.names = ['AAAP', 'AABA', 'AABA', 'AAME', 'AAOI',
+   'AAON', 'AAPL', 'AAWW', 'AAXJ', 'BMTC', 'BNCL',
+   'BNDX', 'BNFT', 'BNSO', 'CAKE', 'CALA', 'CALD', 'CALI',
+   'CALL', 'CALM', 'DWTR', 'DXGE', 'DXJS', 'ERII',
+   'ESBK', 'ESCA'];
+ $scope.titleValue = ['titleOne', 'titleTwo'];
+ $scope.numberValue = [11111, 222222];
 
-
-
- /*end testing */
- //https://www.quandl.com/api/v3/datasets/WIKI/AAPL.json?trim_start=2012-01-01&trim_end=2012-12-31
   /* Datepicker Functions */
   $( function() {
     var dateFormat = "mm/dd/yy",
