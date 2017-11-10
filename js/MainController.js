@@ -12,28 +12,14 @@ $scope.startDate;
 $scope.toDate;
 $scope.fromDate;
 $scope.endDate;
-// Current array for testing typeahead feature
-// This needs to be an ajax call in the future to populate
-// the asset array w/ all ticker symbols
+
 $scope.asset = ['AAAP', 'AABA', 'AABA', 'AAME', 'AAOI',
   'AAON', 'AAPL', 'AAWW', 'AAXJ', 'BMTC', 'BNCL',
   'BNDX', 'BNFT', 'BNSO', 'CAKE', 'CALA', 'CALD', 'CALI',
   'CALL', 'CALM', 'DWTR', 'DXGE', 'DXJS', 'ERII',
   'ESBK', 'ESCA'];
  /*testing*/
- // Simple GET request example:
- // url: 'https://www.quandl.com/api/v3/datasets/WIKI/AAPL.json?trim_start=2015-01-01&trim_end=2015-12-31'
 
- var app = angular.module('myApp', []);
- app.controller('customersCtrl', function($scope, $http) {
-     $http.get("customers.php")
-     .then(function (response) {$scope.names = response.data.records;});
- });
-
-
- /*end testing */
- //https://www.quandl.com/api/v3/datasets/WIKI/AAPL.json?trim_start=2012-01-01&trim_end=2012-12-31
-  /* Datepicker Functions */
   $( function() {
     var dateFormat = "mm/dd/yy",
       from = $( "#from" )
@@ -69,10 +55,8 @@ $scope.asset = ['AAAP', 'AABA', 'AABA', 'AAME', 'AAOI',
       return date;
     }
   } );
-/* End of Datepicker functions */
 
 
-// On Complete of Ajax Call
 var on_complete = function(response) {
     $scope.data = response.data;
     console.log(response.data);
@@ -85,10 +69,6 @@ var on_error = function(response) {
     $scope.error = "Error getting data";
   };
 
-/* Takes in values from the search bar
- * validates the entries, uses Sweetalert to notify
- * the user of mistakes in entry
- */
  $scope.searchAsset = function searchAsset(selectedAsset,fromDate, toDate){
      var fromDate = fromDate.replace("/", "-");
      var toDate = toDate.replace("/", "-");
@@ -109,12 +89,6 @@ var on_error = function(response) {
             )
      }
 
-     // call to api that returns json string
-     console.log(selectedAsset);
-     console.log(fromDate);
-     console.log(toDate);
-
-
      //Change date formatting
      var convert_date = function(date){
         return date.replace(/\//g, "-")
@@ -124,11 +98,6 @@ var on_error = function(response) {
      //Will need to change when put on local server
      $http.get("http://localhost:5000/"+selectedAsset+"/"+convert_date(fromDate)+"/"+convert_date(toDate))
      .then(on_complete, on_error);
-
-     console.log(selectedAsset);
-     console.log(convert_date(fromDate));
-     console.log(convert_date(toDate));
-     console.log(test_string);
  };
 
  /* End of search bar function */
@@ -190,8 +159,7 @@ var on_error = function(response) {
            data: [9, 2, 5]
        }]
    });
-      /* End Highchart 2 */
-      /* Highchart 3 */
+
    $.getJSON('https://www.highcharts.com/samples/data/jsonp.php?filename=goog-c.json&callback=?', function (data) {
        Highcharts.stockChart('highchartsContainer3', {
            rangeSelector: {
@@ -217,7 +185,7 @@ var on_error = function(response) {
        });
    });
 
-    /* End Highchart 3 */
+
 };// Ends grabCharts() function
 
 
