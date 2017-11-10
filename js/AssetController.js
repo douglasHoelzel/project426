@@ -77,94 +77,94 @@
             };
 
             /* End of search bar function */
-                $scope.tickerId = tickerName;
-                console.log(tickerName);
-                console.log("calling for charts");
-                /* Chart Data */
-                var myChart = Highcharts.chart('highchartsContainer', {
-                    chart: {
-                        type: 'column'
-                    },
+            $scope.tickerId = tickerName;
+            console.log(tickerName);
+            console.log("calling for charts");
+            /* Chart Data */
+            var myChart = Highcharts.chart('highchartsContainer', {
+                chart: {
+                    type: 'column'
+                },
+                title: {
+                    text: 'GOOG Here'
+                },
+                colors: ['#4BA2EA', '#CBCBCB', '#266FAD'],
+                xAxis: {
+                    categories: ['Div', 'EL Fix', 'LTT']
+                },
+                yAxis: {
                     title: {
-                        text: 'GOOG Here'
+                        text: ''
+                    }
+                },
+                series: [{
+                    name: 'Sample1',
+                    data: [1, 4, 4]
+                }, {
+                    name: 'Sample2',
+                    data: [5, 7, 3]
+                }, {
+                    name: 'Sample3',
+                    data: [2, 3, 4]
+                }]
+            });
+            /* End Chart Data */
+            /* Highchart 2 */
+            var myChart2 = Highcharts.chart('highchartsContainer2', {
+                chart: {
+                    type: 'column'
+                },
+                title: {
+                    text: 'Stock Header Here'
+                },
+                colors: ['#4BA2EA', '#CBCBCB', '#266FAD'],
+                xAxis: {
+                    categories: ['Div', 'EL Fix', 'LTT']
+                },
+                yAxis: {
+                    title: {
+                        text: ''
+                    }
+                },
+                series: [{
+                    name: 'Sample1',
+                    data: [3, 1, 1]
+                }, {
+                    name: 'Sample2',
+                    data: [9, 8, 2]
+                }, {
+                    name: 'Sample3',
+                    data: [9, 2, 5]
+                }]
+            });
+            /* End Highchart 2 */
+            /* Highchart 3 */
+            $.getJSON('https://www.highcharts.com/samples/data/jsonp.php?filename=goog-c.json&callback=?', function (data) {
+                Highcharts.stockChart('highchartsContainer3', {
+                    rangeSelector: {
+                        selected: 1
                     },
-                    colors: ['#4BA2EA', '#CBCBCB', '#266FAD'],
-                    xAxis: {
-                        categories: ['Div', 'EL Fix', 'LTT']
+
+                    title: {
+                        text: '  GOOG Stock Price'
                     },
-                    yAxis: {
-                        title: {
-                            text: ''
-                        }
-                    },
+
                     series: [{
-                        name: 'Sample1',
-                        data: [1, 4, 4]
-                    }, {
-                        name: 'Sample2',
-                        data: [5, 7, 3]
-                    }, {
-                        name: 'Sample3',
-                        data: [2, 3, 4]
+                        name: 'GOOG Stock Price',
+                        data: data,
+                        marker: {
+                            enabled: true,
+                            radius: 3
+                        },
+                        shadow: true,
+                        tooltip: {
+                            valueDecimals: 2
+                        }
                     }]
                 });
-                /* End Chart Data */
-                /* Highchart 2 */
-                var myChart2 = Highcharts.chart('highchartsContainer2', {
-                    chart: {
-                        type: 'column'
-                    },
-                    title: {
-                        text: 'Stock Header Here'
-                    },
-                    colors: ['#4BA2EA', '#CBCBCB', '#266FAD'],
-                    xAxis: {
-                        categories: ['Div', 'EL Fix', 'LTT']
-                    },
-                    yAxis: {
-                        title: {
-                            text: ''
-                        }
-                    },
-                    series: [{
-                        name: 'Sample1',
-                        data: [3, 1, 1]
-                    }, {
-                        name: 'Sample2',
-                        data: [9, 8, 2]
-                    }, {
-                        name: 'Sample3',
-                        data: [9, 2, 5]
-                    }]
-                });
-                /* End Highchart 2 */
-                /* Highchart 3 */
-                $.getJSON('https://www.highcharts.com/samples/data/jsonp.php?filename=goog-c.json&callback=?', function (data) {
-                    Highcharts.stockChart('highchartsContainer3', {
-                        rangeSelector: {
-                            selected: 1
-                        },
+            });
 
-                        title: {
-                            text: '  GOOG Stock Price'
-                        },
-
-                        series: [{
-                            name: 'GOOG Stock Price',
-                            data: data,
-                            marker: {
-                                enabled: true,
-                                radius: 3
-                            },
-                            shadow: true,
-                            tooltip: {
-                                valueDecimals: 2
-                            }
-                        }]
-                    });
-                });
-
-                /* End Highchart 3 */
+            /* End Highchart 3 */
 
 
 

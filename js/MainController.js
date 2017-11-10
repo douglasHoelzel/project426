@@ -97,36 +97,36 @@ var testAsset;
                 this.ticker = ticker;
                 /* Chart Data */
                 var myChart = Highcharts.chart('highchartsContainer', {
-     title: {
-         text: 'Combination chart'
-     },
-     xAxis: {
-         categories: ['One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten']
-     },
-     labels: {
-         items: [{
-             style: {
-                 left: '50px',
-                 top: '18px',
-                 color: (Highcharts.theme && Highcharts.theme.textColor) || 'black'
-             }
-         }]
-     },
-     series: [{
-         type: 'column',
-         name: 'X Axis',
-         data: [4, 3, 3, 9, 4, 1, 1, 1, 1, 1]
-     }, {
-         type: 'spline',
-         name: 'Average',
-         data: [3, 2.67, 3, 6.33, 3.33, 2, 2, 2, 2, 2],
-         marker: {
-             lineWidth: 2,
-             lineColor: Highcharts.getOptions().colors[3],
-             fillColor: 'white'
-         }
-     }]
- });
+                    title: {
+                        text: 'Combination chart'
+                    },
+                    xAxis: {
+                        categories: ['One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten']
+                    },
+                    labels: {
+                        items: [{
+                            style: {
+                                left: '50px',
+                                top: '18px',
+                                color: (Highcharts.theme && Highcharts.theme.textColor) || 'black'
+                            }
+                        }]
+                    },
+                    series: [{
+                        type: 'column',
+                        name: 'X Axis',
+                        data: [4, 3, 3, 9, 4, 1, 1, 1, 1, 1]
+                    }, {
+                        type: 'spline',
+                        name: 'Average',
+                        data: [3, 2.67, 3, 6.33, 3.33, 2, 2, 2, 2, 2],
+                        marker: {
+                            lineWidth: 2,
+                            lineColor: Highcharts.getOptions().colors[3],
+                            fillColor: 'white'
+                        }
+                    }]
+                });
 
                 /* End Chart Data */
                 /* Highchart 2 */
