@@ -37,7 +37,7 @@ def return_data(stock, start_date, end_date):
 
 	#Pull metadata from Quandl (ticker and name)
 	request_string = 'https://www.quandl.com/api/v3/datasets/EOD/{0}/metadata.json?api_key=xaFxr9SP6Wd5sKFHdEax'.format(stock)
-	response = requests.get(request_string).json()
+	json_response = requests.get(request_string).json()
 	ticker = json_response['dataset']['dataset_code']
 	name_to_parse = json_response['dataset']['name']
 	asset_name = name_to_parse.split('(')[0].replace('Inc.',"").replace('  ',' ').strip()
