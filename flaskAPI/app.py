@@ -4,6 +4,7 @@ import datetime
 import quandl as q
 import numpy as np
 import pandas as pd
+import requests
 from flask_cors import CORS
 from helper_functions import *
 
@@ -33,6 +34,13 @@ def return_data(stock, start_date, end_date):
 				collapse="monthly",
 				start_date="{0}".format(start_date), 
 				end_date="{0}".format(end_date))
+
+	#Pull metadata from Quandl (ticker and name)
+	request_string = 'https://www.quandl.com/api/v3/datasets/EOD/{0}/metadata.json?api_key=xaFxr9SP6Wd5sKFHdEax'.format(stock)
+	response = requests.get(request_string).json()
+	ticker = json_response['dataset']['dataset_code']
+	name_to_parse = json_response['dataset']['name']
+	asset_name = name_to_parse.split('(')[0].replace('Inc.',"").replace('  ',' ').strip()
 
 	#Calculate returns for all frequencies
 	daily_returns = daily_data.pct_change().dropna()
@@ -102,7 +110,9 @@ def return_data(stock, start_date, end_date):
 					"quartile_25": quartile_25,
 					"quartile_50": quartile_50,
 					"quartile_75": quartile_75,
-					"quartile_95": quartile_95
+					"quartile_95": quartile_95,
+					"asset_symbol": ticker,
+					"asset_name": asset_name
 					
 })
 
