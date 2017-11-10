@@ -24,7 +24,11 @@ $scope.asset = ['AAAP', 'AABA', 'AABA', 'AAME', 'AAOI',
  // Simple GET request example:
  // url: 'https://www.quandl.com/api/v3/datasets/WIKI/AAPL.json?trim_start=2015-01-01&trim_end=2015-12-31'
 
-
+ var app = angular.module('myApp', []);
+ app.controller('customersCtrl', function($scope, $http) {
+     $http.get("customers.php")
+     .then(function (response) {$scope.names = response.data.records;});
+ });
 
 
  /*end testing */
@@ -68,11 +72,12 @@ $scope.asset = ['AAAP', 'AABA', 'AABA', 'AAME', 'AAOI',
 /* End of Datepicker functions */
 
 
-//On Complete of Ajax Call
+// On Complete of Ajax Call
 var on_complete = function(response) {
     $scope.data = response.data;
     console.log(response.data);
-    console.log(response);
+    console.log(response.data.current_date);
+    console.log(response.data.daily_average_return);
   };
 
 //On Error for Ajax Call
@@ -104,9 +109,6 @@ var on_error = function(response) {
             )
      }
      // call to api that returns json string
-     console.log(selectedAsset);
-     console.log(fromDate);
-     console.log(toDate);
 
 
      //Change date formatting
@@ -119,20 +121,11 @@ var on_error = function(response) {
      $http.get("http://localhost:5000/"+selectedAsset+"/"+convert_date(fromDate)+"/"+convert_date(toDate))
      .then(on_complete, on_error);
 
-     console.log(selectedAsset);
-     console.log(convert_date(fromDate));
-     console.log(convert_date(toDate));
-     console.log(test_string);
+
  };
-
-
-
-
 
  /* End of search bar function */
  $scope.grabCharts = function grabCharts(ticker){
-     console.log(ticker);
-     console.log("calling for charts");
     /* Chart Data */
          var myChart = Highcharts.chart('highchartsContainer', {
            chart: {
