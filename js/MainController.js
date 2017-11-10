@@ -53,8 +53,7 @@ var testAsset;
 
             var on_complete = function (response) {
                 $scope.data = response.data;
-                console.log(response.data.asset_name);
-                $scope.grabCharts(response.data.asset_name);
+                $scope.grabCharts(response);
             };
 
             //On Error for Ajax Call
@@ -95,34 +94,40 @@ var testAsset;
 
             /* End of search bar function */
             $scope.grabCharts = function grabCharts(ticker) {
+                this.ticker = ticker;
                 /* Chart Data */
                 var myChart = Highcharts.chart('highchartsContainer', {
-                    chart: {
-                        type: 'column'
-                    },
-                    title: {
-                        text: 'Stock Header Here'
-                    },
-                    colors: ['#4BA2EA', '#CBCBCB', '#266FAD'],
-                    xAxis: {
-                        categories: ['Div', 'EL Fix', 'LTT']
-                    },
-                    yAxis: {
-                        title: {
-                            text: ''
-                        }
-                    },
-                    series: [{
-                        name: 'Sample1',
-                        data: [1, 4, 4]
-                    }, {
-                        name: 'Sample2',
-                        data: [5, 7, 3]
-                    }, {
-                        name: 'Sample3',
-                        data: [2, 3, 4]
-                    }]
-                });
+     title: {
+         text: 'Combination chart'
+     },
+     xAxis: {
+         categories: ['One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten']
+     },
+     labels: {
+         items: [{
+             style: {
+                 left: '50px',
+                 top: '18px',
+                 color: (Highcharts.theme && Highcharts.theme.textColor) || 'black'
+             }
+         }]
+     },
+     series: [{
+         type: 'column',
+         name: 'X Axis',
+         data: [4, 3, 3, 9, 4, 1, 1, 1, 1, 1]
+     }, {
+         type: 'spline',
+         name: 'Average',
+         data: [3, 2.67, 3, 6.33, 3.33, 2, 2, 2, 2, 2],
+         marker: {
+             lineWidth: 2,
+             lineColor: Highcharts.getOptions().colors[3],
+             fillColor: 'white'
+         }
+     }]
+ });
+
                 /* End Chart Data */
                 /* Highchart 2 */
                 var myChart2 = Highcharts.chart('highchartsContainer2', {
