@@ -4,62 +4,62 @@
       <table id="dataTable2" class="table table-bordered">
         <thead>
           <tr>
-            <th>{{tickerId}}</th>
+            <th>{{selectedAsset}}</th>
             <th> Values </th>
           </tr>
         </thead>
         <tbody>
           <tr>
             <td>Cumulative Returns</td>
-            <td>0.001</td>
+            <td>{{data.cumulative_returns}}</td>
           </tr>
           <tr>
             <td>Current Date</td>
-            <td>0.002</td>
+            <td>{{data.current_date}}</td>
           </tr>
           <tr>
             <td>Daily Avg Return</td>
-            <td>0.003</td>
+            <td>{{data.daily_average_return}}</td>
           </tr>
           <tr>
             <td>Daily Kurtosis</td>
-            <td>0.004</td>
+            <td>{{data.daily_kurtosis}}</td>
           </tr>
           <tr>
             <td>Daily Skewness</td>
-            <td>0.004</td>
+            <td>{{data.daily_skewness}}</td>
           </tr>
           <tr>
             <td>Daily Standard Deviation</td>
-            <td>0.005</td>
+            <td>{{data.daily_standard_deviation}}</td>
           </tr>
           <tr>
             <td>Maximum Return</td>
-            <td>0.006</td>
+            <td>{{data.maximum_return}}</td>
           </tr>
           <tr>
             <td>Minimum Return</td>
-            <td>0.007</td>
+            <td>{{data.minimum_return}}</td>
           </tr>
           <tr>
             <td>Q 5%</td>
-            <td>0.008</td>
+            <td>{{data.quartile_05}}</td>
           </tr>
           <tr>
             <td>Q 25%</td>
-            <td>0.09</td>
+            <td>{{data.quartile_25}}</td>
           </tr>
           <tr>
             <td>Q 50%</td>
-            <td>0.010</td>
+            <td>{{data.quartile_50}}</td>
           </tr>
           <tr>
             <td>Q 75%</td>
-            <td>0.011</td>
+            <td>{{data.quartile_75}}</td>
           </tr>
           <tr>
             <td>Q 95%</td>
-            <td>0.012</td>
+            <td>{{data.quartile_95}}</td>
           </tr>
 
         </tbody>

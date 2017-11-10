@@ -6,7 +6,7 @@ var testAsset;
         .module('myApp')
         .controller('MainController', function MainController($scope, $http) {
             var vm = this;
-            $scope.selectedAsset = undefined;
+            $scope.selectedAsset = " ";
             $scope.tickerId;
             $scope.startDate;
             $scope.toDate;
@@ -56,7 +56,6 @@ var testAsset;
                     return date;
                 }
             });
-
 
             var on_complete = function (response) {
                 $scope.data = response.data;
