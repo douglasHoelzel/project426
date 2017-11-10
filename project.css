@@ -271,3 +271,6 @@ margin-right: 30px;
     border-color: #fff !important;
 }
 /* End Print Button Styling */
+td{
+    font-size: 9px;
+}
