@@ -13,13 +13,14 @@ nyse_list = df3.Symbol.values.tolist();
 
 master_list = []
 for value in etf_list:
-    master_list.append(value)
+    master_list.append(value.strip())
 for value in nasdaq_list:
-    master_list.append(value)
+    master_list.append(value.strip())
 for value in nyse_list:
-    master_list.append(value)
+    master_list.append(value.strip())
 
 output_list = list(set(master_list))
+    
 
 with open("stocks.txt", "w") as output:
     output.write(str(output_list))
