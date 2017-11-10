@@ -12,22 +12,8 @@
             $scope.toDate;
             $scope.fromDate;
             $scope.endDate;
-            // Current array for testing typeahead feature
-            // This needs to be an ajax call in the future to populate
-            // the asset array w/ all ticker symbols
-            $scope.asset = ['AAAP', 'AABA', 'AABA', 'AAME', 'AAOI',
-                'AAON', 'AAPL', 'AAWW', 'AAXJ', 'BMTC', 'BNCL',
-                'BNDX', 'BNFT', 'BNSO', 'CAKE', 'CALA', 'CALD', 'CALI',
-                'CALL', 'CALM', 'DWTR', 'DXGE', 'DXJS', 'ERII',
-                'ESBK', 'ESCA'
-            ];
 
-            $scope.names = ['AAAP', 'AABA', 'AABA', 'AAME', 'AAOI',
-                'AAON', 'AAPL', 'AAWW', 'AAXJ', 'BMTC', 'BNCL',
-                'BNDX', 'BNFT', 'BNSO', 'CAKE', 'CALA', 'CALD', 'CALI',
-                'CALL', 'CALM', 'DWTR', 'DXGE', 'DXJS', 'ERII',
-                'ESBK', 'ESCA'
-            ];
+
 
             console.log("Inside of AssetController");
 
