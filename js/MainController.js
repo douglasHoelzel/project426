@@ -101,16 +101,36 @@ var testAsset;
                     for(var i in json_data){
                         result.push([i, json_data [i]]);
                     }
-                    var dailyVal1 =  parseFloat(result[0][0]);
-                    var dailyVal2 =  parseFloat(result[1][0]);
-                    var dailyVal3 =  parseFloat(result[2][0]);
-                    var dailyVal4 =  parseFloat(result[3][0]);
-                    var dailyVal5 =  parseFloat(result[4][0]);
-                    var dailyVal6 =  parseFloat(result[5][0]);
-                    var dailyVal7 =  parseFloat(result[6][0]);
-                    var dailyVal8 =  parseFloat(result[7][0]);
-                    var dailyVal9 =  parseFloat(result[8][0]);
-                    var dailyVal10 = parseFloat(result[9][0]);
+                    console.log(assetObject.data.daily_histogram_data);
+                    var dailyVal1 =  parseFloat(result[0][0]).toFixed(5);
+                    var dailyXVal1 = parseFloat(result[0][1]);
+
+                    var dailyVal2 =  parseFloat(result[1][0]).toFixed(5);
+                    var dailyXVal2 = parseFloat(result[1][1]);
+
+                    var dailyVal3 =  parseFloat(result[2][0]).toFixed(5);
+                    var dailyXVal3 = parseFloat(result[2][1]);
+
+                    var dailyVal4 =  parseFloat(result[3][0]).toFixed(5);
+                    var dailyXVal4 = parseFloat(result[3][1]);
+
+                    var dailyVal5 =  parseFloat(result[4][0]).toFixed(5);
+                    var dailyXVal5 = parseFloat(result[4][1]);
+
+                    var dailyVal6 =  parseFloat(result[5][0]).toFixed(5);
+                    var dailyXVal6 = parseFloat(result[5][1]);
+
+                    var dailyVal7 =  parseFloat(result[6][0]).toFixed(5);
+                    var dailyXVal7 = parseFloat(result[6][1]);
+
+                    var dailyVal8 =  parseFloat(result[7][0]).toFixed(5);
+                    var dailyXVal8 = parseFloat(result[7][1]);
+
+                    var dailyVal9 =  parseFloat(result[8][0]).toFixed(5);
+                    var dailyXVal9 = parseFloat(result[8][1]);
+
+                    var dailyVal10 = parseFloat(result[9][0]).toFixed(5);
+                    var dailyXVal10 = parseFloat(result[9][1]);
 
                     var json_data2 = JSON.parse(assetObject.data.monthly_histogram_data);
                     var result2 = [];
@@ -146,17 +166,20 @@ var testAsset;
 
 
 
+
+
                 /* Chart Data */
                 var myChart = Highcharts.chart('highchartsContainer', {
                     chart: {
                         type: 'column'
                     },
                     title: {
-                        text: 'Daily Histogram Data'
+                        text: 'Daily Histogram Data for ' + assetObject.data.asset_name
                     },
                     colors: ['#4BA2EA', '#CBCBCB', '#266FAD'],
                     xAxis: {
-                        categories: ['One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten']
+                        categories: [dailyVal1, dailyVal2, dailyVal3, dailyVal4, dailyVal5,
+                                       dailyVal6, dailyVal7, dailyVal8, dailyVal9, dailyVal10]
                     },
                     yAxis: {
                         title: {
@@ -168,7 +191,8 @@ var testAsset;
                     },
                     series: [{
                         name: 'Daily Data',
-                        data: [dailyVal1, dailyVal2, dailyVal3, dailyVal4, dailyVal5, dailyVal6, dailyVal7, dailyVal8, dailyVal9, dailyVal10]
+                        data: [dailyXVal1, dailyXVal2, dailyXVal3, dailyXVal4, dailyXVal5,
+                               dailyXVal6, dailyXVal7, dailyXVal8, dailyXVal9, dailyXVal10]
                     }]
                 });
 
@@ -179,23 +203,25 @@ var testAsset;
                         type: 'column'
                     },
                     title: {
-                        text: 'Monthly Histogram Data'
+                        text: 'Monthly Histogram Data for ' + assetObject.data.asset_name
                     },
                     colors: ['#4BA2EA', '#CBCBCB', '#266FAD'],
                     xAxis: {
-                        categories: ['One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten']
+                        categories: ['One', 'Two', 'Three', 'Four', 'Five',
+                                     'Six', 'Seven', 'Eight', 'Nine', 'Ten']
                     },
                     yAxis: {
                         title: {
-                            text: ''
+                            text: 'Y Axis'
                         }
                     },
                     credits: {
                            enabled: false
                     },
                     series: [{
-                        name: 'Daily Data',
-                        data: [monthlyVal1, monthlyVal2, monthlyVal3, monthlyVal4, monthlyVal5, monthlyVal6, monthlyVal7, monthlyVal8, monthlyVal9, monthlyVal10]
+                        name: 'Monthly Data',
+                        data: [monthlyVal1, monthlyVal2, monthlyVal3, monthlyVal4, monthlyVal5,
+                               monthlyVal6, monthlyVal7, monthlyVal8, monthlyVal9, monthlyVal10]
                     }]
                 });
                 Highcharts.chart('highchartsContainer3', {
@@ -203,17 +229,19 @@ var testAsset;
                         type: 'column'
                     },
                     title: {
-                        text: 'Weekly Histogram Data'
+                        text: 'Weekly Histogram Data for ' + assetObject.data.asset_name
                     },
                     xAxis: {
-                        categories: ['One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten']
+                        categories: ['One', 'Two', 'Three', 'Four', 'Five',
+                                     'Six', 'Seven', 'Eight', 'Nine', 'Ten']
                     },
                     credits: {
                         enabled: false
                     },
                     series: [{
-                        name: 'Joe',
-                        data: [weeklyVal1, weeklyVal2, weeklyVal3, weeklyVal4, weeklyVal5, weeklyVal6, weeklyVal7, weeklyVal8, weeklyVal9, weeklyVal10]
+                        name: 'Weekly Data',
+                        data: [weeklyVal1, weeklyVal2, weeklyVal3, weeklyVal4, weeklyVal5,
+                               weeklyVal6, weeklyVal7, weeklyVal8, weeklyVal9, weeklyVal10]
                     }]
                 });
                 // $.getJSON('https://www.highcharts.com/samples/data/jsonp.php?filename=goog-c.json&callback=?', function (data) {
