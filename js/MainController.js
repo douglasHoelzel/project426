@@ -96,29 +96,12 @@ var testAsset;
                     for(var i in json_data){
                         result.push([i, json_data [i]]);
                     }
-
-                    // This will be converted to an array
-                    // Ugly now for the sake of getting it working properly
-                    var dailyVal1 =  parseFloat(result[0][0]).toFixed(5);
-                    var dailyXVal1 = parseFloat(result[0][1]);
-                    var dailyVal2 =  parseFloat(result[1][0]).toFixed(5);
-                    var dailyXVal2 = parseFloat(result[1][1]);
-                    var dailyVal3 =  parseFloat(result[2][0]).toFixed(5);
-                    var dailyXVal3 = parseFloat(result[2][1]);
-                    var dailyVal4 =  parseFloat(result[3][0]).toFixed(5);
-                    var dailyXVal4 = parseFloat(result[3][1]);
-                    var dailyVal5 =  parseFloat(result[4][0]).toFixed(5);
-                    var dailyXVal5 = parseFloat(result[4][1]);
-                    var dailyVal6 =  parseFloat(result[5][0]).toFixed(5);
-                    var dailyXVal6 = parseFloat(result[5][1]);
-                    var dailyVal7 =  parseFloat(result[6][0]).toFixed(5);
-                    var dailyXVal7 = parseFloat(result[6][1]);
-                    var dailyVal8 =  parseFloat(result[7][0]).toFixed(5);
-                    var dailyXVal8 = parseFloat(result[7][1]);
-                    var dailyVal9 =  parseFloat(result[8][0]).toFixed(5);
-                    var dailyXVal9 = parseFloat(result[8][1]);
-                    var dailyVal10 = parseFloat(result[9][0]).toFixed(5);
-                    var dailyXVal10 = parseFloat(result[9][1]);
+                var daily = result;
+                    for(var i=0; i<10; i++){
+                        console.log("inside of first for loop");
+                        daily[i][0] = parseFloat(daily[i][0]).toFixed(5);
+                        daily[i][1] = parseFloat(daily[i][1]);
+                    }
 
                     var json_data2 = JSON.parse(assetObject.data.monthly_histogram_data);
                     var result2 = [];
@@ -182,8 +165,8 @@ var testAsset;
                     },
                     colors: ['#4BA2EA', '#CBCBCB', '#266FAD'],
                     xAxis: {
-                        categories: [dailyVal1, dailyVal2, dailyVal3, dailyVal4, dailyVal5,
-                                       dailyVal6, dailyVal7, dailyVal8, dailyVal9, dailyVal10]
+                        categories: [, daily[0][0], daily[1][0], daily[2][0], daily[3][0], daily[4][0], daily[5][0],
+                                       daily[6][0], daily[7][0], daily[8][0], daily[9][0]]
                     },
                     yAxis: {
                         title: {
