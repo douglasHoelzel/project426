@@ -40,6 +40,9 @@ def return_data(stock, start_date, end_date):
 	json_response = requests.get(request_string).json()
 	ticker = '('+json_response['dataset']['dataset_code']+')'
 	name_to_parse = json_response['dataset']['name']
+	oldest_available = json_response['dataset']['oldest_available_date']
+	#pandas.to_datetime(oldest_available,format="%Y-%m-%d")
+	newest_available = json_response['dataset']['newest_available_date']
 	asset_name = name_to_parse.split('(')[0].replace('Inc.',"").replace('  ',' ').strip()
 
 	#Calculate returns for all frequencies
