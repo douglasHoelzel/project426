@@ -1,7 +1,6 @@
 var testAsset;
 
 (function () {
-
     angular
         .module('myApp')
         .controller('MainController', function MainController($scope, $http) {
@@ -13,8 +12,6 @@ var testAsset;
             $scope.fromDate;
             $scope.endDate;
 
-
-            console.log("Inside of MainController");
             $(function () {
                 var dateFormat = "mm/dd/yy",
                     from = $("#from")
@@ -85,7 +82,6 @@ var testAsset;
                 var convert_date = function (date) {
                     return date.replace(/\//g, "-")
                 }
-
                 var test_string = "http://localhost:5000/" + selectedAsset + "/" + convert_date(fromDate) + "/" + convert_date(toDate);
                 //Will need to change when put on local server
                 $http.get("http://localhost:5000/" + selectedAsset + "/" + convert_date(fromDate) + "/" + convert_date(toDate))
@@ -95,13 +91,11 @@ var testAsset;
             /* End of search bar function */
             $scope.grabCharts = function grabCharts(assetObject) {
                 asset = assetObject;
-                console.log(assetObject);
                 var json_data = JSON.parse(assetObject.data.daily_histogram_data);
                 var result = [];
                     for(var i in json_data){
                         result.push([i, json_data [i]]);
                     }
-                    console.log(assetObject.data.daily_histogram_data);
                     var dailyVal1 =  parseFloat(result[0][0]).toFixed(5);
                     var dailyXVal1 = parseFloat(result[0][1]);
                     var dailyVal2 =  parseFloat(result[1][0]).toFixed(5);
@@ -175,10 +169,6 @@ var testAsset;
                             var weeklyVal10 = parseFloat(result3[9][0]).toFixed(5);
                             var weeklyXVal10 = parseFloat(result3[9][1]);
 
-
-
-
-
                 /* Chart Data */
                 var myChart = Highcharts.chart('highchartsContainer', {
                     chart: {
@@ -223,7 +213,7 @@ var testAsset;
                     },
                     yAxis: {
                         title: {
-                            text: 'Y Axis'
+                            text: ''
                         }
                     },
                     credits: {
@@ -242,9 +232,15 @@ var testAsset;
                     title: {
                         text: 'Weekly Histogram Data for ' + assetObject.data.asset_name
                     },
+                    colors: ['#4BA2EA', '#CBCBCB', '#266FAD'],
                     xAxis: {
                         categories: [weeklyVal1, weeklyVal2, weeklyVal3, weeklyVal4, weeklyVal5,
                                      weeklyVal6, weeklyVal7, weeklyVal8, weeklyVal9, weeklyVal10]
+                    },
+                    yAxis: {
+                        title: {
+                            text: ''
+                        }
                     },
                     credits: {
                         enabled: false
@@ -255,6 +251,7 @@ var testAsset;
                                weeklyXVal6, weeklyXVal7, weeklyXVal8, weeklyXVal9, weeklyXVal10]
                     }]
                 });
+
                 // $.getJSON('https://www.highcharts.com/samples/data/jsonp.php?filename=goog-c.json&callback=?', function (data) {
                 //     Highcharts.stockChart('highchartsContainer3', {
                 //         rangeSelector: {
