@@ -78,15 +78,11 @@ var testAsset;
                     )
                 }
 
-                //Change date formatting to year-month-day
-                var convert_date = function (input_date) {
-                    var date = input_date.split('-');
-                    var return_date = date[2] + '-' + date[0] + '-' + date[1]
-                    return return_date
+                //Change date formatting
+                var convert_date = function (date) {
+                    return date.replace(/\//g, "-")
                 }
-                //Included for testing purposes
                 var test_string = "http://localhost:5000/" + selectedAsset + "/" + convert_date(fromDate) + "/" + convert_date(toDate);
-                //console.log(test_string);
                 //Will need to change when put on local server
                 $http.get("http://localhost:5000/" + selectedAsset + "/" + convert_date(fromDate) + "/" + convert_date(toDate))
                     .then(on_complete, on_error);
@@ -97,67 +93,89 @@ var testAsset;
                 asset = assetObject;
                 var json_data = JSON.parse(assetObject.data.daily_histogram_data);
                 var result = [];
-                    for(var i in json_data){
-                        result.push([i, json_data [i]]);
-                    }
-                var daily = result;
-                    for(var i=0; i<10; i++){
-                        console.log("inside of first for loop");
-                        daily[i][0] = parseFloat(daily[i][0]).toFixed(5);
-                        daily[i][1] = parseFloat(daily[i][1]);
-                    }
+                   for(var i in json_data){
+                       result.push([i, json_data [i]]);
+                   }
+               var daily = result;
+                   for(var i=0; i<10; i++){
+                       console.log("inside of first for loop");
+                       daily[i][0] = parseFloat(daily[i][0]).toFixed(5);
+                       daily[i][1] = parseFloat(daily[i][1]);
+                   }
+                    // This will be converted to an array
+                    // Ugly now for the sake of getting it working properly
+                    var dailyVal1 =  parseFloat(result[0][0]).toFixed(5);
+                    var dailyXVal1 = parseFloat(result[0][1]);
+                    var dailyVal2 =  parseFloat(result[1][0]).toFixed(5);
+                    var dailyXVal2 = parseFloat(result[1][1]);
+                    var dailyVal3 =  parseFloat(result[2][0]).toFixed(5);
+                    var dailyXVal3 = parseFloat(result[2][1]);
+                    var dailyVal4 =  parseFloat(result[3][0]).toFixed(5);
+                    var dailyXVal4 = parseFloat(result[3][1]);
+                    var dailyVal5 =  parseFloat(result[4][0]).toFixed(5);
+                    var dailyXVal5 = parseFloat(result[4][1]);
+                    var dailyVal6 =  parseFloat(result[5][0]).toFixed(5);
+                    var dailyXVal6 = parseFloat(result[5][1]);
+                    var dailyVal7 =  parseFloat(result[6][0]).toFixed(5);
+                    var dailyXVal7 = parseFloat(result[6][1]);
+                    var dailyVal8 =  parseFloat(result[7][0]).toFixed(5);
+                    var dailyXVal8 = parseFloat(result[7][1]);
+                    var dailyVal9 =  parseFloat(result[8][0]).toFixed(5);
+                    var dailyXVal9 = parseFloat(result[8][1]);
+                    var dailyVal10 = parseFloat(result[9][0]).toFixed(5);
+                    var dailyXVal10 = parseFloat(result[9][1]);
 
-                var json_data2 = JSON.parse(assetObject.data.monthly_histogram_data);
-                var result2 = [];
-                for (var i in json_data2) {
-                    result2.push([i, json_data2[i]]);
-                }
-                var monthlyVal1 = parseFloat(result2[0][0]).toFixed(5);
-                var monthlyXVal1 = parseFloat(result2[0][1]);
-                var monthlyVal2 = parseFloat(result2[1][0]).toFixed(5);
-                var monthlyXVal2 = parseFloat(result2[1][1]);
-                var monthlyVal3 = parseFloat(result2[2][0]).toFixed(5);
-                var monthlyXVal3 = parseFloat(result2[2][1]);
-                var monthlyVal4 = parseFloat(result2[3][0]).toFixed(5);
-                var monthlyXVal4 = parseFloat(result2[3][1]);
-                var monthlyVal5 = parseFloat(result2[4][0]).toFixed(5);
-                var monthlyXVal5 = parseFloat(result2[4][1]);
-                var monthlyVal6 = parseFloat(result2[5][0]).toFixed(5);
-                var monthlyXVal6 = parseFloat(result2[5][1]);
-                var monthlyVal7 = parseFloat(result2[6][0]).toFixed(5);
-                var monthlyXVal7 = parseFloat(result2[6][1]);
-                var monthlyVal8 = parseFloat(result2[7][0]).toFixed(5);
-                var monthlyXVal8 = parseFloat(result2[7][1]);
-                var monthlyVal9 = parseFloat(result2[8][0]).toFixed(5);
-                var monthlyXVal9 = parseFloat(result2[8][1]);
-                var monthlyVal10 = parseFloat(result2[9][0]).toFixed(5);
-                var monthlyXVal10 = parseFloat(result2[9][1]);
+                    var json_data2 = JSON.parse(assetObject.data.monthly_histogram_data);
+                    var result2 = [];
+                        for(var i in json_data2){
+                            result2.push([i, json_data2 [i]]);
+                        }
+                        var monthlyVal1 =  parseFloat(result2[0][0]).toFixed(5);
+                        var monthlyXVal1 = parseFloat(result2[0][1]);
+                        var monthlyVal2 =  parseFloat(result2[1][0]).toFixed(5);
+                        var monthlyXVal2 = parseFloat(result2[1][1]);
+                        var monthlyVal3 =  parseFloat(result2[2][0]).toFixed(5);
+                        var monthlyXVal3 = parseFloat(result2[2][1]);
+                        var monthlyVal4 =  parseFloat(result2[3][0]).toFixed(5);
+                        var monthlyXVal4 = parseFloat(result2[3][1]);
+                        var monthlyVal5 =  parseFloat(result2[4][0]).toFixed(5);
+                        var monthlyXVal5 = parseFloat(result2[4][1]);
+                        var monthlyVal6 =  parseFloat(result2[5][0]).toFixed(5);
+                        var monthlyXVal6 = parseFloat(result2[5][1]);
+                        var monthlyVal7 =  parseFloat(result2[6][0]).toFixed(5);
+                        var monthlyXVal7 = parseFloat(result2[6][1]);
+                        var monthlyVal8 =  parseFloat(result2[7][0]).toFixed(5);
+                        var monthlyXVal8 = parseFloat(result2[7][1]);
+                        var monthlyVal9 =  parseFloat(result2[8][0]).toFixed(5);
+                        var monthlyXVal9 = parseFloat(result2[8][1]);
+                        var monthlyVal10 = parseFloat(result2[9][0]).toFixed(5);
+                        var monthlyXVal10 =parseFloat(result2[9][1]);
 
-                var json_data3 = JSON.parse(assetObject.data.monthly_histogram_data);
-                var result3 = [];
-                for (var i in json_data3) {
-                    result3.push([i, json_data3[i]]);
-                }
-                var weeklyVal1 = parseFloat(result3[0][0]).toFixed(5);
-                var weeklyXVal1 = parseFloat(result3[0][1]);
-                var weeklyVal2 = parseFloat(result3[1][0]).toFixed(5);
-                var weeklyXVal2 = parseFloat(result3[1][1]);
-                var weeklyVal3 = parseFloat(result3[2][0]).toFixed(5);
-                var weeklyXVal3 = parseFloat(result3[2][1]);
-                var weeklyVal4 = parseFloat(result3[3][0]).toFixed(5);
-                var weeklyXVal4 = parseFloat(result3[3][1]);
-                var weeklyVal5 = parseFloat(result3[4][0]).toFixed(5);
-                var weeklyXVal5 = parseFloat(result3[4][1]);
-                var weeklyVal6 = parseFloat(result3[5][0]).toFixed(5);
-                var weeklyXVal6 = parseFloat(result3[5][1]);
-                var weeklyVal7 = parseFloat(result3[6][0]).toFixed(5);
-                var weeklyXVal7 = parseFloat(result3[6][1]);
-                var weeklyVal8 = parseFloat(result3[7][0]).toFixed(5);
-                var weeklyXVal8 = parseFloat(result3[7][1]);
-                var weeklyVal9 = parseFloat(result3[8][0]).toFixed(5);
-                var weeklyXVal9 = parseFloat(result3[8][1]);
-                var weeklyVal10 = parseFloat(result3[9][0]).toFixed(5);
-                var weeklyXVal10 = parseFloat(result3[9][1]);
+                        var json_data3 = JSON.parse(assetObject.data.monthly_histogram_data);
+                        var result3 = [];
+                            for(var i in json_data3){
+                                result3.push([i, json_data3 [i]]);
+                            }
+                            var weeklyVal1 =  parseFloat(result3[0][0]).toFixed(5);
+                            var weeklyXVal1 = parseFloat(result3[0][1]);
+                            var weeklyVal2 =  parseFloat(result3[1][0]).toFixed(5);
+                            var weeklyXVal2 = parseFloat(result3[1][1]);
+                            var weeklyVal3 =  parseFloat(result3[2][0]).toFixed(5);
+                            var weeklyXVal3 = parseFloat(result3[2][1]);
+                            var weeklyVal4 =  parseFloat(result3[3][0]).toFixed(5);
+                            var weeklyXVal4 = parseFloat(result3[3][1]);
+                            var weeklyVal5 =  parseFloat(result3[4][0]).toFixed(5);
+                            var weeklyXVal5 = parseFloat(result3[4][1]);
+                            var weeklyVal6 =  parseFloat(result3[5][0]).toFixed(5);
+                            var weeklyXVal6 = parseFloat(result3[5][1]);
+                            var weeklyVal7 =  parseFloat(result3[6][0]).toFixed(5);
+                            var weeklyXVal7 = parseFloat(result3[6][1]);
+                            var weeklyVal8 =  parseFloat(result3[7][0]).toFixed(5);
+                            var weeklyXVal8 = parseFloat(result3[7][1]);
+                            var weeklyVal9 =  parseFloat(result3[8][0]).toFixed(5);
+                            var weeklyXVal9 = parseFloat(result3[8][1]);
+                            var weeklyVal10 = parseFloat(result3[9][0]).toFixed(5);
+                            var weeklyXVal10 = parseFloat(result3[9][1]);
 
                 /* Chart Data */
                 var myChart = Highcharts.chart('highchartsContainer', {
@@ -169,7 +187,7 @@ var testAsset;
                     },
                     colors: ['#4BA2EA', '#CBCBCB', '#266FAD'],
                     xAxis: {
-                        categories: [, daily[0][0], daily[1][0], daily[2][0], daily[3][0], daily[4][0], daily[5][0],
+                        categories: [daily[0][0], daily[1][0], daily[2][0], daily[3][0], daily[4][0], daily[5][0],
                                        daily[6][0], daily[7][0], daily[8][0], daily[9][0]]
                     },
                     yAxis: {
@@ -178,13 +196,12 @@ var testAsset;
                         }
                     },
                     credits: {
-                        enabled: false
+                           enabled: false
                     },
                     series: [{
                         name: 'Daily Data',
-                        data: [dailyXVal1, dailyXVal2, dailyXVal3, dailyXVal4, dailyXVal5,
-                            dailyXVal6, dailyXVal7, dailyXVal8, dailyXVal9, dailyXVal10
-                        ]
+                        data: [daily[0][1], daily[1][1], daily[2][1], daily[3][1], daily[4][1], daily[5][1],
+                                       daily[6][1], daily[7][1], daily[8][1], daily[9][1]]
                     }]
                 });
 
@@ -200,8 +217,7 @@ var testAsset;
                     colors: ['#4BA2EA', '#CBCBCB', '#266FAD'],
                     xAxis: {
                         categories: [monthlyVal1, monthlyVal2, monthlyVal3, monthlyVal4, monthlyVal5,
-                            monthlyVal6, monthlyVal7, monthlyVal8, monthlyVal9, monthlyVal10
-                        ]
+                                       monthlyVal6, monthlyVal7, monthlyVal8, monthlyVal9, monthlyVal10]
                     },
                     yAxis: {
                         title: {
@@ -209,13 +225,12 @@ var testAsset;
                         }
                     },
                     credits: {
-                        enabled: false
+                           enabled: false
                     },
                     series: [{
                         name: 'Monthly Data',
                         data: [monthlyVal1, monthlyXVal2, monthlyXVal3, monthlyXVal4, monthlyXVal5,
-                            monthlyXVal6, monthlyXVal7, monthlyXVal8, monthlyXVal9, monthlyXVal10
-                        ]
+                               monthlyXVal6, monthlyXVal7, monthlyXVal8, monthlyXVal9, monthlyXVal10]
                     }]
                 });
                 Highcharts.chart('highchartsContainer3', {
@@ -228,8 +243,7 @@ var testAsset;
                     colors: ['#4BA2EA', '#CBCBCB', '#266FAD'],
                     xAxis: {
                         categories: [weeklyVal1, weeklyVal2, weeklyVal3, weeklyVal4, weeklyVal5,
-                            weeklyVal6, weeklyVal7, weeklyVal8, weeklyVal9, weeklyVal10
-                        ]
+                                     weeklyVal6, weeklyVal7, weeklyVal8, weeklyVal9, weeklyVal10]
                     },
                     yAxis: {
                         title: {
@@ -242,8 +256,7 @@ var testAsset;
                     series: [{
                         name: 'Weekly Data',
                         data: [weeklyXVal1, weeklyXVal2, weeklyXVal3, weeklyXVal4, weeklyXVal5,
-                            weeklyXVal6, weeklyXVal7, weeklyXVal8, weeklyXVal9, weeklyXVal10
-                        ]
+                               weeklyXVal6, weeklyXVal7, weeklyXVal8, weeklyXVal9, weeklyXVal10]
                     }]
                 });
 
