@@ -96,6 +96,9 @@ var testAsset;
                     for(var i in json_data){
                         result.push([i, json_data [i]]);
                     }
+
+                    // This will be converted to an array
+                    // Ugly now for the sake of getting it working properly
                     var dailyVal1 =  parseFloat(result[0][0]).toFixed(5);
                     var dailyXVal1 = parseFloat(result[0][1]);
                     var dailyVal2 =  parseFloat(result[1][0]).toFixed(5);
