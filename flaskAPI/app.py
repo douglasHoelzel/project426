@@ -90,13 +90,13 @@ def return_data(stock, start_date, end_date):
 	quartile_95 = calculate_quartile(daily_returns,.95)
 
 	#Create a data set to build a histogram of daily returns
-	daily_histogram_data = make_histogram(daily_returns)
+	daily_histogram_data = make_histogram_daily(daily_returns)
 	
 	#Create a data set to build a histogram of weekly returns
-	weekly_histogram_data = make_histogram(weekly_returns)
+	weekly_histogram_data = make_histogram_weekly(weekly_returns)
 
 	#Create a data set to build a histogram of monthly returns
-	monthly_histogram_data = make_histogram(monthly_returns)
+	monthly_histogram_data = make_histogram_monthly(monthly_returns)
 
 	return jsonify({"cumulative_returns": cumulative_returns,
 					"current_date": current_date,
