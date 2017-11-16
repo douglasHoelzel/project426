@@ -12,8 +12,9 @@ var testAsset;
             $scope.fromDate;
             $scope.endDate;
             $scope.loading = false;
-            var firstLoad = 0;
 
+
+            //var firstLoad = 0;
             //Asset that shows on initial page load
             //  window.onload = function() {
             //         console.log("First Load Value1: " + firstLoad);
@@ -66,6 +67,8 @@ var testAsset;
                 $scope.data = response.data;
                 $scope.grabCharts(response);
                 $scope.loading = false;
+                $('#myOverlay').hide();
+
             };
 
             //On Error for Ajax Call
@@ -75,6 +78,7 @@ var testAsset;
 
             $scope.searchAsset = function searchAsset(selectedAsset, fromDate, toDate) {
                 $scope.loading = true;
+                $('#myOverlay').show();
 
                 var today = new Date();
                 var dd = today.getDate();
