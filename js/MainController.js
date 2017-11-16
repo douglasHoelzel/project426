@@ -83,11 +83,11 @@ var testAsset;
                 }
 
                 //Change date formatting to year-month-day
-                 var convert_date = function (input_date) {
-                     var date = input_date.split('-');
-                     var return_date = date[2] + '-' + date[0] + '-' + date[1]
-                     return return_date
-                 }
+                var convert_date = function (input_date) {
+                    var date = input_date.split('-');
+                    var return_date = date[2] + '-' + date[0] + '-' + date[1]
+                    return return_date
+                }
                 var test_string = "http://localhost:5000/" + selectedAsset + "/" + convert_date(fromDate) + "/" + convert_date(toDate);
                 //Will need to change when put on local server
                 $http.get("http://localhost:5000/" + selectedAsset + "/" + convert_date(fromDate) + "/" + convert_date(toDate))
@@ -96,47 +96,62 @@ var testAsset;
 
             /* End of search bar function */
             $scope.grabCharts = function grabCharts(assetObject) {
+                console.log('Inside grab charts');
                 asset = assetObject;
                 /*
                  * Daily Histogram Data Array
                  */
                 var json_data = JSON.parse(assetObject.data.daily_histogram_data);
+                
+                /* Proposed changes for all graphs
+                console.log(json_data);
+                var daily_bins = [];
+                var daily_count = [];
+                for (var key in json_data) {
+                    daily_bins.push(((parseFloat(key) * 100).toFixed(1)) + '%');
+                    daily_count.push(json_data[key]);
+                }
+                console.log(daily_bins);
+                console.log(daily_count);
+                */
+               
                 var result = [];
-                   for(var i in json_data){
-                       result.push([i, json_data [i]]);
-                   }
+                for (var i in json_data) {
+                    result.push([i, json_data[i]]);
+                }
+
                 var daily = result;
-                   for(var i=0; i<10; i++){
-                       daily[i][0] = parseFloat(daily[i][0]).toFixed(5);
-                       daily[i][1] = parseFloat(daily[i][1]);
-                   }
+                for (var i = 0; i < 10; i++) {
+                    daily[i][0] = parseFloat(daily[i][0]).toFixed(5);
+                    daily[i][1] = parseFloat(daily[i][1]);
+                }
                 /*
                  * Monthly Histogram Data Array
                  */
-               var json_data2 = JSON.parse(assetObject.data.monthly_histogram_data);
-               var result2 = [];
-                  for(var i in json_data2){
-                       result2.push([i, json_data2 [i]]);
-                  }
-               var monthly = result2;
-                   for(var i=0; i<10; i++){
-                       monthly[i][0] = parseFloat(monthly[i][0]).toFixed(5);
-                       monthly[i][1] = parseFloat(monthly[i][1]);
-                   }
+                var json_data2 = JSON.parse(assetObject.data.monthly_histogram_data);
+                var result2 = [];
+                for (var i in json_data2) {
+                    result2.push([i, json_data2[i]]);
+                }
+                var monthly = result2;
+                for (var i = 0; i < 10; i++) {
+                    monthly[i][0] = parseFloat(monthly[i][0]).toFixed(5);
+                    monthly[i][1] = parseFloat(monthly[i][1]);
+                }
 
-                 /*
-                  * Weekly Histogram Data Array
-                  */
-                 var json_data3 = JSON.parse(assetObject.data.weekly_histogram_data);
-                 var result3 = [];
-                    for(var i in json_data3){
-                          result3.push([i, json_data3 [i]]);
-                     }
-                 var weekly = result2;
-                    for(var i=0; i<10; i++){
-                         weekly[i][0] = parseFloat(weekly[i][0]).toFixed(5);
-                         weekly[i][1] = parseFloat(weekly[i][1]);
-                     }
+                /*
+                 * Weekly Histogram Data Array
+                 */
+                var json_data3 = JSON.parse(assetObject.data.weekly_histogram_data);
+                var result3 = [];
+                for (var i in json_data3) {
+                    result3.push([i, json_data3[i]]);
+                }
+                var weekly = result2;
+                for (var i = 0; i < 10; i++) {
+                    weekly[i][0] = parseFloat(weekly[i][0]).toFixed(5);
+                    weekly[i][1] = parseFloat(weekly[i][1]);
+                }
 
 
                 /* Chart Data */
@@ -181,7 +196,8 @@ var testAsset;
                     colors: ['#4BA2EA', '#CBCBCB', '#266FAD'],
                     xAxis: {
                         categories: [monthly[0][0], monthly[1][0], monthly[2][0], monthly[3][0], monthly[4][0], monthly[5][0],
-                                       monthly[6][0], monthly[7][0], monthly[8][0], monthly[9][0]]
+                            monthly[6][0], monthly[7][0], monthly[8][0], monthly[9][0]
+                        ]
                     },
                     yAxis: {
                         title: {
@@ -194,7 +210,8 @@ var testAsset;
                     series: [{
                         name: 'Monthly Data',
                         data: [monthly[0][1], monthly[1][1], monthly[2][1], monthly[3][1], monthly[4][1], monthly[5][1],
-                                       monthly[6][1], monthly[7][1], monthly[8][1], monthly[9][1]]
+                            monthly[6][1], monthly[7][1], monthly[8][1], monthly[9][1]
+                        ]
                     }]
                 });
                 Highcharts.chart('highchartsContainer3', {
@@ -207,7 +224,8 @@ var testAsset;
                     colors: ['#4BA2EA', '#CBCBCB', '#266FAD'],
                     xAxis: {
                         categories: [weekly[0][0], weekly[1][0], weekly[2][0], monthly[3][0], monthly[4][0], monthly[5][0],
-                                       monthly[6][0], monthly[7][0], monthly[8][0], monthly[9][0]]
+                            monthly[6][0], monthly[7][0], monthly[8][0], monthly[9][0]
+                        ]
                     },
                     yAxis: {
                         title: {
@@ -220,7 +238,8 @@ var testAsset;
                     series: [{
                         name: 'Weekly Data',
                         data: [weekly[0][1], weekly[1][1], weekly[2][1], monthly[3][1], monthly[4][1], monthly[5][1],
-                                       monthly[6][1], monthly[7][1], monthly[8][1], monthly[9][1]]
+                            monthly[6][1], monthly[7][1], monthly[8][1], monthly[9][1]
+                        ]
                     }]
                 });
 
