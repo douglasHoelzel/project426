@@ -14,13 +14,13 @@
             controller: "MainController"
           })
 
-          .state("assetView", {
-            url: "/assetView/",
-            templateUrl: "assetView.html",
-            controller: function ($scope, $stateParams) {
-              $scope.tickerId = $stateParams.tickerId;
-            }
-          })
+          // .state("assetView", {
+          //   url: "/assetView/",
+          //   templateUrl: "assetView.html",
+          //   controller: function ($scope, $stateParams) {
+          //     $scope.tickerId = $stateParams.tickerId;
+          //   }
+          // })
       }
     ]);
 

@@ -12,6 +12,19 @@ var testAsset;
             $scope.fromDate;
             $scope.endDate;
             $scope.loading = false;
+            var firstLoad = 0;
+
+            //Asset that shows on initial page load
+            //  window.onload = function() {
+            //         console.log("First Load Value1: " + firstLoad);
+            //         if(firstLoad == 0){
+            //             console.log("First Load Value2: " + firstLoad);
+            //             $scope.searchAsset("IVV", "10/10/2013", "10/10/2016");
+            //         };
+            //     firstLoad++;
+            //     console.log("First Load Value3: " + firstLoad);
+            // }
+
 
             $(function () {
                 var dateFormat = "mm/dd/yy",
