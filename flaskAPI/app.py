@@ -19,18 +19,18 @@ CORS(app)
 def return_data(stock, start_date, end_date):
     
 	#Pull daily data from Quandl
-	daily_data = q.get("EOD/{0}.4".format(stock), #Only pull closing price
+	daily_data = q.get("EOD/{0}.11".format(stock), #Only pull closing price
 				start_date="{0}".format(start_date), 
 				end_date="{0}".format(end_date))
 
 	#Pull weekly data from Quandl
-	weekly_data = q.get("EOD/{0}.4".format(stock), #Only pull closing price
+	weekly_data = q.get("EOD/{0}.11".format(stock), #Only pull closing price
 				collapse="weekly",
 				start_date="{0}".format(start_date), 
 				end_date="{0}".format(end_date))
 
 	#Pull monthly data from Quandl
-	monthly_data = q.get("EOD/{0}.4".format(stock), #Only pull closing price
+	monthly_data = q.get("EOD/{0}.11".format(stock), #Only pull closing price
 				collapse="monthly",
 				start_date="{0}".format(start_date), 
 				end_date="{0}".format(end_date))
