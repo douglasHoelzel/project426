@@ -299,3 +299,15 @@ th{
   100% { transform: rotate(360deg); }
 }
 /* End Loader Styling */
+
+#footerText{
+    float: left;
+    width: 100%;
+    margin: auto;
+}
+#footerText2{
+    float: left;
+    width: 100%;
+    margin: auto;
+    margin-bottom: 60px;
+}
