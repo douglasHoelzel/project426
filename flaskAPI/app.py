@@ -19,18 +19,18 @@ CORS(app)
 def return_data(stock, start_date, end_date):
     
 	#Pull daily data from Quandl
-	daily_data = q.get("EOD/{0}.4".format(stock), #Only pull closing price
+	daily_data = q.get("EOD/{0}.11".format(stock), #Only pull closing price
 				start_date="{0}".format(start_date), 
 				end_date="{0}".format(end_date))
 
 	#Pull weekly data from Quandl
-	weekly_data = q.get("EOD/{0}.4".format(stock), #Only pull closing price
+	weekly_data = q.get("EOD/{0}.11".format(stock), #Only pull closing price
 				collapse="weekly",
 				start_date="{0}".format(start_date), 
 				end_date="{0}".format(end_date))
 
 	#Pull monthly data from Quandl
-	monthly_data = q.get("EOD/{0}.4".format(stock), #Only pull closing price
+	monthly_data = q.get("EOD/{0}.11".format(stock), #Only pull closing price
 				collapse="monthly",
 				start_date="{0}".format(start_date), 
 				end_date="{0}".format(end_date))
@@ -45,10 +45,10 @@ def return_data(stock, start_date, end_date):
 	newest_available = json_response['dataset']['newest_available_date']
 	asset_name = name_to_parse.split('(')[0].replace('Inc.',"").replace('  ',' ').strip()
 
-	#Calculate returns for all frequencies
-	daily_returns = daily_data.pct_change().dropna()
-	weekly_returns = weekly_data.pct_change().dropna()
-	monthly_returns = monthly_data.pct_change().dropna()
+	#Calculate log returns for all frequencies
+	daily_returns = np.log(1 + daily_data.pct_change().dropna())
+	weekly_returns = np.log(1 + weekly_data.pct_change().dropna())
+	monthly_returns = np.log(1 + monthly_data.pct_change().dropna())
 
 	#Assign current date to return
 	current_date = datetime.date.today().strftime('%m/%d/%Y')
@@ -90,13 +90,13 @@ def return_data(stock, start_date, end_date):
 	quartile_95 = calculate_quartile(daily_returns,.95)
 
 	#Create a data set to build a histogram of daily returns
-	daily_histogram_data = make_histogram(daily_returns)
+	daily_histogram_data = make_histogram_daily(daily_returns)
 	
 	#Create a data set to build a histogram of weekly returns
-	weekly_histogram_data = make_histogram(weekly_returns)
+	weekly_histogram_data = make_histogram_weekly(weekly_returns)
 
 	#Create a data set to build a histogram of monthly returns
-	monthly_histogram_data = make_histogram(monthly_returns)
+	monthly_histogram_data = make_histogram_monthly(monthly_returns)
 
 	return jsonify({"cumulative_returns": cumulative_returns,
 					"current_date": current_date,

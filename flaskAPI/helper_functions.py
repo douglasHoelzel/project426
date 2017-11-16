@@ -64,10 +64,42 @@ def max_ret(daily_ret):
         raise ValueError('Expected a dataframe for daily maximum')  
 
 #This can handle monthly, weekly, and daily returns
-def make_histogram(ret):
+def make_histogram_daily(ret):
     if isinstance(ret, pd.DataFrame):
         #Use Numpy histogram functionality
-        count, division = np.histogram(ret)
+        count, division = np.histogram(ret, bins=np.linspace(-.05,.05,101))
+
+        #Convert to python native datatypes
+        native_count = [np.asscalar(c) for c in count]
+        str_division = [str(d) for d in division]
+
+        #Form bin/count pairs 
+        histogram_dict = dict(zip(str_division,native_count))
+
+        return json.dumps(histogram_dict)
+    else:
+        raise ValueError('Expected a dataframe for histogram calculations')  
+        
+def make_histogram_weekly(ret):
+    if isinstance(ret, pd.DataFrame):
+        #Use Numpy histogram functionality
+        count, division = np.histogram(ret, bins=np.linspace(-.15,.15,101))
+
+        #Convert to python native datatypes
+        native_count = [np.asscalar(c) for c in count]
+        str_division = [str(d) for d in division]
+
+        #Form bin/count pairs 
+        histogram_dict = dict(zip(str_division,native_count))
+
+        return json.dumps(histogram_dict)
+    else:
+        raise ValueError('Expected a dataframe for histogram calculations')
+        
+def make_histogram_monthly(ret):
+    if isinstance(ret, pd.DataFrame):
+        #Use Numpy histogram functionality
+        count, division = np.histogram(ret, bins=np.linspace(-.3,.3,101))
 
         #Convert to python native datatypes
         native_count = [np.asscalar(c) for c in count]

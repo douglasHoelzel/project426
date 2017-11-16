@@ -96,61 +96,39 @@ var testAsset;
 
             /* End of search bar function */
             $scope.grabCharts = function grabCharts(assetObject) {
-                console.log('Inside grab charts');
                 asset = assetObject;
                 /*
                  * Daily Histogram Data Array
                  */
                 var json_data = JSON.parse(assetObject.data.daily_histogram_data);
-                
-                /* Proposed changes for all graphs
-                console.log(json_data);
+
                 var daily_bins = [];
                 var daily_count = [];
                 for (var key in json_data) {
                     daily_bins.push(((parseFloat(key) * 100).toFixed(1)) + '%');
                     daily_count.push(json_data[key]);
                 }
-                console.log(daily_bins);
-                console.log(daily_count);
-                */
-               
-                var result = [];
-                for (var i in json_data) {
-                    result.push([i, json_data[i]]);
-                }
+                /*
+                 * Weekly Histogram Data Array
+                 */
+                var json_data2 = JSON.parse(assetObject.data.weekly_histogram_data);
 
-                var daily = result;
-                for (var i = 0; i < 10; i++) {
-                    daily[i][0] = parseFloat(daily[i][0]).toFixed(5);
-                    daily[i][1] = parseFloat(daily[i][1]);
+                var weekly_bins = [];
+                var weekly_count = [];
+                for (var key in json_data2) {
+                    weekly_bins.push(((parseFloat(key) * 100).toFixed(1)) + '%');
+                    weekly_count.push(json_data2[key]);
                 }
                 /*
                  * Monthly Histogram Data Array
                  */
-                var json_data2 = JSON.parse(assetObject.data.monthly_histogram_data);
-                var result2 = [];
-                for (var i in json_data2) {
-                    result2.push([i, json_data2[i]]);
-                }
-                var monthly = result2;
-                for (var i = 0; i < 10; i++) {
-                    monthly[i][0] = parseFloat(monthly[i][0]).toFixed(5);
-                    monthly[i][1] = parseFloat(monthly[i][1]);
-                }
+                var json_data3 = JSON.parse(assetObject.data.monthly_histogram_data);
 
-                /*
-                 * Weekly Histogram Data Array
-                 */
-                var json_data3 = JSON.parse(assetObject.data.weekly_histogram_data);
-                var result3 = [];
-                for (var i in json_data3) {
-                    result3.push([i, json_data3[i]]);
-                }
-                var weekly = result2;
-                for (var i = 0; i < 10; i++) {
-                    weekly[i][0] = parseFloat(weekly[i][0]).toFixed(5);
-                    weekly[i][1] = parseFloat(weekly[i][1]);
+                var monthly_bins = [];
+                var monthly_count = [];
+                for (var key in json_data3) {
+                    monthly_bins.push(((parseFloat(key) * 100).toFixed(1)) + '%');
+                    monthly_count.push(json_data3[key]);
                 }
 
 
@@ -160,13 +138,11 @@ var testAsset;
                         type: 'column'
                     },
                     title: {
-                        text: 'Daily Histogram Data for ' + assetObject.data.asset_name
+                        text: 'Daily Histogram of Returns'
                     },
                     colors: ['#4BA2EA', '#CBCBCB', '#266FAD'],
                     xAxis: {
-                        categories: [daily[0][0], daily[1][0], daily[2][0], daily[3][0], daily[4][0], daily[5][0],
-                            daily[6][0], daily[7][0], daily[8][0], daily[9][0]
-                        ]
+                        categories: daily_bins
                     },
                     yAxis: {
                         title: {
@@ -178,9 +154,7 @@ var testAsset;
                     },
                     series: [{
                         name: 'Daily Data',
-                        data: [daily[0][1], daily[1][1], daily[2][1], daily[3][1], daily[4][1], daily[5][1],
-                            daily[6][1], daily[7][1], daily[8][1], daily[9][1]
-                        ]
+                        data: daily_count
                     }]
                 });
 
@@ -191,13 +165,11 @@ var testAsset;
                         type: 'column'
                     },
                     title: {
-                        text: 'Monthly Histogram Data for ' + assetObject.data.asset_name
+                        text: 'Monthly Histogram of Returns'
                     },
                     colors: ['#4BA2EA', '#CBCBCB', '#266FAD'],
                     xAxis: {
-                        categories: [monthly[0][0], monthly[1][0], monthly[2][0], monthly[3][0], monthly[4][0], monthly[5][0],
-                            monthly[6][0], monthly[7][0], monthly[8][0], monthly[9][0]
-                        ]
+                        categories: monthly_bins
                     },
                     yAxis: {
                         title: {
@@ -209,9 +181,7 @@ var testAsset;
                     },
                     series: [{
                         name: 'Monthly Data',
-                        data: [monthly[0][1], monthly[1][1], monthly[2][1], monthly[3][1], monthly[4][1], monthly[5][1],
-                            monthly[6][1], monthly[7][1], monthly[8][1], monthly[9][1]
-                        ]
+                        data: monthly_count
                     }]
                 });
                 Highcharts.chart('highchartsContainer3', {
@@ -219,13 +189,11 @@ var testAsset;
                         type: 'column'
                     },
                     title: {
-                        text: 'Weekly Histogram Data for ' + assetObject.data.asset_name
+                        text: 'Weekly Histogram of Returns'
                     },
                     colors: ['#4BA2EA', '#CBCBCB', '#266FAD'],
                     xAxis: {
-                        categories: [weekly[0][0], weekly[1][0], weekly[2][0], monthly[3][0], monthly[4][0], monthly[5][0],
-                            monthly[6][0], monthly[7][0], monthly[8][0], monthly[9][0]
-                        ]
+                        categories: weekly_bins
                     },
                     yAxis: {
                         title: {
@@ -237,36 +205,9 @@ var testAsset;
                     },
                     series: [{
                         name: 'Weekly Data',
-                        data: [weekly[0][1], weekly[1][1], weekly[2][1], monthly[3][1], monthly[4][1], monthly[5][1],
-                            monthly[6][1], monthly[7][1], monthly[8][1], monthly[9][1]
-                        ]
+                        data: weekly_count
                     }]
                 });
-
-                // $.getJSON('https://www.highcharts.com/samples/data/jsonp.php?filename=goog-c.json&callback=?', function (data) {
-                //     Highcharts.stockChart('highchartsContainer3', {
-                //         rangeSelector: {
-                //             selected: 1
-                //         },
-                //
-                //         title: {
-                //             text: ' GOOG Stock Price'
-                //         },
-                //
-                //         series: [{
-                //             name: 'GOOG Stock Price',
-                //             data: data,
-                //             marker: {
-                //                 enabled: true,
-                //                 radius: 3
-                //             },
-                //             shadow: true,
-                //             tooltip: {
-                //                 dailyValueDecimals: 2
-                //             }
-                //         }]
-                //     });
-                // });
 
 
             }; // Ends grabCharts() function
