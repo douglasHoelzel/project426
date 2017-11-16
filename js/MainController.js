@@ -11,6 +11,7 @@ var testAsset;
             $scope.toDate;
             $scope.fromDate;
             $scope.endDate;
+            $scope.loading = false;
 
             $(function () {
                 var dateFormat = "mm/dd/yy",
@@ -51,6 +52,7 @@ var testAsset;
             var on_complete = function (response) {
                 $scope.data = response.data;
                 $scope.grabCharts(response);
+                $scope.loading = false;
             };
 
             //On Error for Ajax Call
@@ -59,6 +61,8 @@ var testAsset;
             };
 
             $scope.searchAsset = function searchAsset(selectedAsset, fromDate, toDate) {
+                $scope.loading = true;
+
                 var fromDate = fromDate.replace("/", "-");
                 var toDate = toDate.replace("/", "-");
                 var fromDate = fromDate.replace("/", "-");
