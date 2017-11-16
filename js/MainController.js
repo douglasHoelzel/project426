@@ -63,13 +63,38 @@ var testAsset;
             $scope.searchAsset = function searchAsset(selectedAsset, fromDate, toDate) {
                 $scope.loading = true;
 
+                var today = new Date();
+                var dd = today.getDate();
+                var mm = today.getMonth()+1; //January is 0!
+
+                var yyyy = today.getFullYear();
+                if(dd<10){
+                    dd='0'+dd;
+                }
+                if(mm<10){
+                    mm='0'+mm;
+                }
+                var today = mm+'/'+dd+'/'+yyyy;
+                var flag = 0; // false
+
+                if (today <= toDate || today <= fromDate || toDate <= fromDate){
+                   flag = 1;
+                   swal(
+                       'Please enter a valid date range',
+                       '',
+                       'error'
+                   ).then(function (result) {
+                       location.reload();
+                    })
+                }
+
                 var fromDate = fromDate.replace("/", "-");
                 var toDate = toDate.replace("/", "-");
                 var fromDate = fromDate.replace("/", "-");
                 var toDate = toDate.replace("/", "-");
                 if (fromDate == null || toDate == null || fromDate == "" || toDate == "") {
                     swal(
-                        'Please enter a dailyValid start and end date',
+                        'Please enter a valid start and end date',
                         '',
                         'error'
                     )
