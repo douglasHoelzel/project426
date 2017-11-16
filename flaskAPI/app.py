@@ -45,10 +45,10 @@ def return_data(stock, start_date, end_date):
 	newest_available = json_response['dataset']['newest_available_date']
 	asset_name = name_to_parse.split('(')[0].replace('Inc.',"").replace('  ',' ').strip()
 
-	#Calculate returns for all frequencies
-	daily_returns = daily_data.pct_change().dropna()
-	weekly_returns = weekly_data.pct_change().dropna()
-	monthly_returns = monthly_data.pct_change().dropna()
+	#Calculate log returns for all frequencies
+	daily_returns = np.log(1 + daily_data.pct_change().dropna())
+	weekly_returns = np.log(1 + weekly_data.pct_change().dropna())
+	monthly_returns = np.log(1 + monthly_data.pct_change().dropna())
 
 	#Assign current date to return
 	current_date = datetime.date.today().strftime('%m/%d/%Y')
