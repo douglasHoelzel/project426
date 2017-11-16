@@ -146,7 +146,8 @@ var testAsset;
                     colors: ['#4BA2EA', '#CBCBCB', '#266FAD'],
                     xAxis: {
                         categories: [daily[0][0], daily[1][0], daily[2][0], daily[3][0], daily[4][0], daily[5][0],
-                                       daily[6][0], daily[7][0], daily[8][0], daily[9][0]]
+                            daily[6][0], daily[7][0], daily[8][0], daily[9][0]
+                        ]
                     },
                     yAxis: {
                         title: {
@@ -154,12 +155,13 @@ var testAsset;
                         }
                     },
                     credits: {
-                           enabled: false
+                        enabled: false
                     },
                     series: [{
                         name: 'Daily Data',
                         data: [daily[0][1], daily[1][1], daily[2][1], daily[3][1], daily[4][1], daily[5][1],
-                                       daily[6][1], daily[7][1], daily[8][1], daily[9][1]]
+                            daily[6][1], daily[7][1], daily[8][1], daily[9][1]
+                        ]
                     }]
                 });
 
@@ -183,7 +185,7 @@ var testAsset;
                         }
                     },
                     credits: {
-                           enabled: false
+                        enabled: false
                     },
                     series: [{
                         name: 'Monthly Data',
