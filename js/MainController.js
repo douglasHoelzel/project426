@@ -138,7 +138,7 @@ var testAsset;
                         type: 'column'
                     },
                     title: {
-                        text: 'Daily Histogram Data for ' + assetObject.data.asset_name
+                        text: 'Daily Histogram of Returns'
                     },
                     colors: ['#4BA2EA', '#CBCBCB', '#266FAD'],
                     xAxis: {
@@ -165,7 +165,7 @@ var testAsset;
                         type: 'column'
                     },
                     title: {
-                        text: 'Monthly Histogram Data for ' + assetObject.data.asset_name
+                        text: 'Monthly Histogram of Returns'
                     },
                     colors: ['#4BA2EA', '#CBCBCB', '#266FAD'],
                     xAxis: {
@@ -189,7 +189,7 @@ var testAsset;
                         type: 'column'
                     },
                     title: {
-                        text: 'Weekly Histogram Data for ' + assetObject.data.asset_name
+                        text: 'Weekly Histogram of Returns'
                     },
                     colors: ['#4BA2EA', '#CBCBCB', '#266FAD'],
                     xAxis: {
