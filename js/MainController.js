@@ -51,10 +51,24 @@ var testAsset;
             });
 
             var on_complete = function (response) {
+                if(response.data.is_valid == false){
+                    console.log("inside of if statement");
+                    swal(
+                        'Please enter a valid date range',
+                        '',
+                        'error'
+                    ).then(function (result) {
+                        $('#myOverlay').hide();
+                 })
+                }
+                else {
                 $scope.data = format_data(response.data);
                 $scope.grabCharts(response);
                 $scope.loading = false;
                 $('#myOverlay').hide();
+                }
+                $scope.loading = false;
+
 
             };
 
