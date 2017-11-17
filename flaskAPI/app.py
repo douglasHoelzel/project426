@@ -115,8 +115,9 @@ def return_data(stock, start_date, end_date):
 					"quartile_75": quartile_75,
 					"quartile_95": quartile_95,
 					"asset_symbol": ticker,
-					"asset_name": asset_name
-					
+					"asset_name": asset_name,
+					"oldest_available": oldest_available,
+					"newest_available": newest_available
 })
 
 if __name__ == "__main__":
