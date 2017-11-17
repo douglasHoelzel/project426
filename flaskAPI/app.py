@@ -17,6 +17,27 @@ CORS(app)
 
 @app.route("/<stock>/<start_date>/<end_date>")
 def return_data(stock, start_date, end_date):
+	
+	#Pull metadata from Quandl (ticker and name)
+	request_string = 'https://www.quandl.com/api/v3/datasets/EOD/{0}/metadata.json?api_key=xaFxr9SP6Wd5sKFHdEax'.format(stock)
+	json_response = requests.get(request_string).json()
+	ticker = '('+json_response['dataset']['dataset_code']+')'
+	name_to_parse = json_response['dataset']['name']
+	oldest_available = json_response['dataset']['oldest_available_date']
+	#pandas.to_datetime(oldest_available,format="%Y-%m-%d")
+	newest_available = json_response['dataset']['newest_available_date']
+	asset_name = name_to_parse.split('(')[0].replace('Inc.',"").replace('  ',' ').strip()
+
+	#Data checking to make sure data is valid
+	oldest_datetime = pd.to_datetime(oldest_available,format="%Y-%m-%d")
+	newest_datetime = pd.to_datetime(newest_available,format="%Y-%m-%d")
+	start_datetime = pd.to_datetime(start_date,format="%Y-%m-%d")
+	end_datetime = pd.to_datetime(end_date,format="%Y-%m-%d")
+
+	if(start_datetime < oldest_datetime or end_datetime > newest_datetime):
+		return jsonify({"oldest_available": oldest_available,
+				        "newest_available": newest_available,
+				        "is_valid": False})
     
 	#Pull daily data from Quandl
 	daily_data = q.get("EOD/{0}.11".format(stock), #Only pull closing price
@@ -34,16 +55,6 @@ def return_data(stock, start_date, end_date):
 				collapse="monthly",
 				start_date="{0}".format(start_date), 
 				end_date="{0}".format(end_date))
-
-	#Pull metadata from Quandl (ticker and name)
-	request_string = 'https://www.quandl.com/api/v3/datasets/EOD/{0}/metadata.json?api_key=xaFxr9SP6Wd5sKFHdEax'.format(stock)
-	json_response = requests.get(request_string).json()
-	ticker = '('+json_response['dataset']['dataset_code']+')'
-	name_to_parse = json_response['dataset']['name']
-	oldest_available = json_response['dataset']['oldest_available_date']
-	#pandas.to_datetime(oldest_available,format="%Y-%m-%d")
-	newest_available = json_response['dataset']['newest_available_date']
-	asset_name = name_to_parse.split('(')[0].replace('Inc.',"").replace('  ',' ').strip()
 
 	#Calculate log returns for all frequencies
 	daily_returns = np.log(1 + daily_data.pct_change().dropna())
@@ -117,7 +128,8 @@ def return_data(stock, start_date, end_date):
 					"asset_symbol": ticker,
 					"asset_name": asset_name,
 					"oldest_available": oldest_available,
-					"newest_available": newest_available
+					"newest_available": newest_available,
+					"is_valid": True
 })
 
 if __name__ == "__main__":
