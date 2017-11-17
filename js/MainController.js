@@ -14,17 +14,17 @@ var testAsset;
             $scope.loading = false;
 
 
-            //var firstLoad = 0;
+            var firstLoad = 0;
             //Asset that shows on initial page load
-            //  window.onload = function() {
-            //         console.log("First Load Value1: " + firstLoad);
-            //         if(firstLoad == 0){
-            //             console.log("First Load Value2: " + firstLoad);
-            //             $scope.searchAsset("IVV", "10/10/2013", "10/10/2016");
-            //         };
-            //     firstLoad++;
-            //     console.log("First Load Value3: " + firstLoad);
-            // }
+            window.onload = function () {
+                console.log("First Load Value1: " + firstLoad);
+                if (firstLoad == 0) {
+                    console.log("First Load Value2: " + firstLoad);
+                    $scope.searchAsset("IVV", "01/01/2014", "01/01/2017");
+                };
+                firstLoad++;
+                console.log("First Load Value3: " + firstLoad);
+            }
 
 
             $(function () {
@@ -82,26 +82,26 @@ var testAsset;
 
                 var today = new Date();
                 var dd = today.getDate();
-                var mm = today.getMonth()+1; //January is 0!
+                var mm = today.getMonth() + 1; //January is 0!
 
                 var yyyy = today.getFullYear();
-                if(dd<10){
-                    dd='0'+dd;
+                if (dd < 10) {
+                    dd = '0' + dd;
                 }
-                if(mm<10){
-                    mm='0'+mm;
+                if (mm < 10) {
+                    mm = '0' + mm;
                 }
-                var today = mm+'/'+dd+'/'+yyyy;
+                var today = mm + '/' + dd + '/' + yyyy;
                 var flag = 0; // false
 
-                if (today <= toDate || today <= fromDate || toDate <= fromDate){
-                   flag = 1;
-                   swal(
-                       'Please enter a valid date range',
-                       '',
-                       'error'
-                   ).then(function (result) {
-                       location.reload();
+                if (today <= toDate || today <= fromDate || toDate <= fromDate) {
+                    flag = 1;
+                    swal(
+                        'Please enter a valid date range',
+                        '',
+                        'error'
+                    ).then(function (result) {
+                        location.reload();
                     })
                 }
 
