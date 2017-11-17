@@ -64,12 +64,51 @@ var testAsset;
             });
 
             var on_complete = function (response) {
-                $scope.data = response.data;
+                $scope.data = format_data(response.data);
                 $scope.grabCharts(response);
                 $scope.loading = false;
                 $('#myOverlay').hide();
 
             };
+
+            var format_data = function (data) {
+                var asset_name = data.asset_name;
+                var asset_symbol = data.asset_symbol;
+                var current_date = data.current_date;
+                var cumulative_returns = (parseFloat(data.cumulative_returns) * 100).toFixed(2) + '%';
+                var daily_average_return = (parseFloat(data.daily_average_return) * 100).toFixed(2) + '%';
+                var daily_kurtosis = data.daily_kurtosis;
+                var daily_skewness = data.daily_skewness;
+                var daily_standard_deviation = data.daily_standard_deviation;
+                var maximum_return = (parseFloat(data.maximum_return) * 100).toFixed(2) + '%';
+                var minimum_return = (parseFloat(data.minimum_return) * 100).toFixed(2) + '%';
+                var quartile_05 = (parseFloat(data.quartile_05) * 100).toFixed(2) + '%';
+                var quartile_25 = (parseFloat(data.quartile_25) * 100).toFixed(2) + '%';
+                var quartile_50 = (parseFloat(data.quartile_50) * 100).toFixed(2) + '%';
+                var quartile_75 = (parseFloat(data.quartile_75) * 100).toFixed(2) + '%';
+                var quartile_95 = (parseFloat(data.quartile_95) * 100).toFixed(2) + '%';
+
+                var json_to_return = {
+                    asset_name: asset_name,
+                    asset_symbol: asset_symbol,
+                    current_date: current_date,
+                    cumulative_returns: cumulative_returns,
+                    daily_average_return: daily_average_return,
+                    daily_kurtosis: daily_kurtosis,
+                    daily_skewness: daily_skewness,
+                    daily_standard_deviation: daily_standard_deviation,
+                    maximum_return: maximum_return,
+                    minimum_return: minimum_return,
+                    quartile_05: quartile_05,
+                    quartile_25: quartile_25,
+                    quartile_50: quartile_50,
+                    quartile_75: quartile_75,
+                    quartile_95: quartile_95
+
+                }
+
+                return json_to_return;
+            }
 
             //On Error for Ajax Call
             var on_error = function (response) {
