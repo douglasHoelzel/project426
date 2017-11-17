@@ -323,7 +323,7 @@ th{
 }*/
 #myOverlay {
   opacity:    0.5;
-  background: #000;
+  background: #464646;
   width:      100%;
   height:     100%;
   z-index:    2;

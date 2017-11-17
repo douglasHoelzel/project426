@@ -14,17 +14,17 @@ var testAsset;
             $scope.loading = false;
 
 
-            //var firstLoad = 0;
+            var firstLoad = 0;
             //Asset that shows on initial page load
-            //  window.onload = function() {
-            //         console.log("First Load Value1: " + firstLoad);
-            //         if(firstLoad == 0){
-            //             console.log("First Load Value2: " + firstLoad);
-            //             $scope.searchAsset("IVV", "10/10/2013", "10/10/2016");
-            //         };
-            //     firstLoad++;
-            //     console.log("First Load Value3: " + firstLoad);
-            // }
+            window.onload = function () {
+                console.log("First Load Value1: " + firstLoad);
+                if (firstLoad == 0) {
+                    console.log("First Load Value2: " + firstLoad);
+                    $scope.searchAsset("IVV", "01/01/2014", "01/01/2017");
+                };
+                firstLoad++;
+                console.log("First Load Value3: " + firstLoad);
+            }
 
 
             $(function () {
