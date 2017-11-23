@@ -13,7 +13,7 @@ var testAsset;
             $scope.endDate;
             $scope.loading = false;
 
-
+            //Get the date from the date picker
             $(function () {
                 var dateFormat = "mm/dd/yy",
                     from = $("#from")
@@ -50,28 +50,28 @@ var testAsset;
                 }
             });
 
+            //Specifies what happens when AJAX call completes
             var on_complete = function (response) {
-                if(response.data.is_valid == false){
-                    console.log("inside of if statement");
+                if (response.data.is_valid == false) {
                     swal(
                         'Please enter a valid date range',
                         '',
                         'error'
                     ).then(function (result) {
                         $('#myOverlay').hide();
-                 })
-                }
-                else {
-                $scope.data = format_data(response.data);
-                $scope.grabCharts(response);
-                $scope.loading = false;
-                $('#myOverlay').hide();
+                    })
+                } else {
+                    $scope.data = format_data(response.data);
+                    $scope.grabCharts(response);
+                    $scope.loading = false;
+                    $('#myOverlay').hide();
                 }
                 $scope.loading = false;
 
 
             };
 
+            //Applies correct formatting to the data displayed in the summary statistics table
             var format_data = function (data) {
                 var asset_name = data.asset_name;
                 var asset_symbol = data.asset_symbol;
@@ -89,6 +89,7 @@ var testAsset;
                 var quartile_75 = (parseFloat(data.quartile_75) * 100).toFixed(2) + '%';
                 var quartile_95 = (parseFloat(data.quartile_95) * 100).toFixed(2) + '%';
 
+                //Package up and return as a JSON object
                 var json_to_return = {
                     asset_name: asset_name,
                     asset_symbol: asset_symbol,
@@ -170,8 +171,13 @@ var testAsset;
                     var return_date = date[2] + '-' + date[0] + '-' + date[1]
                     return return_date
                 }
-                var test_string = "http://localhost:5000/" + selectedAsset + "/" + convert_date(fromDate) + "/" + convert_date(toDate);
+
+                /*For testing purposes
+                 test_string = "http://localhost:5000/" + selectedAsset + "/" + convert_date(fromDate) + "/" + convert_date(toDate);
+                */
+
                 //Will need to change when put on local server
+                //Make AJAX/HTTP request
                 $http.get("http://localhost:5000/" + selectedAsset + "/" + convert_date(fromDate) + "/" + convert_date(toDate))
                     .then(on_complete, on_error);
             };
