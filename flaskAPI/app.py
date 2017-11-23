@@ -34,6 +34,7 @@ def return_data(stock, start_date, end_date):
 	start_datetime = pd.to_datetime(start_date,format="%Y-%m-%d")
 	end_datetime = pd.to_datetime(end_date,format="%Y-%m-%d")
 
+	#Date check, if not a valid range given the data return this response
 	if(start_datetime < oldest_datetime or end_datetime > newest_datetime):
 		return jsonify({"oldest_available": oldest_available,
 				        "newest_available": newest_available,
@@ -109,6 +110,15 @@ def return_data(stock, start_date, end_date):
 	#Create a data set to build a histogram of monthly returns
 	monthly_histogram_data = make_histogram_monthly(monthly_returns)
 
+	#Create a data set to build a chart of autocorrelation of daily returns
+	daily_autocorrelation_data = calculate_autocorrelation(daily_returns)
+
+	#Create a data set to build a chart of autocorrelation of weekly returns
+	weekly_autocorrelation_data = calculate_autocorrelation(weekly_returns)
+
+	#Create a data set to build a chart of autocorrelation of monthly returns
+	monthly_autocorrelation_data = calculate_autocorrelation(monthly_returns)
+
 	return jsonify({"cumulative_returns": cumulative_returns,
 					"current_date": current_date,
 					"daily_average_return": daily_average_return,
@@ -120,6 +130,9 @@ def return_data(stock, start_date, end_date):
 					"daily_histogram_data": daily_histogram_data,
 					"weekly_histogram_data": weekly_histogram_data,
 					"monthly_histogram_data": monthly_histogram_data,
+					"daily_autocorrelation_data": daily_autocorrelation_data,
+					"weekly_autocorrelation_data": weekly_autocorrelation_data,
+					"monthly_autocorrelation_data": monthly_autocorrelation_data,
 					"quartile_05": quartile_05,
 					"quartile_25": quartile_25,
 					"quartile_50": quartile_50,

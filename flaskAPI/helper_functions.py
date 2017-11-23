@@ -118,3 +118,17 @@ def calculate_quartile(daily_ret,quartile):
     else:
         raise ValueError('Expected a dataframe from 5% quartile calculations')  
 
+def calculate_autocorrelation(ret):
+    if isinstance(ret, pd.DataFrame):
+        auto_corr_array = []
+        count_array = []
+
+        for i in range(1,101):
+            auto_corr_array.append(ret.Adj_Close.autocorr(i))
+            count_array.append(i)
+
+        autocorrelation_dict = dict(zip(auto_corr_array,count_array))
+
+        return json.dumps(autocorrelation_dict)
+    else:
+        raise ValueError('Expected a dataframe for autocorrelation calculations') 
