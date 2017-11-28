@@ -222,16 +222,38 @@ var testAsset;
                 /*
                     Daily Autocorrelation Data Array
                     Currently for testing, this will be the model for the data for autocorrelation
-                */
 
-                // correlation on y axis
-                // lag on x axis
+                    for doug: correlation on y axis, lag on x axis
+                */
                 var json_data4 = JSON.parse(assetObject.data.daily_autocorrelation_data);
                 var daily_autocorr = [];
                 var daily_lag = [];
                 for (var key in json_data4) {
                     daily_autocorr.push((parseFloat(key).toFixed(3)));
                     daily_lag.push(json_data4[key]);
+                }
+
+                console.log(daily_autocorr);
+                console.log(daily_lag);
+                /*
+                    Weekly Autocorrelation Data Array
+                */
+                var json_data5 = JSON.parse(assetObject.data.weekly_autocorrelation_data);
+                var weekly_autocorr = [];
+                var weekly_lag = [];
+                for (var key in json_data5) {
+                    weekly_autocorr.push((parseFloat(key).toFixed(3)));
+                    weekly_lag.push(json_data5[key]);
+                }
+                /*
+                    Monthly Autocorrelation Data Array
+                */
+                var json_data6 = JSON.parse(assetObject.data.monthly_autocorrelation_data);
+                var monthly_autocorr = [];
+                var monthly_lag = [];
+                for (var key in json_data6) {
+                    monthly_autocorr.push((parseFloat(key).toFixed(3)));
+                    monthly_lag.push(json_data6[key]);
                 }
 
 
@@ -313,6 +335,67 @@ var testAsset;
                     }]
                 });
 
+
+                // Beginning of highchartsContainer4
+                Highcharts.chart('highchartsContainer4', {
+                    chart: {
+                        type: 'column'
+                    },
+                    title: {
+                        text: 'Daily Autocorrelation'
+                    },
+                    xAxis: {
+                        categories: daily_lag
+                    },
+                    credits: {
+                        enabled: false
+                    },
+                    series: [{
+                        name: 'Daily Lag',
+                        data:  daily_autocorr
+                    }]
+                });
+                // end of highchartsContainer4
+                // Beginning of highchartsContainer5
+                Highcharts.chart('highchartsContainer5', {
+                    chart: {
+                        type: 'column'
+                    },
+                    title: {
+                        text: 'Weekly Autocorrelation'
+                    },
+                    xAxis: {
+                        categories:  weekly_lag
+                    },
+                    credits: {
+                        enabled: false
+                    },
+                    series: [{
+                        name: 'Weekly Lag',
+                        data: weekly_autocorr
+                    }]
+                });
+                // end of highchartsContainer5
+                // Beginning of highchartsContainer6
+                Highcharts.chart('highchartsContainer6', {
+                    chart: {
+                        type: 'column'
+                    },
+                    title: {
+                        text: 'Monthly Autocorrelation'
+                    },
+                    xAxis: {
+                        categories: monthly_lag
+                    },
+                    credits: {
+                        enabled: false
+                    },
+                    series: [{
+                        name: 'Monthly Lag',
+                        data: monthly_autocorr
+                    }]
+                });
+                // end of highchartsContainer6
 
             }; // Ends grabCharts() function
 

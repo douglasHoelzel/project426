@@ -20,17 +20,17 @@ body {
     background-color: #FFFFFF;
     box-shadow: 0px 30px 40px rgba(0,0,0,.5);
     margin: 0 auto;
-    margin-top: 60px;
+    margin-top: 20px;
     margin-bottom: 80px;
-    width: 1200px;
-    height: 1350px;
+    width: 1350px;
+    height: 3050px;
 }
 /* End Wrapper Styling */
 /* Header Styling */
 .header{
     background-color: #66A8EA;
     margin: 0 auto;
-    width: 1250px;
+    width: 1400px;
     height: 100px;
     position: absolute;
     margin-left: auto;
@@ -54,7 +54,7 @@ body {
     border-width: 20px 25px 0 0;
     border-color: #054e9c transparent transparent transparent;
     margin-top: -20px;
-    margin-left: 1225px;
+    margin-left: 1375px;
 }
 #stockImageSVG{
     height: 65px;
@@ -159,27 +159,31 @@ margin-right: 30px;
 /* Data Table Styling */
 #tableArea{
     display: inline-block;
-    background-color: #EBEBEB;
     border-radius: 0px 0px 0px 0px;
-    margin-top: 150px;
-    margin-left: 30px;
+    margin-top: 0px;
+    padding-top: 155px;
+    margin-left: 10px;
     height: 500px;
-    width: 500px;
+    width: 290px;
 }
 #tableContainer{
     position: absolute;
-    margin-top: 10px;
-    margin-left: 40px;
-    width: 500px;
-    height: 480px;
+    padding-top: 10px;
+    margin-left: 10px;
+    width: 270px;
+    height: 430px;
     background-color: #fff;
 }
 #dataTable2{
-    margin-top: 20px;
-    margin-left: 50px;
+    margin-top: 10px;
+    margin-left: 10px;
     margin-right: 10px;
-    width: 400px;
+    width: 250px;
+    height: 250px;
     background-color: #F9F9F9;
+}
+td{
+    height: 10px;
 }
 /* End Data Table Styling */
 /* Chart Area Styling */
@@ -188,83 +192,116 @@ margin-right: 30px;
    background-color: #EBEBEB;
    border-radius: 0px 0px 0px 0px;
    margin-left: -10px;
-   margin-top: 150px;
-   height: 500px;
-   width: 621px;
+   margin-top: -100px !important;
+   height: 325px;
+   width: 320px;
 }
 #chartContainer{
     background-color: #fff;
     margin-top: 10px;
-    margin-left: 80px;
-    height: 480px;
-    width: 500px;
+    margin-left: 10px;
+    height: 300px;
+    width: 300px;
 }
-/* End Chart Area Styling */
-/* customArea3 Styling */
-#customArea3{
-    display: inline-grid;
-    height: 520px;
-    width: 555px;
-    margin-left: 30px;
-    margin-top: -10px;
-    background-color: #EBEBEB;
-    border-radius: 0px 0px 0px 5px;
-}
-#customArea3Container{
-    height: 480px;
-    width: 500px;
-    margin-top: 10px;
-    margin-left: 40px;
-    background-color: #fff;
-}
-/* End Custom Area 3 Styling */
-/* customArea4 Styling */
-#customArea4{
-    display: inline-grid;
-    position: relative;
-    margin-top: -10px;
-    height: 520px;
-    width: 561px;
-    margin-left: -5px;
-    background-color: #EBEBEB;
-    border-radius: 0px 0px 5px 0px;
-}
-#customArea4Container{
-    height: 480px;
-    width: 500px;
-    margin-top: 10px;
-    margin-left: 20px;
-    background-color: #fff;
-}
-/* End Custom Area 4 Styling */
-/* Highcharts Styling */
 #highchartsContainer{
     position: absolute;
-    margin-top: 60px;
+    margin-left: -10px;
+    width: 300px;
+    height: 300px;
+}
+#customArea3{
+    display: inline-block;
+    height: 325px;
+    width: 320px;
+    margin-left: -10px;
+    background-color: #EBEBEB;
+    border-radius: 0px 0px 0px 0px;
+}
+#customArea3Container{
+    height: 300px;
+    width: 300px;
+    margin-top: 10px;
     margin-left: 10px;
-    width: 480px;
-    height: 350px;
+    background-color: #fff;
 }
 #highchartsContainer2{
     position: absolute;
-    margin-top: 60px;
-    margin-left: 10px;
-    width: 480px;
-    height: 350px;
+    width: 300px;
+    height: 300px;
 }
 #highchartsContainer3{
     position: absolute;
-    margin-top: 60px;
-    margin-left: 10px;
-    width: 480px;
-    height: 350px;
+    width: 300px;
+    height: 300px;
 }
-/* End Highcharts Styling */
-/* Print Button Styling */
+#customArea4Container{
+    height: 300px;
+    width: 300px;
+    margin-left: 10px;
+    margin-top: 10px;
+    background-color: #fff;
+}
+#customArea4{
+    display: inline-block;
+    position: relative;
+    height: 325px;
+    width: 320px;
+    margin-left: -10px;
+    background-color: #EBEBEB;
+    border-radius: 0px 0px 0px 0px;
+}
+#customArea5{
+    display: inline-block;
+    position: relative;
+    height: 325px;
+    width: 320px;
+    margin-left: 295px;
+    background-color: #EBEBEB;
+    border-radius: 0px 0px 0px 0px;
+}
+#customArea5Container{
+    height: 300px;
+    width: 300px;
+    margin-left: 10px;
+    margin-top: 10px;
+    background-color: #fff;
+}
+#customArea6{
+    display: inline-block;
+    position: relative;
+    height: 325px;
+    width: 320px;
+    margin-left: -10px;
+    background-color: #EBEBEB;
+    border-radius: 0px 0px 0px 0px;
+}
+#customArea6Container{
+    height: 300px;
+    width: 300px;
+    margin-left: 10px;
+    margin-top: 10px;
+    background-color: #fff;
+}
+#customArea7{
+    display: inline-block;
+    position: relative;
+    height: 325px;
+    width: 320px;
+    margin-left: -10px;
+    background-color: #EBEBEB;
+    border-radius: 0px 0px 0px 0px;
+}
+#customArea7Container{
+    height: 300px;
+    width: 300px;
+    margin-left: 10px;
+    margin-top: 10px;
+    background-color: #fff;
+}
 #printButton{
     position: absolute;
-    margin-top: 200px;
-    margin-left: 1150px;
+    margin-top: 165px;
+    margin-left: 1303px;
 }
 #printButton:hover{
     background-color: #99badd;
@@ -314,7 +351,12 @@ th{
     width: 100%;
     margin: auto;
 }
-
+#footerText4{
+    float: left;
+    width: 100%;
+    margin: auto;
+    margin-bottom: 60px;
+}
 #myOverlay {
   opacity:    0.5;
   background: #464646;
