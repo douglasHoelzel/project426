@@ -227,33 +227,44 @@ var testAsset;
                 */
                 var json_data4 = JSON.parse(assetObject.data.daily_autocorrelation_data);
                 var daily_autocorr = [];
+                var daily_autocorrNumbers = [];
                 var daily_lag = [];
                 for (var key in json_data4) {
                     daily_autocorr.push((parseFloat(key).toFixed(3)));
                     daily_lag.push(json_data4[key]);
                 }
-
-                console.log(daily_autocorr);
-                console.log(daily_lag);
+                // Loop converts autocorr to float
+                for(var z=0; z<daily_autocorr.length; z++){
+                    daily_autocorrNumbers.push(parseFloat(daily_autocorr[z]));
+                }
                 /*
                     Weekly Autocorrelation Data Array
                 */
                 var json_data5 = JSON.parse(assetObject.data.weekly_autocorrelation_data);
                 var weekly_autocorr = [];
+                var weekly_autocorrNumbers = [];
                 var weekly_lag = [];
                 for (var key in json_data5) {
                     weekly_autocorr.push((parseFloat(key).toFixed(3)));
                     weekly_lag.push(json_data5[key]);
+                }
+                // Loop converts autocorr to float
+                for(var x=0; x<weekly_autocorr.length; x++){
+                    weekly_autocorrNumbers.push(parseFloat(weekly_autocorr[x]));
                 }
                 /*
                     Monthly Autocorrelation Data Array
                 */
                 var json_data6 = JSON.parse(assetObject.data.monthly_autocorrelation_data);
                 var monthly_autocorr = [];
+                var monthly_autocorrNumbers = [];
                 var monthly_lag = [];
                 for (var key in json_data6) {
                     monthly_autocorr.push((parseFloat(key).toFixed(3)));
                     monthly_lag.push(json_data6[key]);
+                }
+                for(var y=0; y<monthly_autocorr.length; y++){
+                    monthly_autocorrNumbers.push(parseFloat(monthly_autocorr[y]));
                 }
 
 
@@ -352,7 +363,7 @@ var testAsset;
                     },
                     series: [{
                         name: 'Daily Lag',
-                        data:  daily_autocorr
+                        data:  daily_autocorrNumbers
                     }]
                 });
                 // end of highchartsContainer4
@@ -372,7 +383,7 @@ var testAsset;
                     },
                     series: [{
                         name: 'Weekly Lag',
-                        data: weekly_autocorr
+                        data: weekly_autocorrNumbers
                     }]
                 });
                 // end of highchartsContainer5
@@ -392,7 +403,7 @@ var testAsset;
                     },
                     series: [{
                         name: 'Monthly Lag',
-                        data: monthly_autocorr
+                        data: monthly_autocorrNumbers
                     }]
                 });
                 // end of highchartsContainer6
