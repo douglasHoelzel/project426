@@ -223,6 +223,9 @@ var testAsset;
                     Daily Autocorrelation Data Array
                     Currently for testing, this will be the model for the data for autocorrelation
                 */
+
+                // correlation on y axis
+                // lag on x axis
                 var json_data4 = JSON.parse(assetObject.data.daily_autocorrelation_data);
                 var daily_autocorr = [];
                 var daily_lag = [];
@@ -230,7 +233,7 @@ var testAsset;
                     daily_autocorr.push((parseFloat(key).toFixed(3)));
                     daily_lag.push(json_data4[key]);
                 }
-               
+
 
 
                 /* Chart Data */

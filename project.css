@@ -309,12 +309,12 @@ th{
     width: 100%;
     margin: auto;
 }
-#footerText2{
+#footerText2, #footerText3{
     float: left;
     width: 100%;
     margin: auto;
-    margin-bottom: 60px;
 }
+
 #myOverlay {
   opacity:    0.5;
   background: #464646;
