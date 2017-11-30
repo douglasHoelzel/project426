@@ -297,7 +297,7 @@ var testAsset;
 
                 /* End Chart Data */
                 /* Highchart 2 */
-                var myChart2 = Highcharts.chart('highchartsContainer2', {
+                var myChart2 = Highcharts.chart('highchartsContainer3', {
                     chart: {
                         type: 'column'
                     },
@@ -321,7 +321,7 @@ var testAsset;
                         data: monthly_count
                     }]
                 });
-                Highcharts.chart('highchartsContainer3', {
+                Highcharts.chart('highchartsContainer2', {
                     chart: {
                         type: 'column'
                     },

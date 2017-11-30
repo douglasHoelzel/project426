@@ -23,7 +23,7 @@ body {
     margin-top: 20px;
     margin-bottom: 80px;
     width: 1350px;
-    height: 3050px;
+    height: 1050px;
 }
 /* End Wrapper Styling */
 /* Header Styling */
@@ -65,11 +65,19 @@ body {
 }
 
 #uncImageSVG{
-    margin-left: 150px;
+    margin-left: 250px;
     margin-top: 10px;
     height: 80px;
     width: 300px;
     position: absolute;
+}
+#QFE_logo{
+    position: absolute;
+    display: inline-block;
+    margin-left: 60px;
+    margin-top: 30px;
+    height: 40px;
+    width: 100px;
 }
 #searchBar{
     margin-left: 760px;
@@ -165,6 +173,11 @@ margin-right: 30px;
     margin-left: 10px;
     height: 500px;
     width: 290px;
+}
+#dataTable2 td{
+    font-size: .8em;
+    height: 48px;
+    vertical-align: middle;
 }
 #tableContainer{
     position: absolute;
@@ -357,17 +370,20 @@ th{
     float: left;
     width: 100%;
     margin: auto;
+    font-size: .8em;
 }
 #footerText2, #footerText3{
     float: left;
     width: 100%;
     margin: auto;
+    font-size: .8em;
 }
 #footerText4{
     float: left;
     width: 100%;
     margin: auto;
     margin-bottom: 60px;
+    font-size: .8em;
 }
 #myOverlay {
   opacity:    0.5;
