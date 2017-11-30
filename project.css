@@ -2,11 +2,16 @@
 /*            Dark Blue is: #054e9c     */
 @media print{@page {size: landscape}}
 @media print {
-  .header,#footerText, #footerText2,#footerText3, #footerText4 {
+  .header,#footerText, #footerText2,#footerText3,
+  #footerText4, #printButton {
     visibility: hidden;
   }
-  body {
+  .wrapper{
     visibility: visible;
+    height:100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden;
   }
   #section-to-print {
     position: absolute;
@@ -14,6 +19,8 @@
     top: 0;
   }
 }
+
+
 
 body {
     background-image: url("images/background_image1.png");
