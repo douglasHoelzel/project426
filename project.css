@@ -349,12 +349,16 @@ th{
     width: 100%;
     margin: auto;
     font-size: .8em;
+    font-family: 'Comfortaa', cursive;
+    font-family: 'Raleway', sans-serif;
 }
 #footerText2, #footerText3{
     float: left;
     width: 100%;
     margin: auto;
     font-size: .8em;
+    font-family: 'Comfortaa', cursive;
+    font-family: 'Raleway', sans-serif;
 }
 #footerText4{
     float: left;
@@ -362,6 +366,8 @@ th{
     margin: auto;
     margin-bottom: 60px;
     font-size: .8em;
+    font-family: 'Comfortaa', cursive;
+    font-family: 'Raleway', sans-serif;
 }
 #myOverlay {
   opacity:    0.5;
