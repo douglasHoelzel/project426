@@ -489,3 +489,6 @@ th{
   position:   fixed;
   display: none;
 }
+tspan{
+    font-size: .7em;
+}
