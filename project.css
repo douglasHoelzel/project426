@@ -1,12 +1,8 @@
 /* Important: Carolina Blue is: #99badd */
 /*            Dark Blue is: #054e9c     */
-
-/* Body Styling */
 body {
     background-image: url("images/background_image1.png");
 }
-/* End Body Styling */
-/* help.html div */
 #helpDiv{
     margin-top: 200px;
     height: 500px;
@@ -14,8 +10,6 @@ body {
     background-color: orange !important;
 
 }
-/* End help.html div */
-/* Wrapper Styling */
 .wrapper{
     background-color: #FFFFFF;
     box-shadow: 0px 30px 40px rgba(0,0,0,.5);
@@ -25,8 +19,6 @@ body {
     width: 1350px;
     height: 1050px;
 }
-/* End Wrapper Styling */
-/* Header Styling */
 .header{
     background-color: #66A8EA;
     margin: 0 auto;
@@ -63,7 +55,6 @@ body {
     margin-top: 20px;
     position: absolute;
 }
-
 #uncImageSVG{
     margin-left: 250px;
     margin-top: 10px;
@@ -88,14 +79,12 @@ body {
 #searchBarButton{
     margin-top: -2px;
 }
-/* Typeahead Dropdown Styling */
 .dropdown-menu .active > a,
 .dropdown-menu .active > a:hover {
     color: #333333;
     text-decoration: none;
     background-color: #B9DDFA !important;
 }
-/* End Typeahead Dropdown Styling */
 #dateRangeSelector{
     position: absolute;
     color: white;
@@ -112,11 +101,7 @@ body {
 }
 #toLabel{
     margin-left: 26px;
-}
-/* End Header Styling */
-
-/* Navbar Styling */
-#custom-bootstrap-menu{
+}#custom-bootstrap-menu{
 position: absolute;
 margin-top: 140px;
 margin-left: 30px;
@@ -195,9 +180,6 @@ margin-right: 30px;
     height: 250px;
     background-color: #F9F9F9;
 }
-
-/* End Data Table Styling */
-/* Chart Area Styling */
 #chartArea{
    display: inline-block;
    background-color: #EBEBEB;
@@ -332,15 +314,12 @@ margin-right: 30px;
     background-color: #99badd;
     border-color: #fff !important;
 }
-/* End Print Button Styling */
 td{
     font-size: 9px;
 }
 th{
     font-size: 11px;
 }
-
-/* Loader Styling */
 .loader{
   border: 16px solid #f3f3f3;
   border-radius: 50%;
@@ -354,7 +333,6 @@ th{
   position: fixed;
   z-index: 100;
 }
-
 @-webkit-keyframes spin {
   0% { -webkit-transform: rotate(0deg); }
   100% { -webkit-transform: rotate(360deg); }
@@ -364,8 +342,6 @@ th{
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
-/* End Loader Styling */
-
 #footerText{
     float: left;
     width: 100%;
