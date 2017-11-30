@@ -169,14 +169,31 @@ var testAsset;
                         '',
                         'error'
                     )
+<<<<<<< HEAD
                 }*/
                 console.log(searchAsset)
                 if (!selectedAsset) {
+=======
+                }
+                console.log(selectedAsset.length);
+                if(selectedAsset.length < 1){
                     swal(
                         'Please enter an asset name',
                         '',
                         'error'
-                    )
+                    ).then(function (result) {
+                        location.reload();
+                    })
+                }
+                if (selectedAsset == null || selectedAsset == "") {
+>>>>>>> 12bcb61527683df99a45a71cba2c082c643a5b18
+                    swal(
+                        'Please enter an asset name',
+                        '',
+                        'error'
+                    ).then(function (result) {
+                        location.reload();
+                    })
                 }
 
                 //Change date formatting to year-month-day
