@@ -336,9 +336,10 @@ margin-right: 30px;
     position: absolute;
     margin-top: 165px;
     margin-left: 1303px;
+    border-color: #EBEBEB  !important;
 }
 #printButton:hover{
-    background-color: #99badd;
+    background-color: #B2D3FF;
     border-color: #fff !important;
 }
 td{
