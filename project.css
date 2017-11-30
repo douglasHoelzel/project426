@@ -289,7 +289,7 @@ margin-right: 30px;
     position: relative;
     height: 325px;
     width: 320px;
-    margin-left: 295px;
+    margin-left: 294px;
     background-color: #EBEBEB;
     border-radius: 0px 0px 0px 0px;
 }
@@ -491,4 +491,12 @@ th{
 }
 tspan{
     font-size: .7em;
+}
+#chartBar{
+    background-color: #EBEBEB;
+    height: 10px;
+    width: 948px;
+    position: absolute;
+    margin-top: -340px;
+    margin-left: 294px;
 }
