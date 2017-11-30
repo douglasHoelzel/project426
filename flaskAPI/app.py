@@ -21,6 +21,13 @@ def return_data(stock, start_date, end_date):
 	#Pull metadata from Quandl (ticker and name)
 	request_string = 'https://www.quandl.com/api/v3/datasets/EOD/{0}/metadata.json?api_key=xaFxr9SP6Wd5sKFHdEax'.format(stock)
 	json_response = requests.get(request_string).json()
+
+	#Check for valid ticker
+	if 'quandl_error' in json_response.keys():
+		return jsonify({"is_valid": False,
+						"is_asset_error": True})
+
+
 	ticker = '('+json_response['dataset']['dataset_code']+')'
 	name_to_parse = json_response['dataset']['name']
 	oldest_available = json_response['dataset']['oldest_available_date']
@@ -38,7 +45,8 @@ def return_data(stock, start_date, end_date):
 	if(start_datetime < oldest_datetime or end_datetime > newest_datetime):
 		return jsonify({"oldest_available": oldest_available,
 				        "newest_available": newest_available,
-				        "is_valid": False})
+				        "is_valid": False,
+						"is_date_error": True})
     
 	#Pull daily data from Quandl
 	daily_data = q.get("EOD/{0}.11".format(stock), #Only pull closing price

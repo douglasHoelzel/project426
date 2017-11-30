@@ -52,9 +52,17 @@ var testAsset;
 
             //Specifies what happens when AJAX call completes
             var on_complete = function (response) {
-                if (response.data.is_valid == false) {
+                if (response.data.is_valid == false && response.data.is_asset_error == true) { //Check if asset error
                     swal(
-                        'Please enter a valid date range',
+                        'Please enter a valid Asset',
+                        '',
+                        'error'
+                    ).then(function (result) {
+                        $('#myOverlay').hide();
+                    })
+                } else if (response.data.is_valid == false && response.data.is_date_error == true) { //Check if date range error
+                    swal(
+                        'Please enter a valid Date',
                         '',
                         'error'
                     ).then(function (result) {
@@ -121,6 +129,7 @@ var testAsset;
                 $scope.loading = true;
                 $('#myOverlay').show();
 
+                /*
                 var today = new Date();
                 var dd = today.getDate();
                 var mm = today.getMonth() + 1; //January is 0!
@@ -132,13 +141,15 @@ var testAsset;
                 if (mm < 10) {
                     mm = '0' + mm;
                 }
-                var today = mm + '/' + dd + '/' + yyyy;
-                var flag = 0; // false
+                */
 
-                if (today <= toDate || today <= fromDate || toDate <= fromDate) {
-                    flag = 1;
+
+                // var today = mm + '/' + dd + '/' + yyyy;
+                //var flag = 0; // false
+
+                if (!toDate || !fromDate) {
                     swal(
-                        'Please enter a valid date range',
+                        'Please enter a date range',
                         '',
                         'error'
                     ).then(function (result) {
@@ -146,18 +157,21 @@ var testAsset;
                     })
                 }
 
+
                 var fromDate = fromDate.replace("/", "-");
                 var toDate = toDate.replace("/", "-");
                 var fromDate = fromDate.replace("/", "-");
                 var toDate = toDate.replace("/", "-");
-                if (fromDate == null || toDate == null || fromDate == "" || toDate == "") {
+                
+                /*if (fromDate == null || toDate == null || fromDate == "" || toDate == "") {
                     swal(
                         'Please enter a valid start and end date',
                         '',
                         'error'
                     )
-                }
-                if (selectedAsset == null || selectedAsset == "") {
+                }*/
+                console.log(searchAsset)
+                if (!selectedAsset) {
                     swal(
                         'Please enter an asset name',
                         '',
@@ -234,7 +248,7 @@ var testAsset;
                     daily_lag.push(json_data4[key]);
                 }
                 // Loop converts autocorr to float
-                for(var z=0; z<daily_autocorr.length; z++){
+                for (var z = 0; z < daily_autocorr.length; z++) {
                     daily_autocorrNumbers.push(parseFloat(daily_autocorr[z]));
                 }
                 /*
@@ -249,7 +263,7 @@ var testAsset;
                     weekly_lag.push(json_data5[key]);
                 }
                 // Loop converts autocorr to float
-                for(var x=0; x<weekly_autocorr.length; x++){
+                for (var x = 0; x < weekly_autocorr.length; x++) {
                     weekly_autocorrNumbers.push(parseFloat(weekly_autocorr[x]));
                 }
                 /*
@@ -263,7 +277,7 @@ var testAsset;
                     monthly_autocorr.push((parseFloat(key).toFixed(3)));
                     monthly_lag.push(json_data6[key]);
                 }
-                for(var y=0; y<monthly_autocorr.length; y++){
+                for (var y = 0; y < monthly_autocorr.length; y++) {
                     monthly_autocorrNumbers.push(parseFloat(monthly_autocorr[y]));
                 }
 
@@ -368,7 +382,7 @@ var testAsset;
                     },
                     series: [{
                         name: 'Daily Lag',
-                        data:  daily_autocorrNumbers
+                        data: daily_autocorrNumbers
                     }]
                 });
                 // end of highchartsContainer4
@@ -381,7 +395,7 @@ var testAsset;
                         text: 'Weekly Autocorrelation'
                     },
                     xAxis: {
-                        categories:  weekly_lag
+                        categories: weekly_lag
                     },
                     yAxis: {
                         title: {
