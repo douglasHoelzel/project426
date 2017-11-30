@@ -1,5 +1,7 @@
 /* Important: Carolina Blue is: #99badd */
 /*            Dark Blue is: #054e9c     */
+
+/* Adjusts page for clean printing */
 @media print{@page {size: landscape}}
 @media print {
   .header,#footerText, #footerText2,#footerText3,
@@ -19,9 +21,6 @@
     top: 0;
   }
 }
-
-
-
 body {
     background-image: url("images/background_image1.png");
 }

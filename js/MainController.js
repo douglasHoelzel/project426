@@ -358,6 +358,11 @@ var testAsset;
                     xAxis: {
                         categories: daily_lag
                     },
+                    yAxis: {
+                        title: {
+                            text: ''
+                        }
+                    },
                     credits: {
                         enabled: false
                     },
@@ -378,6 +383,11 @@ var testAsset;
                     xAxis: {
                         categories:  weekly_lag
                     },
+                    yAxis: {
+                        title: {
+                            text: ''
+                        }
+                    },
                     credits: {
                         enabled: false
                     },
@@ -397,6 +407,11 @@ var testAsset;
                     },
                     xAxis: {
                         categories: monthly_lag
+                    },
+                    yAxis: {
+                        title: {
+                            text: ''
+                        }
                     },
                     credits: {
                         enabled: false
