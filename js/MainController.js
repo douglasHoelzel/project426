@@ -157,12 +157,24 @@ var testAsset;
                         'error'
                     )
                 }
+                console.log(selectedAsset.length);
+                if(selectedAsset.length < 1){
+                    swal(
+                        'Please enter an asset name',
+                        '',
+                        'error'
+                    ).then(function (result) {
+                        location.reload();
+                    })
+                }
                 if (selectedAsset == null || selectedAsset == "") {
                     swal(
                         'Please enter an asset name',
                         '',
                         'error'
-                    )
+                    ).then(function (result) {
+                        location.reload();
+                    })
                 }
 
                 //Change date formatting to year-month-day
