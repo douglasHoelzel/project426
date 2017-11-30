@@ -348,7 +348,7 @@ th{
     font-size: 11px;
 }
 .loader {
-  color: #3689E1;
+  color: #4A97FF;
   position: fixed;
   z-index: 100;
   font-size: 90px;
@@ -358,7 +358,7 @@ th{
   height: 1em;
   border-radius: 50%;
   margin: 72px auto;
-  top: 50%;
+  top: 45%;
   left: 44.2%;
   -webkit-transform: translateZ(0);
   -ms-transform: translateZ(0);
