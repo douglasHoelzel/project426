@@ -160,11 +160,15 @@ margin-right: 30px;
     margin-left: 10px;
     height: 500px;
     width: 290px;
+    font-family: 'Comfortaa', cursive;
+    font-family: 'Raleway', sans-serif;
 }
 #dataTable2 td{
     font-size: .8em;
     height: 48px;
     vertical-align: middle;
+    font-family: 'Comfortaa', cursive;
+    font-family: 'Raleway', sans-serif;
 }
 #tableContainer{
     position: absolute;
