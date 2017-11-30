@@ -20,6 +20,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.6/angular-sanitize.min.js"></script>
     <script src="https://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-2.5.0.js"></script>
 
+    <!-- Googe Font -->
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
+
     <!-- Bootstrap 3.3.7 -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -43,8 +46,8 @@
 
 <body ng-controller="MainController">
     <div class="header">
+        <p id="QFE_text">QFE</p>
         <a href="http://www.unc.edu/" target="_blank">
-            <img id="QFE_logo" src="images/QFE_logo.png"></img>
             <img id="uncImageSVG" src="images/UNC_logo_white.png" />
         </a>
         <div id="dateRangeSelector">
@@ -56,8 +59,7 @@
         <div class="row">
             <div class="col-lg-6">
                 <div id="searchBar" class="input-group">
-                    <input type="text" class="form-control" placeholder="Search for asset..." uib-typeahead="name for name in asset | filter:$viewValue | limitTo:20"
-                        class="form-control" ng-model="selectedAsset" />
+                    <input type="text" class="form-control" placeholder="Search for asset..." uib-typeahead="name for name in asset | filter:$viewValue | limitTo:20" class="form-control" ng-model="selectedAsset"></input>
                     <span class="input-group-btn">
                         <button id="searchBarButton" ng-click="searchAsset(selectedAsset, fromDate, toDate)" class="btn btn-default glyphicon glyphicon-search"
                             type="button"></button>
