@@ -1,5 +1,20 @@
 /* Important: Carolina Blue is: #99badd */
 /*            Dark Blue is: #054e9c     */
+@media print{@page {size: landscape}}
+@media print {
+  .header,#footerText, #footerText2,#footerText3, #footerText4 {
+    visibility: hidden;
+  }
+  body {
+    visibility: visible;
+  }
+  #section-to-print {
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+}
+
 body {
     background-image: url("images/background_image1.png");
 }
