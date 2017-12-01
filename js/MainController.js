@@ -268,8 +268,6 @@ var testAsset;
                     monthly_autocorrNumbers.push(parseFloat(monthly_autocorr[y]));
                 }
 
-
-
                 /* Chart Data */
                 var myChart = Highcharts.chart('highchartsContainer', {
                     chart: {
@@ -280,11 +278,14 @@ var testAsset;
                     },
                     colors: ['#4BA2EA', '#CBCBCB', '#266FAD'],
                     xAxis: {
-                        categories: daily_bins
+                        categories: daily_bins,
+                        title: {
+                            text: 'Percent Return'
+                        }
                     },
                     yAxis: {
                         title: {
-                            text: ''
+                            text: 'Count'
                         }
                     },
                     credits: {
@@ -307,11 +308,14 @@ var testAsset;
                     },
                     colors: ['#4BA2EA', '#CBCBCB', '#266FAD'],
                     xAxis: {
-                        categories: monthly_bins
+                        categories: monthly_bins,
+                        title: {
+                            text: 'Percent Return'
+                        },
                     },
                     yAxis: {
                         title: {
-                            text: ''
+                            text: 'Count'
                         }
                     },
                     credits: {
@@ -331,11 +335,14 @@ var testAsset;
                     },
                     colors: ['#4BA2EA', '#CBCBCB', '#266FAD'],
                     xAxis: {
-                        categories: weekly_bins
+                        categories: weekly_bins,
+                        title: {
+                            text: 'Percent Return'
+                        },
                     },
                     yAxis: {
                         title: {
-                            text: ''
+                            text: 'Count'
                         }
                     },
                     credits: {
@@ -357,18 +364,24 @@ var testAsset;
                         text: 'Daily Autocorrelation'
                     },
                     xAxis: {
-                        categories: daily_lag
+                        title: {
+                            text: 'Lag'
+                        },
+                        min: 0,
+                        max: daily_lag.length
                     },
                     yAxis: {
                         title: {
-                            text: ''
-                        }
+                            text: 'Correlation'
+                        },
+                        min: -1,
+                        max: 1
                     },
                     credits: {
                         enabled: false
                     },
                     series: [{
-                        name: 'Daily Lag',
+                        name: 'Daily Data',
                         data: daily_autocorrNumbers
                     }]
                 });
@@ -382,18 +395,24 @@ var testAsset;
                         text: 'Weekly Autocorrelation'
                     },
                     xAxis: {
-                        categories: weekly_lag
+                        title: {
+                            text: 'Lag'
+                        },
+                        min: 0,
+                        max: weekly_lag.length
                     },
                     yAxis: {
                         title: {
-                            text: ''
-                        }
+                            text: 'Correlation'
+                        },
+                        min: -1,
+                        max: 1
                     },
                     credits: {
                         enabled: false
                     },
                     series: [{
-                        name: 'Weekly Lag',
+                        name: 'Weekly Data',
                         data: weekly_autocorrNumbers
                     }]
                 });
@@ -407,18 +426,24 @@ var testAsset;
                         text: 'Monthly Autocorrelation'
                     },
                     xAxis: {
-                        categories: monthly_lag
+                        title: {
+                            text: 'Lag'
+                        },
+                        min: 0,
+                        max: monthly_lag.length
                     },
                     yAxis: {
                         title: {
-                            text: ''
-                        }
+                            text: 'Correlation'
+                        },
+                        min: -1,
+                        max: 1
                     },
                     credits: {
                         enabled: false
                     },
                     series: [{
-                        name: 'Monthly Lag',
+                        name: 'Monthly Data',
                         data: monthly_autocorrNumbers
                     }]
                 });

@@ -123,7 +123,7 @@ def calculate_autocorrelation(ret):
         auto_corr_array = []
         count_array = []
 
-        for i in range(1,101):
+        for i in range(1,21):
             auto_corr_array.append(ret.Adj_Close.autocorr(i))
             count_array.append(i)
 
