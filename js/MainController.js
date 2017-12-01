@@ -122,9 +122,7 @@
                     quartile_50: quartile_50,
                     quartile_75: quartile_75,
                     quartile_95: quartile_95
-
                 }
-
                 return json_to_return;
             }
 
@@ -171,8 +169,8 @@
                         return return_date
                     }
 
-                    //Will need to change when put on local server
-                    //Make AJAX/HTTP request
+                    // Will need to change when put on local server
+                    // Make AJAX/HTTP request
                     $http.get("http://localhost:5000/" + selectedAsset + "/" + convert_date(fromDate) + "/" + convert_date(toDate))
                         .then(on_complete, on_error);
                 }
@@ -217,7 +215,6 @@
 
                 /*
                     Daily Autocorrelation Data Array
-                    Currently for testing, this will be the model for the data for autocorrelation
                 */
                 var json_data4 = JSON.parse(assetObject.data.daily_autocorrelation_data);
                 var daily_autocorr = [];
