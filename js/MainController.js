@@ -45,7 +45,6 @@ var testAsset;
                     } catch (error) {
                         date = null;
                     }
-
                     return date;
                 }
             });
@@ -53,19 +52,31 @@ var testAsset;
             //Specifies what happens when AJAX call completes
             var on_complete = function (response) {
                 if (response.data.is_valid == false && response.data.is_asset_error == true) { //Check if asset error
-                    swal(
-                        'Please enter a valid Asset',
-                        '',
-                        'error'
-                    ).then(function (result) {
+                    swal({
+                        title: 'Error!',
+                        text: "Please enter a valid asset",
+                        type: 'error',
+                        allowOutsideClick: false
+                    }).then(function (result) {
                         $('#myOverlay').hide();
                     })
                 } else if (response.data.is_valid == false && response.data.is_date_error == true) { //Check if date range error
-                    swal(
-                        'Please enter a valid Date',
-                        '',
-                        'error'
-                    ).then(function (result) {
+                    //Process to display available dates
+                    //Oldest date
+                    var oldest_date = response.data.oldest_available.split("-");
+                    var display_oldest = oldest_date[1] + '/' + oldest_date[2] + '/' + oldest_date[0];
+                    //Newest date 
+                    var newest_date = response.data.newest_available.split("-");
+                    var display_newest = newest_date[1] + '/' + newest_date[2] + '/' + newest_date[0];
+
+                    var error_msg = "Please enter a date range between " + display_oldest + " and " + display_newest;
+
+                    swal({
+                        title: 'Error!',
+                        text: error_msg,
+                        type: 'error',
+                        allowOutsideClick: false
+                    }).then(function (result) {
                         $('#myOverlay').hide();
                     })
                 } else {
@@ -131,41 +142,45 @@ var testAsset;
 
                 //User input checking
                 if (!toDate || !fromDate) { //Check to see if user entered a date
-                    swal(
-                        'Please enter a date range',
-                        '',
-                        'error'
-                    ).then(function (result) {
-                        location.reload();
-                    })
                     $scope.loading = false;
-                }else if (selectedAsset.length < 1 || !selectedAsset) { //Check to see if user entered an asset
-                    swal(
-                        'Please enter an asset',
-                        '',
-                        'error'
-                    ).then(function (result) {
-                        location.reload();
+                    swal({
+                        title: 'Error!',
+                        text: "Please enter a date range",
+                        type: 'error',
+                        allowOutsideClick: false
+                    }).then(function (result) {
+                        $('#myOverlay').hide();
+                        //location.reload();
                     })
+                } else if (selectedAsset.length < 1 || selectedAsset == ' ') { //Check to see if user entered an asset
                     $scope.loading = false;
+                    swal({
+                        title: 'Error!',
+                        text: "Please enter an asset",
+                        type: 'error',
+                        allowOutsideClick: false
+                    }).then(function (result) {
+                        $('#myOverlay').hide();
+                        // location.reload();
+                    })
+                } else { //Perform normal function
+                    var fromDate = fromDate.replace("/", "-");
+                    var toDate = toDate.replace("/", "-");
+                    var fromDate = fromDate.replace("/", "-");
+                    var toDate = toDate.replace("/", "-");
+
+                    //Change date formatting to year-month-day
+                    var convert_date = function (input_date) {
+                        var date = input_date.split('-');
+                        var return_date = date[2] + '-' + date[0] + '-' + date[1]
+                        return return_date
+                    }
+
+                    //Will need to change when put on local server
+                    //Make AJAX/HTTP request
+                    $http.get("http://localhost:5000/" + selectedAsset + "/" + convert_date(fromDate) + "/" + convert_date(toDate))
+                        .then(on_complete, on_error);
                 }
-
-                var fromDate = fromDate.replace("/", "-");
-                var toDate = toDate.replace("/", "-");
-                var fromDate = fromDate.replace("/", "-");
-                var toDate = toDate.replace("/", "-");
-
-                //Change date formatting to year-month-day
-                var convert_date = function (input_date) {
-                    var date = input_date.split('-');
-                    var return_date = date[2] + '-' + date[0] + '-' + date[1]
-                    return return_date
-                }                
-
-                //Will need to change when put on local server
-                //Make AJAX/HTTP request
-                $http.get("http://localhost:5000/" + selectedAsset + "/" + convert_date(fromDate) + "/" + convert_date(toDate))
-                    .then(on_complete, on_error);
             };
 
             /* End of search bar function */

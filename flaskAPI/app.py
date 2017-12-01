@@ -27,7 +27,6 @@ def return_data(stock, start_date, end_date):
 		return jsonify({"is_valid": False,
 						"is_asset_error": True})
 
-
 	ticker = '('+json_response['dataset']['dataset_code']+')'
 	name_to_parse = json_response['dataset']['name']
 	oldest_available = json_response['dataset']['oldest_available_date']
