@@ -227,6 +227,11 @@
                     daily_lag.push(json_data4[key]);
                 }
 
+                //Pops the last value if erroneous
+                if (((daily_autocorr[daily_autocorr.length - 1]) == 1) || ((daily_autocorr[daily_autocorr.length - 1]) == -1)) {
+                    daily_autocorr.pop();
+                }
+
                 /*
                     Weekly Autocorrelation Data Array
                 */
@@ -241,6 +246,11 @@
                     weekly_lag.push(json_data5[key]);
                 }
 
+                //Pops the last value if erroneous
+                if (((weekly_autocorr[weekly_autocorr.length - 1]) == 1) || ((weekly_autocorr[weekly_autocorr.length - 1]) == -1)) {
+                    weekly_autocorr.pop();
+                }
+
                 /*
                     Monthly Autocorrelation Data Array
                 */
@@ -253,6 +263,11 @@
                         monthly_autocorr.push(parseFloat((parseFloat(key).toFixed(5))));
                     }
                     monthly_lag.push(json_data6[key]);
+                }
+
+                //Pops the last value if erroneous
+                if (((monthly_autocorr[monthly_autocorr.length - 1]) == 1) || ((monthly_autocorr[monthly_autocorr.length - 1]) == -1)) {
+                    monthly_autocorr.pop();
                 }
 
                 var myChart = Highcharts.chart('highchartsContainer', {
