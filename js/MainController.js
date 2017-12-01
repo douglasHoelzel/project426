@@ -129,24 +129,6 @@ var testAsset;
                 $scope.loading = true;
                 $('#myOverlay').show();
 
-                /*
-                var today = new Date();
-                var dd = today.getDate();
-                var mm = today.getMonth() + 1; //January is 0!
-
-                var yyyy = today.getFullYear();
-                if (dd < 10) {
-                    dd = '0' + dd;
-                }
-                if (mm < 10) {
-                    mm = '0' + mm;
-                }
-                */
-
-
-                // var today = mm + '/' + dd + '/' + yyyy;
-                //var flag = 0; // false
-
                 if (!toDate || !fromDate) {
                     swal(
                         'Please enter a date range',
@@ -156,7 +138,6 @@ var testAsset;
                         location.reload();
                     })
                 }
-
 
                 var fromDate = fromDate.replace("/", "-");
                 var toDate = toDate.replace("/", "-");
@@ -169,11 +150,6 @@ var testAsset;
                         '',
                         'error'
                     )
-<<<<<<< HEAD
-                }*/
-                console.log(searchAsset)
-                if (!selectedAsset) {
-=======
                 }
                 console.log(selectedAsset.length);
                 if(selectedAsset.length < 1){
@@ -186,7 +162,6 @@ var testAsset;
                     })
                 }
                 if (selectedAsset == null || selectedAsset == "") {
->>>>>>> 12bcb61527683df99a45a71cba2c082c643a5b18
                     swal(
                         'Please enter an asset name',
                         '',
