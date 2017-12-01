@@ -221,13 +221,10 @@
                 var daily_autocorrNumbers = [];
                 var daily_lag = [];
                 for (var key in json_data4) {
-                    daily_autocorr.push((parseFloat(key).toFixed(3)));
+                    daily_autocorr.push((parseFloat(key)));
                     daily_lag.push(json_data4[key]);
                 }
-                // Loop converts autocorr to float
-                for (var z = 0; z < daily_autocorr.length; z++) {
-                    daily_autocorrNumbers.push(parseFloat(daily_autocorr[z]));
-                }
+
                 /*
                     Weekly Autocorrelation Data Array
                 */
@@ -236,13 +233,10 @@
                 var weekly_autocorrNumbers = [];
                 var weekly_lag = [];
                 for (var key in json_data5) {
-                    weekly_autocorr.push((parseFloat(key).toFixed(3)));
+                    weekly_autocorr.push((parseFloat(key)));
                     weekly_lag.push(json_data5[key]);
                 }
-                // Loop converts autocorr to float
-                for (var x = 0; x < weekly_autocorr.length; x++) {
-                    weekly_autocorrNumbers.push(parseFloat(weekly_autocorr[x]));
-                }
+
                 /*
                     Monthly Autocorrelation Data Array
                 */
@@ -251,12 +245,10 @@
                 var monthly_autocorrNumbers = [];
                 var monthly_lag = [];
                 for (var key in json_data6) {
-                    monthly_autocorr.push((parseFloat(key).toFixed(3)));
+                    monthly_autocorr.push((parseFloat(key)));
                     monthly_lag.push(json_data6[key]);
                 }
-                for (var y = 0; y < monthly_autocorr.length; y++) {
-                    monthly_autocorrNumbers.push(parseFloat(monthly_autocorr[y]));
-                }
+
                 var myChart = Highcharts.chart('highchartsContainer', {
                     chart: {
                         type: 'column'
@@ -364,7 +356,7 @@
                     },
                     series: [{
                         name: 'Daily Data',
-                        data: daily_autocorrNumbers
+                        data: daily_autocorr
                     }]
                 });
                 Highcharts.chart('highchartsContainer5', {
@@ -393,7 +385,7 @@
                     },
                     series: [{
                         name: 'Weekly Data',
-                        data: weekly_autocorrNumbers
+                        data: weekly_autocorr
                     }]
                 });
                 Highcharts.chart('highchartsContainer6', {
@@ -422,7 +414,7 @@
                     },
                     series: [{
                         name: 'Monthly Data',
-                        data: monthly_autocorrNumbers
+                        data: monthly_autocorr
                     }]
                 });
             }; // Ends grabCharts() function
