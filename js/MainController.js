@@ -221,7 +221,7 @@
                 var daily_autocorrNumbers = [];
                 var daily_lag = [];
                 for (var key in json_data4) {
-                    daily_autocorr.push((parseFloat(key)));
+                    daily_autocorr.push(parseFloat((parseFloat(key).toFixed(5))));
                     daily_lag.push(json_data4[key]);
                 }
 
@@ -233,7 +233,7 @@
                 var weekly_autocorrNumbers = [];
                 var weekly_lag = [];
                 for (var key in json_data5) {
-                    weekly_autocorr.push((parseFloat(key)));
+                    weekly_autocorr.push(parseFloat((parseFloat(key).toFixed(5))));
                     weekly_lag.push(json_data5[key]);
                 }
 
@@ -245,7 +245,7 @@
                 var monthly_autocorrNumbers = [];
                 var monthly_lag = [];
                 for (var key in json_data6) {
-                    monthly_autocorr.push((parseFloat(key)));
+                    monthly_autocorr.push(parseFloat((parseFloat(key).toFixed(5))));
                     monthly_lag.push(json_data6[key]);
                 }
 
