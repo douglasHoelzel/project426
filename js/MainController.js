@@ -129,7 +129,8 @@ var testAsset;
                 $scope.loading = true;
                 $('#myOverlay').show();
 
-                if (!toDate || !fromDate) {
+                //User input checking
+                if (!toDate || !fromDate) { //Check to see if user entered a date
                     swal(
                         'Please enter a date range',
                         '',
@@ -137,50 +138,29 @@ var testAsset;
                     ).then(function (result) {
                         location.reload();
                     })
+                    $scope.loading = false;
+                }else if (selectedAsset.length < 1 || !selectedAsset) { //Check to see if user entered an asset
+                    swal(
+                        'Please enter an asset',
+                        '',
+                        'error'
+                    ).then(function (result) {
+                        location.reload();
+                    })
+                    $scope.loading = false;
                 }
 
                 var fromDate = fromDate.replace("/", "-");
                 var toDate = toDate.replace("/", "-");
                 var fromDate = fromDate.replace("/", "-");
                 var toDate = toDate.replace("/", "-");
-                
-                /*if (fromDate == null || toDate == null || fromDate == "" || toDate == "") {
-                    swal(
-                        'Please enter a valid start and end date',
-                        '',
-                        'error'
-                    )
-                }
-                console.log(selectedAsset.length);
-                if(selectedAsset.length < 1){
-                    swal(
-                        'Please enter an asset name',
-                        '',
-                        'error'
-                    ).then(function (result) {
-                        location.reload();
-                    })
-                }
-                if (selectedAsset == null || selectedAsset == "") {
-                    swal(
-                        'Please enter an asset name',
-                        '',
-                        'error'
-                    ).then(function (result) {
-                        location.reload();
-                    })
-                }
 
                 //Change date formatting to year-month-day
                 var convert_date = function (input_date) {
                     var date = input_date.split('-');
                     var return_date = date[2] + '-' + date[0] + '-' + date[1]
                     return return_date
-                }
-
-                /*For testing purposes
-                 test_string = "http://localhost:5000/" + selectedAsset + "/" + convert_date(fromDate) + "/" + convert_date(toDate);
-                */
+                }                
 
                 //Will need to change when put on local server
                 //Make AJAX/HTTP request
