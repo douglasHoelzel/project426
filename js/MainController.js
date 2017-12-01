@@ -1,11 +1,8 @@
-var testAsset;
-
 (function () {
     angular
         .module('myApp')
         .controller('MainController', function MainController($scope, $http) {
-            var vm = this;
-            $scope.selectedAsset = " ";
+            $scope.selectedAsset;
             $scope.tickerId;
             $scope.startDate;
             $scope.toDate;
@@ -150,9 +147,8 @@ var testAsset;
                         allowOutsideClick: false
                     }).then(function (result) {
                         $('#myOverlay').hide();
-                        //location.reload();
                     })
-                } else if (selectedAsset.length < 1 || selectedAsset == ' ') { //Check to see if user entered an asset
+                } else if (!selectedAsset) { //Check to see if user entered an asset
                     $scope.loading = false;
                     swal({
                         title: 'Error!',
@@ -161,7 +157,6 @@ var testAsset;
                         allowOutsideClick: false
                     }).then(function (result) {
                         $('#myOverlay').hide();
-                        // location.reload();
                     })
                 } else { //Perform normal function
                     var fromDate = fromDate.replace("/", "-");
