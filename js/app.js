@@ -10,8 +10,8 @@
         $stateProvider
           .state("home", {
             url: "/home",
-            templateUrl: "assetView.html",
-            controller: "MainController"
+            templateUrl: "assetView.html"
+            //controller: "MainController"
           })
       }
     ]);
