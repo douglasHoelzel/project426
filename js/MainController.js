@@ -136,7 +136,7 @@
                 $('#myOverlay').show();
 
                 //User input checking
-                if (!toDate || !fromDate) { //Check to see if user entered a date
+                if (!toDate || !fromDate || toDate == fromDate) { //Check to see if user entered a date or the same date
                     $scope.loading = false;
                     swal({
                         title: 'Error!',
