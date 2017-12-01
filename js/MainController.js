@@ -362,7 +362,7 @@
                         title: {
                             text: 'Lag'
                         },
-                        min: 0,
+                        min: 1,
                         max: daily_lag.length
                     },
                     yAxis: {
@@ -391,7 +391,7 @@
                         title: {
                             text: 'Lag'
                         },
-                        min: 0,
+                        min: 1,
                         max: weekly_lag.length
                     },
                     yAxis: {
@@ -420,7 +420,7 @@
                         title: {
                             text: 'Lag'
                         },
-                        min: 0,
+                        min: 1,
                         max: monthly_lag.length
                     },
                     yAxis: {
