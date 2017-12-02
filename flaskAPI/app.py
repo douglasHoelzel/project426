@@ -41,7 +41,7 @@ def return_data(stock, start_date, end_date):
 	end_datetime = pd.to_datetime(end_date,format="%Y-%m-%d")
 
 	#Date check, if not a valid range given the data return this response
-	if(start_datetime < oldest_datetime or end_datetime > newest_datetime):
+	if(start_datetime < oldest_datetime or end_datetime > newest_datetime or start_datetime > end_datetime):
 		return jsonify({"oldest_available": oldest_available,
 				        "newest_available": newest_available,
 				        "is_valid": False,
