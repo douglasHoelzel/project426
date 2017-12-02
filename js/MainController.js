@@ -91,7 +91,8 @@
             var format_data = function (data) {
                 var asset_name = data.asset_name;
                 var asset_symbol = data.asset_symbol;
-                var current_date = data.current_date;
+                var start_date = data.start_date;
+                var end_date = data.end_date;
                 var cumulative_returns = (parseFloat(data.cumulative_returns) * 100).toFixed(2) + '%';
                 var daily_average_return = (parseFloat(data.daily_average_return) * 100).toFixed(2) + '%';
                 var daily_kurtosis = data.daily_kurtosis;
@@ -109,7 +110,8 @@
                 var json_to_return = {
                     asset_name: asset_name,
                     asset_symbol: asset_symbol,
-                    current_date: current_date,
+                    start_date: start_date,
+                    end_date: end_date,
                     cumulative_returns: cumulative_returns,
                     daily_average_return: daily_average_return,
                     daily_kurtosis: daily_kurtosis,

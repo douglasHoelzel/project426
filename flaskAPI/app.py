@@ -30,7 +30,6 @@ def return_data(stock, start_date, end_date):
 	ticker = '('+json_response['dataset']['dataset_code']+')'
 	name_to_parse = json_response['dataset']['name']
 	oldest_available = json_response['dataset']['oldest_available_date']
-	#pandas.to_datetime(oldest_available,format="%Y-%m-%d")
 	newest_available = json_response['dataset']['newest_available_date']
 	asset_name = name_to_parse.split('(')[0].replace('Inc.',"").replace('  ',' ').strip()
 
@@ -71,6 +70,12 @@ def return_data(stock, start_date, end_date):
 
 	#Assign current date to return
 	current_date = datetime.date.today().strftime('%m/%d/%Y')
+
+	#Assign start date from query
+	start_date_return = start_datetime.strftime('%m/%d/%Y')
+
+	#Assign end date from query
+	end_date_return = end_datetime.strftime('%m/%d/%Y')	
 
 	#Assign cumulative returns
 	cumulative_returns = total_return(daily_returns)
@@ -127,7 +132,8 @@ def return_data(stock, start_date, end_date):
 	monthly_autocorrelation_data = calculate_autocorrelation(monthly_returns)
 
 	return jsonify({"cumulative_returns": cumulative_returns,
-					"current_date": current_date,
+					"start_date": start_date_return,
+					"end_date": end_date_return,
 					"daily_average_return": daily_average_return,
 					"daily_standard_deviation": daily_standard_deviation,
 					"daily_skewness": daily_skewness,
