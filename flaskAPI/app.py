@@ -159,4 +159,5 @@ def return_data(stock, start_date, end_date):
 })
 
 if __name__ == "__main__":
-	app.run(debug=True)
+	#app.run(debug=True)
+	app.run(port=8080)
