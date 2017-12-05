@@ -96,11 +96,15 @@ def return_data(stock, start_date, end_date):
 	weekly_average_return = avg_return(weekly_returns)
 	monthly_average_return = avg_return(monthly_returns)
 
-	#Assign daily standard deviation
-	daily_standard_deviation = daily_std(daily_returns)
+	#Assign standard deviation
+	daily_standard_deviation = calc_std(daily_returns)
+	weekly_standard_deviation = calc_std(weekly_returns)
+	monthly_standard_deviation = calc_std(monthly_returns)
 
 	#Assign skewness of daily returns
-	daily_skewness = daily_skew(daily_returns)
+	daily_skewness = calc_skew(daily_returns)
+	weekly_skewness = calc_skew(weekly_returns)
+	monthly_skewness = calc_skew(monthly_returns)
 
 	#Assign kurtosis of returns
 	daily_kurtosis = calc_kurt(daily_returns)
@@ -124,15 +128,23 @@ def return_data(stock, start_date, end_date):
 
 	#Assign quartile 25%
 	quartile_25 = calculate_quartile(daily_returns,.25)
+	weekly_quartile_25 = calculate_quartile(weekly_returns,.25)
+	monthly_quartile_25 = calculate_quartile(monthly_returns,.25)
 
 	#Assign quartile 50%
 	quartile_50 = calculate_quartile(daily_returns,.50)
+	weekly_quartile_50 = calculate_quartile(weekly_returns,.50)
+	monthly_quartile_50 = calculate_quartile(monthly_returns,.50)
 
 	#Assign quartile 75%
 	quartile_75 = calculate_quartile(daily_returns,.75)
+	weekly_quartile_75 = calculate_quartile(weekly_returns,.75)
+	monthly_quartile_75 = calculate_quartile(monthly_returns,.75)
 
 	#Assign quartile 95%
 	quartile_95 = calculate_quartile(daily_returns,.95)
+	weekly_quartile_95 = calculate_quartile(weekly_returns,.95)
+	monthly_quartile_95 = calculate_quartile(monthly_returns,.95)
 
 	#Create a data set to build a histogram of daily returns
 	daily_histogram_data = make_histogram_daily(daily_returns)
@@ -161,7 +173,11 @@ def return_data(stock, start_date, end_date):
 					"weekly_average_return": weekly_average_return,
 					"monthly_average_return": monthly_average_return,
 					"daily_standard_deviation": daily_standard_deviation,
+					"weekly_standard_deviation": weekly_standard_deviation,
+					"monthly_standard_deviation": monthly_standard_deviation,
 					"daily_skewness": daily_skewness,
+					"weekly_skewness": weekly_skewness,
+					"monthly_skewness": monthly_skewness,
 					"daily_kurtosis": daily_kurtosis,
 					"weekly_kurtosis": weekly_kurtosis,
 					"monthly_kurtosis": monthly_kurtosis,
@@ -181,9 +197,17 @@ def return_data(stock, start_date, end_date):
 					"weekly_quartile_05": weekly_quartile_05,
 					"monthly_quartile_05": monthly_quartile_05,
 					"quartile_25": quartile_25,
+					"weekly_quartile_25": weekly_quartile_25,
+					"monthly_quartile_25": monthly_quartile_25,
 					"quartile_50": quartile_50,
+					"weekly_quartile_50": weekly_quartile_50,
+					"monthly_quartile_50": monthly_quartile_50,
 					"quartile_75": quartile_75,
+					"weekly_quartile_75": weekly_quartile_75,
+					"monthly_quartile_75": monthly_quartile_75,
 					"quartile_95": quartile_95,
+					"weekly_quartile_95": weekly_quartile_95,
+					"monthly_quartile_95": monthly_quartile_95,
 					"asset_symbol": ticker,
 					"asset_name": asset_name,
 					"oldest_available": oldest_available,

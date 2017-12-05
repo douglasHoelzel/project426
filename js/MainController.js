@@ -112,7 +112,11 @@
                 var weekly_kurtosis = data.weekly_kurtosis;
                 var monthly_kurtosis = data.monthly_kurtosis;                
                 var daily_skewness = data.daily_skewness;
+                var weekly_skewness = data.weekly_skewness;
+                var monthly_skewness = data.monthly_skewness;                
                 var daily_standard_deviation = data.daily_standard_deviation;
+                var weekly_standard_deviation = data.weekly_standard_deviation;
+                var monthly_standard_deviation = data.monthly_standard_deviation;                
                 var maximum_return = (parseFloat(data.maximum_return) * 100).toFixed(2) + '%';
                 var weekly_maximum_return = (parseFloat(data.weekly_maximum_return) * 100).toFixed(2) + '%';
                 var monthly_maximum_return = (parseFloat(data.monthly_maximum_return) * 100).toFixed(2) + '%';     
@@ -123,9 +127,17 @@
                 var weekly_quartile_05 = (parseFloat(data.weekly_quartile_05) * 100).toFixed(2) + '%';
                 var monthly_quartile_05 = (parseFloat(data.monthly_quartile_05) * 100).toFixed(2) + '%';             
                 var quartile_25 = (parseFloat(data.quartile_25) * 100).toFixed(2) + '%';
+                var weekly_quartile_25 = (parseFloat(data.weekly_quartile_25) * 100).toFixed(2) + '%';
+                var monthly_quartile_25 = (parseFloat(data.monthly_quartile_25) * 100).toFixed(2) + '%';             
                 var quartile_50 = (parseFloat(data.quartile_50) * 100).toFixed(2) + '%';
+                var weekly_quartile_50 = (parseFloat(data.weekly_quartile_50) * 100).toFixed(2) + '%';
+                var monthly_quartile_50 = (parseFloat(data.monthly_quartile_50) * 100).toFixed(2) + '%';
                 var quartile_75 = (parseFloat(data.quartile_75) * 100).toFixed(2) + '%';
+                var weekly_quartile_75 = (parseFloat(data.weekly_quartile_75) * 100).toFixed(2) + '%';
+                var monthly_quartile_75 = (parseFloat(data.monthly_quartile_75) * 100).toFixed(2) + '%';
                 var quartile_95 = (parseFloat(data.quartile_95) * 100).toFixed(2) + '%';
+                var weekly_quartile_95 = (parseFloat(data.weekly_quartile_95) * 100).toFixed(2) + '%';
+                var monthly_quartile_95 = (parseFloat(data.monthly_quartile_95) * 100).toFixed(2) + '%';
 
                 //Package up and return as a JSON object
                 var json_to_return = {
@@ -143,7 +155,11 @@
                     weekly_kurtosis: weekly_kurtosis,
                     monthly_kurtosis: monthly_kurtosis,                    
                     daily_skewness: daily_skewness,
+                    weekly_skewness: weekly_skewness,
+                    monthly_skewness: monthly_skewness,                    
                     daily_standard_deviation: daily_standard_deviation,
+                    weekly_standard_deviation: weekly_standard_deviation,
+                    monthly_standard_deviation: monthly_standard_deviation,                    
                     maximum_return: maximum_return,
                     weekly_maximum_return: weekly_maximum_return,
                     monthly_maximum_return: monthly_maximum_return,                    
@@ -154,9 +170,17 @@
                     weekly_quartile_05: weekly_quartile_05,
                     monthly_quartile_05: monthly_quartile_05,                    
                     quartile_25: quartile_25,
+                    weekly_quartile_25: weekly_quartile_25,
+                    monthly_quartile_25: monthly_quartile_25,                    
                     quartile_50: quartile_50,
+                    weekly_quartile_50: weekly_quartile_50,
+                    monthly_quartile_50: monthly_quartile_50,                    
                     quartile_75: quartile_75,
-                    quartile_95: quartile_95
+                    weekly_quartile_75: weekly_quartile_75,
+                    monthly_quartile_75: monthly_quartile_75,                    
+                    quartile_95: quartile_95,
+                    weekly_quartile_95: weekly_quartile_95,
+                    monthly_quartile_95: monthly_quartile_95                    
                 }
                 return json_to_return;
             }

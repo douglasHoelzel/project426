@@ -30,17 +30,17 @@ def avg_return(ret):
         raise ValueError('Expected a dataframe for daily average return')
 
 #Takes in a pandas dataframe of returns, outputs daily standard deviation 
-def daily_std(daily_ret):
-    if isinstance(daily_ret, pd.DataFrame):
-        std = daily_ret.std()
+def calc_std(ret):
+    if isinstance(ret, pd.DataFrame):
+        std = ret.std()
         return '%.5f' % round(std, 5) 
     else:
         raise ValueError('Expected a dataframe for daily standard deviation')
 
 #Takes in a pandas dataframe, returns skewness of daily returns
-def daily_skew(daily_ret):
-    if isinstance(daily_ret, pd.DataFrame):
-        return '%.5f' % round(daily_ret.skew(),5)
+def calc_skew(ret):
+    if isinstance(ret, pd.DataFrame):
+        return '%.5f' % round(ret.skew(),5)
     else:
         raise ValueError('Expected a dataframe for daily skew')
 
