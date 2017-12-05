@@ -45,9 +45,9 @@ def daily_skew(daily_ret):
         raise ValueError('Expected a dataframe for daily skew')
 
 #Takes in a pandas dataframe, returns the kurtosis of daily returns
-def daily_kurt(daily_ret):
-    if isinstance(daily_ret, pd.DataFrame):
-        return '%.5f' % round(daily_ret.kurtosis(),5)
+def calc_kurt(ret):
+    if isinstance(ret, pd.DataFrame):
+        return '%.5f' % round(ret.kurtosis(),5)
     else:
         raise ValueError('Expected a dataframe for daily kurtosis')  
 
