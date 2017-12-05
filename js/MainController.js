@@ -76,6 +76,15 @@
                     }).then(function (result) {
                         $('#myOverlay').hide();
                     })
+                } else if (response.data.is_valid == false && response.data.is_date_diff_error == true) {
+                    swal({
+                        title: 'Error!',
+                        text: "Please enter a date range greater than 4 trading days",
+                        type: 'error',
+                        allowOutsideClick: false
+                    }).then(function (result) {
+                        $('#myOverlay').hide();
+                    })
                 } else {
                     $scope.data = format_data(response.data);
                     $scope.grabCharts(response);

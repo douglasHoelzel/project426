@@ -39,12 +39,21 @@ def return_data(stock, start_date, end_date):
 	start_datetime = pd.to_datetime(start_date,format="%Y-%m-%d")
 	end_datetime = pd.to_datetime(end_date,format="%Y-%m-%d")
 
+	date_diff = end_datetime - start_datetime
+
 	#Date check, if not a valid range given the data return this response
 	if(start_datetime < oldest_datetime or end_datetime > newest_datetime or start_datetime > end_datetime):
 		return jsonify({"oldest_available": oldest_available,
 				        "newest_available": newest_available,
 				        "is_valid": False,
 						"is_date_error": True})
+
+	#Make sure a decently wide range of dates is selected
+	if(date_diff.days < 4):
+		return jsonify({"is_valid": False,
+						"is_date_diff_error": True})
+
+	
     
 	#Pull daily data from Quandl
 	daily_data = q.get("EOD/{0}.11".format(stock), #Only pull closing price
@@ -159,5 +168,5 @@ def return_data(stock, start_date, end_date):
 })
 
 if __name__ == "__main__":
-	#app.run(debug=True)
-	app.run(port=8080)
+	app.run(debug=True)
+	app.run()
