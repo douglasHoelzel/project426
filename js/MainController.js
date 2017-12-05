@@ -304,7 +304,7 @@
                         enabled: false
                     },
                     series: [{
-                        name: 'Daily Data',
+                        showInLegend: false, 
                         data: daily_count
                     }]
                 });
@@ -331,7 +331,7 @@
                         enabled: false
                     },
                     series: [{
-                        name: 'Monthly Data',
+                        showInLegend: false, 
                         data: monthly_count
                     }]
                 });
@@ -358,7 +358,7 @@
                         enabled: false
                     },
                     series: [{
-                        name: 'Weekly Data',
+                        showInLegend: false, 
                         data: weekly_count
                     }]
                 });
@@ -373,8 +373,9 @@
                         title: {
                             text: 'Lag'
                         },
-                        min: 1,
-                        max: daily_lag.length
+                        min: 0,
+                        tickInterval: 5,
+                        max: 20
                     },
                     yAxis: {
                         title: {
@@ -387,7 +388,7 @@
                         enabled: false
                     },
                     series: [{
-                        name: 'Daily Data',
+                        showInLegend: false, 
                         data: daily_autocorr
                     }]
                 });
@@ -402,8 +403,9 @@
                         title: {
                             text: 'Lag'
                         },
-                        min: 1,
-                        max: weekly_lag.length
+                        min: 0,
+                        tickInterval: 5,
+                        max: 20
                     },
                     yAxis: {
                         title: {
@@ -416,7 +418,7 @@
                         enabled: false
                     },
                     series: [{
-                        name: 'Weekly Data',
+                        showInLegend: false, 
                         data: weekly_autocorr
                     }]
                 });
@@ -431,8 +433,9 @@
                         title: {
                             text: 'Lag'
                         },
-                        min: 1,
-                        max: monthly_lag.length
+                        min: 0,
+                        tickInterval: 5,
+                        max: 20
                     },
                     yAxis: {
                         title: {
@@ -445,7 +448,7 @@
                         enabled: false
                     },
                     series: [{
-                        name: 'Monthly Data',
+                        showInLegend: false, 
                         data: monthly_autocorr
                     }]
                 });
