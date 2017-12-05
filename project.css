@@ -4,14 +4,16 @@
 /* Adjusts page for clean printing */
 @media print{@page {size: landscape}}
 @media print {
-  .header, head, #printButton {
+  .header, head, #printButton, #footerTextTop {
     visibility: hidden;
   }
-  .wrapper{
+  .wrapper,#footerTextBottom, #footerText2, #footerText3,
+  #footerText4{
     visibility: visible;
     height: 100% !important;
     margin: 0 !important;
     padding: 0 !important;
+    font-size: 4.5pt;
     overflow: hidden;
   }
   #section-to-print {
