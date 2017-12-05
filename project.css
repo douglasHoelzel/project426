@@ -184,10 +184,17 @@ margin-right: 30px;
     width: 290px;
     font-family: 'Radley', serif;
 }
+#chartTitle{
+    text-align: left;
+}
+#chartItem{
+    text-align: center;
+}
 #dataTable2 td{
     font-size: .8em;
-    height: 44px;
+    height: 43px;
     vertical-align: middle;
+    align: center;
     font-family: 'Radley', serif;
 }
 #tableContainer{
