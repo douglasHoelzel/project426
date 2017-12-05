@@ -489,4 +489,7 @@ tspan{
 #bottomBox{
     width: 1000px;
     margin: 0 auto;
+    font-size: 8pt;
+    font-family: 'Comfortaa', cursive;
+    font-family: 'Raleway', sans-serif;
 }
