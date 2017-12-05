@@ -107,11 +107,15 @@ def return_data(stock, start_date, end_date):
 	weekly_kurtosis = calc_kurt(weekly_returns)
 	monthly_kurtosis = calc_kurt(monthly_returns)
 
-	#Assign minimum daily return
+	#Assign minimum return
 	minimum_ret = min_ret(daily_returns)
-	
-	#Assign maximum daily return
+	weekly_minimum_ret = min_ret(weekly_returns)
+	monthly_minimum_ret = min_ret(monthly_returns)
+
+	#Assign maximum return
 	maximum_ret = max_ret(daily_returns)
+	weekly_maximum_ret = max_ret(weekly_returns)
+	monthly_maximum_ret = max_ret(monthly_returns)
 
 	#Assign quartile 5%
 	quartile_05 = calculate_quartile(daily_returns,.05)
@@ -160,7 +164,11 @@ def return_data(stock, start_date, end_date):
 					"weekly_kurtosis": weekly_kurtosis,
 					"monthly_kurtosis": monthly_kurtosis,
 					"minimum_return": minimum_ret,
+					"weekly_minimum_return": weekly_minimum_ret,
+					"monthly_minimum_return": monthly_minimum_ret,
 					"maximum_return": maximum_ret,
+					"weekly_maximum_return": weekly_maximum_ret,
+					"monthly_maximum_return": monthly_maximum_ret,
 					"daily_histogram_data": daily_histogram_data,
 					"weekly_histogram_data": weekly_histogram_data,
 					"monthly_histogram_data": monthly_histogram_data,

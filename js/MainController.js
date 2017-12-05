@@ -114,7 +114,11 @@
                 var daily_skewness = data.daily_skewness;
                 var daily_standard_deviation = data.daily_standard_deviation;
                 var maximum_return = (parseFloat(data.maximum_return) * 100).toFixed(2) + '%';
+                var weekly_maximum_return = (parseFloat(data.weekly_maximum_return) * 100).toFixed(2) + '%';
+                var monthly_maximum_return = (parseFloat(data.monthly_maximum_return) * 100).toFixed(2) + '%';     
                 var minimum_return = (parseFloat(data.minimum_return) * 100).toFixed(2) + '%';
+                var weekly_minimum_return = (parseFloat(data.weekly_minimum_return) * 100).toFixed(2) + '%';
+                var monthly_minimum_return = (parseFloat(data.monthly_minimum_return) * 100).toFixed(2) + '%';
                 var quartile_05 = (parseFloat(data.quartile_05) * 100).toFixed(2) + '%';
                 var quartile_25 = (parseFloat(data.quartile_25) * 100).toFixed(2) + '%';
                 var quartile_50 = (parseFloat(data.quartile_50) * 100).toFixed(2) + '%';
@@ -139,7 +143,11 @@
                     daily_skewness: daily_skewness,
                     daily_standard_deviation: daily_standard_deviation,
                     maximum_return: maximum_return,
+                    weekly_maximum_return: weekly_maximum_return,
+                    monthly_maximum_return: monthly_maximum_return,                    
                     minimum_return: minimum_return,
+                    weekly_minimum_return: weekly_minimum_return,
+                    monthly_minimum_return: monthly_minimum_return,                    
                     quartile_05: quartile_05,
                     quartile_25: quartile_25,
                     quartile_50: quartile_50,
