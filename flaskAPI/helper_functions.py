@@ -22,9 +22,9 @@ def total_return(daily_ret):
         raise ValueError('Expected a dataframe for total return')
 
 #Takes in a pandas dataframe of returns, outputs average daily return  as float
-def daily_avg_return(daily_ret):
-    if isinstance(daily_ret, pd.DataFrame):
-        avg = daily_ret.mean()
+def avg_return(ret):
+    if isinstance(ret, pd.DataFrame):
+        avg = ret.mean()
         return '%.5f' % round(avg, 5) 
     else:
         raise ValueError('Expected a dataframe for daily average return')
