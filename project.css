@@ -4,13 +4,12 @@
 /* Adjusts page for clean printing */
 @media print{@page {size: landscape}}
 @media print {
-  .header,#footerText, #footerText2,#footerText3,
-  #footerText4, #printButton {
+  .header, head, #printButton {
     visibility: hidden;
   }
   .wrapper{
     visibility: visible;
-    height:100% !important;
+    height: 100% !important;
     margin: 0 !important;
     padding: 0 !important;
     overflow: hidden;
@@ -429,7 +428,15 @@ th{
     transform: rotate(360deg);
   }
 }
-#footerText{
+#footerTextTop{
+    float: left;
+    width: 100%;
+    margin: auto;
+    font-size: .8em;
+    font-family: 'Comfortaa', cursive;
+    font-family: 'Raleway', sans-serif;
+}
+#footerTextBottom{
     float: left;
     width: 100%;
     margin: auto;
