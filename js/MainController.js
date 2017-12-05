@@ -120,6 +120,8 @@
                 var weekly_minimum_return = (parseFloat(data.weekly_minimum_return) * 100).toFixed(2) + '%';
                 var monthly_minimum_return = (parseFloat(data.monthly_minimum_return) * 100).toFixed(2) + '%';
                 var quartile_05 = (parseFloat(data.quartile_05) * 100).toFixed(2) + '%';
+                var weekly_quartile_05 = (parseFloat(data.weekly_quartile_05) * 100).toFixed(2) + '%';
+                var monthly_quartile_05 = (parseFloat(data.monthly_quartile_05) * 100).toFixed(2) + '%';             
                 var quartile_25 = (parseFloat(data.quartile_25) * 100).toFixed(2) + '%';
                 var quartile_50 = (parseFloat(data.quartile_50) * 100).toFixed(2) + '%';
                 var quartile_75 = (parseFloat(data.quartile_75) * 100).toFixed(2) + '%';
@@ -149,6 +151,8 @@
                     weekly_minimum_return: weekly_minimum_return,
                     monthly_minimum_return: monthly_minimum_return,                    
                     quartile_05: quartile_05,
+                    weekly_quartile_05: weekly_quartile_05,
+                    monthly_quartile_05: monthly_quartile_05,                    
                     quartile_25: quartile_25,
                     quartile_50: quartile_50,
                     quartile_75: quartile_75,

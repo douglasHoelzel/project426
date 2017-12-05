@@ -119,6 +119,8 @@ def return_data(stock, start_date, end_date):
 
 	#Assign quartile 5%
 	quartile_05 = calculate_quartile(daily_returns,.05)
+	weekly_quartile_05 = calculate_quartile(weekly_returns,.05)
+	monthly_quartile_05 = calculate_quartile(monthly_returns,.05)
 
 	#Assign quartile 25%
 	quartile_25 = calculate_quartile(daily_returns,.25)
@@ -176,6 +178,8 @@ def return_data(stock, start_date, end_date):
 					"weekly_autocorrelation_data": weekly_autocorrelation_data,
 					"monthly_autocorrelation_data": monthly_autocorrelation_data,
 					"quartile_05": quartile_05,
+					"weekly_quartile_05": weekly_quartile_05,
+					"monthly_quartile_05": monthly_quartile_05,
 					"quartile_25": quartile_25,
 					"quartile_50": quartile_50,
 					"quartile_75": quartile_75,
