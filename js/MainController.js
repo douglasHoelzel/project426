@@ -304,7 +304,8 @@
                         enabled: false
                     },
                     series: [{
-                        showInLegend: false, 
+                        name: "Daily Returns",  
+                        showInLegend: false,
                         data: daily_count
                     }]
                 });
@@ -331,7 +332,8 @@
                         enabled: false
                     },
                     series: [{
-                        showInLegend: false, 
+                        name: "Monthly Returns",  
+                        showInLegend: false,
                         data: monthly_count
                     }]
                 });
@@ -358,7 +360,8 @@
                         enabled: false
                     },
                     series: [{
-                        showInLegend: false, 
+                        name: "Weekly Returns",                        
+                        showInLegend: false,
                         data: weekly_count
                     }]
                 });
@@ -388,7 +391,8 @@
                         enabled: false
                     },
                     series: [{
-                        showInLegend: false, 
+                        name: "Daily Autocorrelation",                        
+                        showInLegend: false,
                         data: daily_autocorr
                     }]
                 });
@@ -418,7 +422,8 @@
                         enabled: false
                     },
                     series: [{
-                        showInLegend: false, 
+                        name: "Weekly Autocorrelation",                        
+                        showInLegend: false,
                         data: weekly_autocorr
                     }]
                 });
@@ -448,7 +453,8 @@
                         enabled: false
                     },
                     series: [{
-                        showInLegend: false, 
+                        name: "Monthly Autocorrelation",
+                        showInLegend: false,
                         data: monthly_autocorr
                     }]
                 });
