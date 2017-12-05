@@ -89,6 +89,12 @@ def return_data(stock, start_date, end_date):
 	#Assign cumulative returns
 	cumulative_returns = total_return(daily_returns)
 
+	#Assign weekly cumulative returns
+	weekly_cumulative_returns = total_return(weekly_returns)
+
+	#Assign monthly cumulative returns
+	monthly_cumulative_returns = total_return(monthly_returns)
+
 	#Assign daily average returns
 	daily_average_return = daily_avg_return(daily_returns)
 
@@ -141,6 +147,8 @@ def return_data(stock, start_date, end_date):
 	monthly_autocorrelation_data = calculate_autocorrelation(monthly_returns)
 
 	return jsonify({"cumulative_returns": cumulative_returns,
+					"weekly_cumulative_returns": weekly_cumulative_returns,
+					"monthly_cumulative_returns": monthly_cumulative_returns,
 					"start_date": start_date_return,
 					"end_date": end_date_return,
 					"daily_average_return": daily_average_return,

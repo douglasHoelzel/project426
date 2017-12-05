@@ -103,6 +103,8 @@
                 var start_date = data.start_date;
                 var end_date = data.end_date;
                 var cumulative_returns = (parseFloat(data.cumulative_returns) * 100).toFixed(2) + '%';
+                var weekly_cumulative_returns = (parseFloat(data.weekly_cumulative_returns) * 100).toFixed(2) + '%';
+                var monthly_cumulative_returns = (parseFloat(data.monthly_cumulative_returns) * 100).toFixed(2) + '%';
                 var daily_average_return = (parseFloat(data.daily_average_return) * 100).toFixed(2) + '%';
                 var daily_kurtosis = data.daily_kurtosis;
                 var daily_skewness = data.daily_skewness;
@@ -122,6 +124,8 @@
                     start_date: start_date,
                     end_date: end_date,
                     cumulative_returns: cumulative_returns,
+                    weekly_cumulative_returns: weekly_cumulative_returns,
+                    monthly_cumulative_returns: monthly_cumulative_returns,
                     daily_average_return: daily_average_return,
                     daily_kurtosis: daily_kurtosis,
                     daily_skewness: daily_skewness,

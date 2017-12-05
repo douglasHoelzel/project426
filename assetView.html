@@ -5,21 +5,25 @@
         <thead>
           <tr>
             <th>{{data.asset_name}} {{data.asset_symbol}}</th>
-            <th>Values</th>
+            <th>Daily</th>
+            <th>Weekly</th>
+            <th>Monthly</th>
           </tr>
         </thead>
         <tbody>
           <tr>
             <td>Cumulative Returns</td>
             <td>{{data.cumulative_returns}}</td>
+            <td>{{data.weekly_cumulative_returns}}</td>     
+            <td>{{data.monthly_cumulative_returns}}</td>            
           </tr>
           <tr>
             <td>Start Date</td>
-            <td>{{data.start_date}}</td>
+            <td colspan="3">{{data.start_date}}</td>
           </tr>
           <tr>
             <td>End Date</td>
-            <td>{{data.end_date}}</td>
+            <td colspan="3">{{data.end_date}}</td>
           </tr>
           <tr>
             <td>Daily Average Return</td>
