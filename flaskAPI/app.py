@@ -102,8 +102,10 @@ def return_data(stock, start_date, end_date):
 	#Assign skewness of daily returns
 	daily_skewness = daily_skew(daily_returns)
 
-	#Assign kurtosis of daily returns
-	daily_kurtosis = daily_kurt(daily_returns)
+	#Assign kurtosis of returns
+	daily_kurtosis = calc_kurt(daily_returns)
+	weekly_kurtosis = calc_kurt(weekly_returns)
+	monthly_kurtosis = calc_kurt(monthly_returns)
 
 	#Assign minimum daily return
 	minimum_ret = min_ret(daily_returns)
@@ -155,6 +157,8 @@ def return_data(stock, start_date, end_date):
 					"daily_standard_deviation": daily_standard_deviation,
 					"daily_skewness": daily_skewness,
 					"daily_kurtosis": daily_kurtosis,
+					"weekly_kurtosis": weekly_kurtosis,
+					"monthly_kurtosis": monthly_kurtosis,
 					"minimum_return": minimum_ret,
 					"maximum_return": maximum_ret,
 					"daily_histogram_data": daily_histogram_data,

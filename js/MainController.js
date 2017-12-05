@@ -109,6 +109,8 @@
                 var weekly_average_return = (parseFloat(data.weekly_average_return) * 100).toFixed(2) + '%';
                 var monthly_average_return = (parseFloat(data.monthly_average_return) * 100).toFixed(2) + '%';
                 var daily_kurtosis = data.daily_kurtosis;
+                var weekly_kurtosis = data.weekly_kurtosis;
+                var monthly_kurtosis = data.monthly_kurtosis;                
                 var daily_skewness = data.daily_skewness;
                 var daily_standard_deviation = data.daily_standard_deviation;
                 var maximum_return = (parseFloat(data.maximum_return) * 100).toFixed(2) + '%';
@@ -132,6 +134,8 @@
                     weekly_average_return: weekly_average_return,
                     monthly_average_return: monthly_average_return,                    
                     daily_kurtosis: daily_kurtosis,
+                    weekly_kurtosis: weekly_kurtosis,
+                    monthly_kurtosis: monthly_kurtosis,                    
                     daily_skewness: daily_skewness,
                     daily_standard_deviation: daily_standard_deviation,
                     maximum_return: maximum_return,
