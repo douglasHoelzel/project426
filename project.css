@@ -181,15 +181,13 @@ margin-right: 30px;
     margin-left: 10px;
     height: 500px;
     width: 290px;
-    font-family: 'Comfortaa', cursive;
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Radley', serif;
 }
 #dataTable2 td{
     font-size: .8em;
     height: 44px;
     vertical-align: middle;
-    font-family: 'Comfortaa', cursive;
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Radley', serif;
 }
 #tableContainer{
     position: absolute;
